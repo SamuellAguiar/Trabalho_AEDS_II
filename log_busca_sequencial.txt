@@ -1,0 +1,7 @@
+=== Busca Sequencial ===
+ID buscado: 12
+Encontrado: Sim
+Comparações: 3
+Tempo (ns): 837300
+Tempo (ms): 0.8373
+-----------------------------
