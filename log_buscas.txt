@@ -1,0 +1,14 @@
+=== Busca Sequencial ===
+ID buscado: 5
+Encontrado: Sim
+Comparações: 5
+Tempo (ns): 755900
+Tempo (ms): 0.7559
+-----------------------------
+=== Busca Binária ===
+ID buscado: 10
+Encontrado: Sim
+Comparações: 2
+Tempo (ns): 740900
+Tempo (ms): 0.7409
+-----------------------------

@@ -1,0 +1,10 @@
+1;Pantera;Bengal;15;M;false
+2;Bola;Persa;18;M;false
+3;Pantera;Angorá;18;M;false
+4;Mingau;SRD;12;M;false
+5;Mingau;Siamês;15;M;false
+6;Nina;Maine Coon;9;F;false
+7;Mimi;Siamês;11;M;false
+8;Tigrão;SRD;9;M;false
+9;Luna;Persa;12;M;false
+10;Garfield;Maine Coon;3;M;false
