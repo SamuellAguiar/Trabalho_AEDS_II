@@ -111,4 +111,5 @@ public class Buscas {
                System.out.println("Erro ao escrever no log: " + e.getMessage());
           }
      }
+     
 }

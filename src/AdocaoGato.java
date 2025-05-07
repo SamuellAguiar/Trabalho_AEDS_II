@@ -39,6 +39,7 @@ public class AdocaoGato {
           System.out.println("Adoção registrada e status do gato atualizado com sucesso!");
      }
 
+     /* 
      private static boolean existeGato(int idGato) {
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
                String linha;
@@ -71,6 +72,7 @@ public class AdocaoGato {
           }
           return false;
      }
+*/
 
      private static void salvarAdocao(Adocao adocao) {
           try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_ADOCOES, true))) {

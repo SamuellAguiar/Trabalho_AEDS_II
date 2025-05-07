@@ -13,7 +13,7 @@ public class MenuPrincipal {
                exibirMenu();
 
                try {
-                    System.out.print("Digite sua opção: ");
+                    System.out.print("\nDigite sua opção: ");
                     opcao = scanner.nextInt();
                     scanner.nextLine(); // Limpar o buffer
 
@@ -36,22 +36,22 @@ public class MenuPrincipal {
                               AdocaoGato.adotarGato();
                               break;
                          case 6:
-                              Buscas.buscarSequencial();
+                              OperacoesArquivo.contarResumoDeAdocoes();
                               break;
                          case 7:
-                              Buscas.buscarBinaria();
-                              break;
-                         case 8:
-                              OperacoesArquivo.buscarGatoPorId();
-                              break;
-                         case 9:
                               GeradorDeGatosDesordenados.gerarBaseDeDados();
                               break;
-                         case 10:
+                         case 8:
                               GeradorDeGatosOrdenados.gerarOuOrdenarBase();
                               break;
+                         case 9:
+                              Buscas.buscarSequencial();
+                              break;
+                         case 10:
+                              Buscas.buscarBinaria();
+                              break;
                          case 11:
-                              OperacoesArquivo.contarResumoDeAdocoes();
+                              OperacoesArquivo.buscarGatoPorId();
                               break;
                          case 0:
                               System.out.println("\n===============================================");
@@ -61,42 +61,51 @@ public class MenuPrincipal {
                               break;
 
                          default:
+                              System.out.println("\n===============================================");
                               System.out.println("Opção inválida. Por favor, escolha uma opção do menu.");
+                              System.out.println("===============================================");
                     }
 
                } catch (InputMismatchException e) {
+                    System.out.println("===============================================");
                     System.out.println("Entrada inválida. Digite apenas números correspondentes ao menu.");
+                    System.out.println("===============================================");
                     scanner.nextLine(); // Limpar entrada inválida
                } catch (IOException e) {
+                    System.out.println("===============================================");
                     System.out.println("Erro ao acessar arquivo: " + e.getMessage());
+                    System.out.println("===============================================");
                }
 
-               System.out.println("\nPressione Enter para continuar...");
+               System.out.println("\n-------------------------------------");
+               System.out.println("Pressione Enter para continuar...");
+               System.out.println("-------------------------------------");
                scanner.nextLine(); // Espera confirmação do usuário
           } while (opcao != 0);
-
-          scanner.close();
      }
 
      private static void exibirMenu() {
           System.out.println("===============================================");
           System.out.println("          SISTEMA DE ADOÇÃO DE GATOS");
           System.out.println("===============================================");
-          System.out.println(" 1.  Cadastrar gato manualmente");
-          System.out.println(" 2.  Cadastrar gato aleatoriamente");
-          System.out.println(" 3.  Listar todos os gatos");
-          System.out.println(" 4.  Listar gatos disponíveis para adoção");
-          System.out.println(" 5.  Registrar adoção de um gato");
+          System.out.println(" Operações disponíveis: ");
+          System.out.println(" 1.  Cadastrar gato manualmente ");
+          System.out.println(" 2.  Cadastrar gato aleatoriamente ");
+          System.out.println(" 3.  Listar todos os gatos ");
+          System.out.println(" 4.  Listar gatos disponíveis para adoção ");
+          System.out.println(" 5.  Registrar adoção de um gato ");
+          System.out.println(" 6.  Exibir resumo de adoções ");
           System.out.println("-----------------------------------------------");
-          System.out.println(" 6.  Buscar gato por ID (sequencial)");
-          System.out.println(" 7.  Buscar gato por ID (binária)");
-          System.out.println(" 8.  Buscar gato por ID (visualização)");
+          System.out.println(" Gerar base de dados: ");
+          System.out.println(" 7.  Gerar base de dados aleatória ");
+          System.out.println(" 8.  Gerar base de dados ordenada ");
           System.out.println("-----------------------------------------------");
-          System.out.println(" 9.  Gerar base de dados aleatória");
-          System.out.println(" 10.  Gerar base de dados ordenada");
+          System.out.println(" Buscas: ");
+          System.out.println(" 9.  Buscar gato por ID (sequencial) ");
+          System.out.println(" 10.  Buscar gato por ID (binária) ");
+          System.out.println(" 11.  Buscar gato por ID (visualização) ");
           System.out.println("-----------------------------------------------");
-          System.out.println("11.  Exibir resumo de adoções");
-          System.out.println(" 0.  Sair do sistema");
+          System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
      }
 

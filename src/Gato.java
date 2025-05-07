@@ -28,11 +28,14 @@ public class Gato {
      }
 
      public String toCSV() {
-          return id + ";" + nome + ";" + raca + ";" + idade + ";" + sexo + ";" + adotado;
+          return id + "; " + nome + "; " + raca + "; " + idade + "; " + sexo + "; " + adotado;
      }
 
      public static Gato fromCSV(String linha) {
           String[] partes = linha.split(";");
+          for (int i = 0; i < partes.length; i++) {
+               partes[i] = partes[i].trim(); // remove espaços em branco
+          }
           return new Gato(
                     Integer.parseInt(partes[0]),
                     partes[1],

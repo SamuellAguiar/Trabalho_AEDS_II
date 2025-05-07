@@ -34,6 +34,11 @@ public class OperacoesArquivo {
 
                while ((linha = reader.readLine()) != null) {
                     String[] partes = linha.split(";");
+                    // SOLUÇÃO 2: Remove espaços em branco ao redor de cada parte
+                    for (int i = 0; i < partes.length; i++) {
+                         partes[i] = partes[i].trim();
+                    }
+                    
                     if (partes.length == 6 && partes[5].equalsIgnoreCase("false")) {
                          System.out.println(linha);
                          encontrou = true;
@@ -84,6 +89,9 @@ public class OperacoesArquivo {
 
                while ((linha = reader.readLine()) != null) {
                     String[] partes = linha.split(";");
+                    for (int i = 0; i < partes.length; i++) {
+                         partes[i] = partes[i].trim();
+                    }
                     if (partes.length == 6) {
                          boolean adotado = Boolean.parseBoolean(partes[5]);
                          if (adotado) {

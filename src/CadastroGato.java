@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
@@ -8,7 +10,25 @@ public class CadastroGato {
      private static final String ARQUIVO_GATOS = "gatos.txt";
      private static int contadorId = 1;
 
+     private static int obterProximoId() {
+          int maiorId = 0;
+          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+               String linha;
+               while ((linha = reader.readLine()) != null) {
+                    String[] campos = linha.split(";");
+                    int id = Integer.parseInt(campos[0]);
+                    if (id > maiorId) {
+                         maiorId = id;
+                    }
+               }
+          } catch (IOException e) {
+               // Arquivo não existe ou está vazio, começaremos do ID 1
+          }
+          return maiorId + 1;
+     }
+
      public static void cadastrarGatoManual() throws IOException {
+
           Scanner scanner = new Scanner(System.in);
 
           System.out.print("Nome do gato: ");
@@ -24,7 +44,9 @@ public class CadastroGato {
           System.out.print("Sexo (M/F): ");
           String sexo = scanner.nextLine();
 
-          Gato gato = new Gato(contadorId++, nome, raca, idade, sexo, false); // novo campo "adotado" = false
+          int id = obterProximoId();
+
+          Gato gato = new Gato(id, nome, raca, idade, sexo, false);
           salvarGatoNoArquivo(gato);
           System.out.println("Gato cadastrado com sucesso!");
      }
@@ -41,7 +63,9 @@ public class CadastroGato {
           int idade = random.nextInt(15) + 1; // entre 1 e 15 anos
           String sexo = sexos[random.nextInt(sexos.length)];
 
-          Gato gato = new Gato(contadorId++, nome, raca, idade, sexo, false); // novo campo "adotado" = false
+          int id = obterProximoId();
+
+          Gato gato = new Gato(id, nome, raca, idade, sexo, false); // novo campo "adotado" = false
           salvarGatoNoArquivo(gato);
           System.out.println("Gato aleatório cadastrado com sucesso!");
      }
