@@ -14,9 +14,11 @@ public class GeradorDeGatosOrdenados {
 
         if (arquivo.exists()) {
             System.out.println("Arquivo já existe. Ordenando os dados por ID...");
+            System.out.println("===============================================");
             ordenarArquivoExistente();
         } else {
             System.out.println("Arquivo não encontrado. Gerando base ordenada por ID...");
+            System.out.println("===============================================");
             gerarNovoArquivoOrdenado();
         }
     }
@@ -39,21 +41,32 @@ public class GeradorDeGatosOrdenados {
                     writer.newLine();
                 }
             }
-
+            System.out.println("===============================================");
             System.out.println("Arquivo ordenado com sucesso!");
 
         } catch (IOException e) {
             System.out.println("Erro ao ordenar arquivo: " + e.getMessage());
+            System.out.println("===============================================");
         }
     }
 
     private static void gerarNovoArquivoOrdenado() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Quantos gatos deseja gerar? (10, 100 ou 1000): ");
+        System.out.println("===============================================");
+        System.out.println("Gerando novo arquivo de gatos...");
+        System.out.println("===============================================");
+        System.out.println("Escolha a quantidade de gatos a serem gerados: ");
+        System.out.println("10, 100 ou 1000?");
+        System.out.println("===============================================");
+        System.out.println("Digite a quantidade desejada: ");
         int quantidade = scanner.nextInt();
 
         if (quantidade != 10 && quantidade != 100 && quantidade != 1000) {
+            System.out.println("===============================================");
             System.out.println("Quantidade inválida. Escolha 10, 100 ou 1000.");
+            System.out.println("===============================================");
+            System.out.println("Operação cancelada.");
+            System.out.println("===============================================");
             return;
         }
 
@@ -78,10 +91,12 @@ public class GeradorDeGatosOrdenados {
                 writer.newLine();
             }
 
+            System.out.println("===============================================");
             System.out.println("Base de dados criada e ordenada com sucesso!");
 
         } catch (IOException e) {
             System.out.println("Erro ao criar arquivo: " + e.getMessage());
+            System.out.println("===============================================");
         }
     }
 }

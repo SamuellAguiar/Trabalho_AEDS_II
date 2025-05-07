@@ -8,78 +8,55 @@ public class AdocaoGato {
 
      public static void adotarGato() {
           Scanner scanner = new Scanner(System.in);
-
-          System.out.print("Digite o ID do gato a ser adotado: ");
+          System.out.println("===============================================");
+          System.out.println("Adoção de Gatos");
+          System.out.println("===============================================");
+          System.out.print("Digite o ID do gato desejado para adoção: ");
           int idGato = scanner.nextInt();
           scanner.nextLine(); // Limpa buffer
 
           Gato gatoParaAdotar = buscarGatoPorId(idGato);
           if (gatoParaAdotar == null) {
+               System.out.println("===============================================");
                System.out.println("Gato com ID " + idGato + " não existe.");
+               System.out.println("===============================================");
                return;
           }
 
           if (gatoParaAdotar.isAdotado()) {
-               System.out.println("Este gato já foi adotado.");
+               System.out.println("===============================================");
+               System.out.println("Gato com ID " + idGato + " já foi adotado.");
+               System.out.println("===============================================");
                return;
           }
-
+          System.out.println("-------------------------------------");
           System.out.print("Digite o nome do adotante: ");
           String nomeAdotante = scanner.nextLine();
 
+          System.out.println("-------------------------------------");
           System.out.print("Digite a data da adoção (dd/mm/aaaa): ");
           String dataAdocao = scanner.nextLine();
 
+          System.out.println("-------------------------------------");
           Adocao adocao = new Adocao(idGato, nomeAdotante, dataAdocao);
           salvarAdocao(adocao);
 
           gatoParaAdotar.setAdotado(true);
           atualizarStatusGato(gatoParaAdotar);
 
+          System.out.println("-------------------------------------");
           System.out.println("Adoção registrada e status do gato atualizado com sucesso!");
+          System.out.println("===============================================");
      }
-
-     /* 
-     private static boolean existeGato(int idGato) {
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
-               String linha;
-               while ((linha = reader.readLine()) != null) {
-                    Gato g = Gato.fromCSV(linha);
-                    if (g.getId() == idGato) {
-                         return true;
-                    }
-               }
-          } catch (IOException e) {
-               System.out.println("Erro ao verificar gato: " + e.getMessage());
-          }
-          return false;
-     }
-
-     private static boolean gatoJaAdotado(int idGato) {
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_ADOCOES))) {
-               String linha;
-               while ((linha = reader.readLine()) != null) {
-                    Adocao a = Adocao.fromCSV(linha);
-                    if (a.getIdGato() == idGato) {
-                         return true;
-                    }
-               }
-          } catch (FileNotFoundException e) {
-               // Se o arquivo ainda não existe, nenhum gato foi adotado.
-               return false;
-          } catch (IOException e) {
-               System.out.println("Erro ao verificar adoção: " + e.getMessage());
-          }
-          return false;
-     }
-*/
 
      private static void salvarAdocao(Adocao adocao) {
           try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_ADOCOES, true))) {
                writer.write(adocao.toCSV());
                writer.newLine();
           } catch (IOException e) {
+               System.out.println("===============================================");
                System.out.println("Erro ao salvar adoção: " + e.getMessage());
+               System.out.println("===============================================");
           }
      }
 
@@ -93,7 +70,9 @@ public class AdocaoGato {
                     }
                }
           } catch (IOException e) {
+               System.out.println("===============================================");
                System.out.println("Erro ao buscar gato: " + e.getMessage());
+               System.out.println("===============================================");
           }
           return null;
      }
@@ -112,7 +91,9 @@ public class AdocaoGato {
                     gatos.add(g);
                }
           } catch (IOException e) {
+               System.out.println("===============================================");
                System.out.println("Erro ao ler gatos para atualizar: " + e.getMessage());
+               System.out.println("===============================================");
                return;
           }
 
@@ -123,8 +104,9 @@ public class AdocaoGato {
                     writer.newLine();
                }
           } catch (IOException e) {
+               System.out.println("===============================================");
                System.out.println("Erro ao atualizar status do gato: " + e.getMessage());
+               System.out.println("===============================================");
           }
      }
-
 }

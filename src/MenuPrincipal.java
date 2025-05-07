@@ -13,11 +13,11 @@ public class MenuPrincipal {
                exibirMenu();
 
                try {
-                    System.out.print("\nDigite sua opção: ");
+                    System.out.print("Digite sua opção: ");
                     opcao = scanner.nextInt();
                     scanner.nextLine(); // Limpar o buffer
 
-                    System.out.println("\n-------------------------------------");
+                    System.out.println("-------------------------------------");
 
                     switch (opcao) {
                          case 1:
@@ -54,14 +54,14 @@ public class MenuPrincipal {
                               OperacoesArquivo.buscarGatoPorId();
                               break;
                          case 0:
-                              System.out.println("\n===============================================");
+                              System.out.println("===============================================");
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
                               System.out.println("===============================================");
                               break;
 
                          default:
-                              System.out.println("\n===============================================");
+                              System.out.println("===============================================");
                               System.out.println("Opção inválida. Por favor, escolha uma opção do menu.");
                               System.out.println("===============================================");
                     }
@@ -77,7 +77,7 @@ public class MenuPrincipal {
                     System.out.println("===============================================");
                }
 
-               System.out.println("\n-------------------------------------");
+               System.out.println("-------------------------------------");
                System.out.println("Pressione Enter para continuar...");
                System.out.println("-------------------------------------");
                scanner.nextLine(); // Espera confirmação do usuário

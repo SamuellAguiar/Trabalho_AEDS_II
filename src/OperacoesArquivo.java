@@ -8,7 +8,11 @@ public class OperacoesArquivo {
      private static final String ARQUIVO_GATOS = "gatos.txt";
 
      public static void listarGatos() {
-          System.out.println("\n--- Lista de Todos os Gatos ---");
+
+          System.out.println("\n===============================================");
+          System.out.println("Lista de Gatos Cadastrados:");
+          System.out.println("===============================================");
+
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
                String linha;
                boolean vazio = true;
@@ -20,14 +24,20 @@ public class OperacoesArquivo {
 
                if (vazio) {
                     System.out.println("Nenhum gato cadastrado.");
+                    System.out.println("\n===============================================");
                }
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("\n===============================================");
           }
      }
 
      public static void listarGatosDisponiveisParaAdocao() {
-          System.out.println("\n--- Gatos Disponíveis para Adoção ---");
+          System.out.println("\n===============================================");
+          System.out.println("Gatos disponíveis para adoção:");
+          System.out.println("===============================================");
+
+
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
                String linha;
                boolean encontrou = false;
@@ -38,7 +48,7 @@ public class OperacoesArquivo {
                     for (int i = 0; i < partes.length; i++) {
                          partes[i] = partes[i].trim();
                     }
-                    
+
                     if (partes.length == 6 && partes[5].equalsIgnoreCase("false")) {
                          System.out.println(linha);
                          encontrou = true;
@@ -47,15 +57,20 @@ public class OperacoesArquivo {
 
                if (!encontrou) {
                     System.out.println("Nenhum gato disponível para adoção no momento.");
+                    System.out.println("\n===============================================");
                }
 
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("\n===============================================");
           }
      }
 
      public static void buscarGatoPorId() {
           Scanner scanner = new Scanner(System.in);
+          System.out.println("\n===============================================");
+          System.out.println("Buscar gato por ID:");
+          System.out.println("===============================================");
           System.out.print("\nDigite o ID do gato que deseja buscar: ");
           int idBuscado = scanner.nextInt();
 
@@ -66,7 +81,11 @@ public class OperacoesArquivo {
                while ((linha = reader.readLine()) != null) {
                     String[] partes = linha.split(";");
                     if (partes.length >= 1 && Integer.parseInt(partes[0]) == idBuscado) {
+
+                         System.out.println("===============================================");
                          System.out.println("Gato encontrado: " + linha);
+                         System.out.println("ID;Nome;Raça;Idade;Sexo;Adotado");
+                         System.out.println("===============================================");
                          encontrado = true;
                          break;
                     }
@@ -74,9 +93,11 @@ public class OperacoesArquivo {
 
                if (!encontrado) {
                     System.out.println("Nenhum gato encontrado com o ID informado.");
+                    System.out.println("\n===============================================");
                }
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("\n===============================================");
           }
      }
 
@@ -102,12 +123,15 @@ public class OperacoesArquivo {
                     }
                }
 
-               System.out.println("\n--- Resumo de Adoções ---");
+               System.out.println("\n===============================================");
+               System.out.println("Resumo de Adoções:");
+               System.out.println("===============================================");
+               System.out.println("Total de gatos cadastrados: " + (adotados + disponiveis));
                System.out.println("Total de gatos adotados: " + adotados);
                System.out.println("Total de gatos disponíveis: " + disponiveis);
-
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("\n===============================================");
           }
      }
 }

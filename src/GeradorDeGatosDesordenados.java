@@ -13,11 +13,21 @@ public class GeradorDeGatosDesordenados {
 
      public static void gerarBaseDeDados() {
           Scanner scanner = new Scanner(System.in);
-          System.out.print("Quantos gatos deseja gerar? (10, 100 ou 1000): ");
+          System.out.println("===============================================");
+          System.out.println("Gerando base de dados desordenada...");
+          System.out.println("===============================================");
+          System.out.println("Escolha a quantidade de gatos a serem gerados: ");
+          System.out.println("10, 100 ou 1000?");
+          System.out.println("===============================================");
+          System.out.println("Digite a quantidade desejada: ");
           int quantidade = scanner.nextInt();
 
           if (quantidade != 10 && quantidade != 100 && quantidade != 1000) {
+               System.out.println("===============================================");
                System.out.println("Quantidade inválida. Escolha 10, 100 ou 1000.");
+               System.out.println("===============================================");
+               System.out.println("Operação cancelada.");
+               System.out.println("===============================================");
                return;
           }
 
@@ -45,10 +55,12 @@ public class GeradorDeGatosDesordenados {
                     writer.newLine();
                }
 
-               System.out.println("Base de dados desordenada com " + quantidade + " gatos gerada com sucesso!");
-
+               System.out.println("===============================================");
+               System.out.println("Base de dados desordenada gerada com sucesso!");
+               System.out.println("===============================================");
           } catch (IOException e) {
                System.out.println("Erro ao gerar base de dados: " + e.getMessage());
+               System.out.println("===============================================");
           }
      }
 }

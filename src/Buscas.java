@@ -6,6 +6,9 @@ public class Buscas {
 
      public static void buscarSequencial() {
           Scanner scanner = new Scanner(System.in);
+          System.out.println("===============================================");
+          System.out.println("Busca Sequencial de Gatos");
+          System.out.println("===============================================");
           System.out.print("Digite o ID do gato que deseja buscar: ");
           int idBusca = scanner.nextInt();
 
@@ -21,13 +24,16 @@ public class Buscas {
                     int id = Integer.parseInt(partes[0]);
 
                     if (id == idBusca) {
+                         System.out.println("===============================================");
                          System.out.println("Gato encontrado:");
+                         System.out.println("===============================================");
                          System.out.println(linha);
                          encontrado = true;
                          break;
                     }
                }
           } catch (IOException e) {
+               System.out.println("===============================================");
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
           }
 
@@ -35,6 +41,7 @@ public class Buscas {
           long duracao = fimTempo - inicioTempo;
 
           if (!encontrado) {
+               System.out.println("===============================================");
                System.out.println("Gato com ID " + idBusca + " não encontrado.");
           }
 
@@ -43,7 +50,12 @@ public class Buscas {
 
      public static void buscarBinaria() {
           Scanner scanner = new Scanner(System.in);
-          System.out.print("Digite o ID do gato que deseja buscar (arquivo deve estar ordenado por ID): ");
+          System.out.println("===============================================");
+          System.out.println("Busca Binária de Gatos (arquivo deve estar ordenado por ID)");
+          System.out.println("===============================================");
+          System.out.println("A busca binária requer que o arquivo esteja ordenado por ID.");
+          System.out.println("===============================================");
+          System.out.print("Digite o ID do gato que deseja buscar: ");
           int idBusca = scanner.nextInt();
 
           int comparacoes = 0;
@@ -72,8 +84,10 @@ public class Buscas {
                     int id = Integer.parseInt(partes[0]);
 
                     if (id == idBusca) {
+                         System.out.println("===============================================");
                          System.out.println("Gato encontrado:");
                          System.out.println(linha);
+                         System.out.println("===============================================");
                          encontrado = true;
                          break;
                     } else if (id < idBusca) {
@@ -83,13 +97,16 @@ public class Buscas {
                     }
                }
           } catch (IOException e) {
+               System.out.println("===============================================");
                System.out.println("Erro ao acessar o arquivo: " + e.getMessage());
+               System.out.println("===============================================");
           }
 
           long fimTempo = System.nanoTime();
           long duracao = fimTempo - inicioTempo;
 
           if (!encontrado) {
+               System.out.println("===============================================");
                System.out.println(
                          "Gato com ID " + idBusca + " não encontrado (ou arquivo não está ordenado corretamente).");
           }
@@ -109,6 +126,7 @@ public class Buscas {
                bw.write("-----------------------------\n");
           } catch (IOException e) {
                System.out.println("Erro ao escrever no log: " + e.getMessage());
+               System.out.println("===============================================");
           }
      }
      

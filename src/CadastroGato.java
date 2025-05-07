@@ -67,7 +67,9 @@ public class CadastroGato {
 
           Gato gato = new Gato(id, nome, raca, idade, sexo, false); // novo campo "adotado" = false
           salvarGatoNoArquivo(gato);
-          System.out.println("Gato aleatório cadastrado com sucesso!");
+          // Adiciona o gato ao arquivo
+          System.out.println("===============================================");
+          System.out.println("Gato aleatório cadastrado com sucesso!");          
      }
 
      private static void salvarGatoNoArquivo(Gato gato) throws IOException {
