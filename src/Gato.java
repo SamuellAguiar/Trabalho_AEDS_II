@@ -34,7 +34,7 @@ public class Gato {
      public static Gato fromCSV(String linha) {
           String[] partes = linha.split(";");
           for (int i = 0; i < partes.length; i++) {
-               partes[i] = partes[i].trim(); // remove espaços em branco
+               partes[i] = partes[i].trim();
           }
           return new Gato(
                     Integer.parseInt(partes[0]),

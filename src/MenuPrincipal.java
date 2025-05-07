@@ -9,13 +9,13 @@ public class MenuPrincipal {
           int opcao = -1;
 
           do {
-               limparTela(); // Limpa o terminal antes de mostrar o menu
+               limparTela();
                exibirMenu();
 
                try {
                     System.out.print("Digite sua opção: ");
                     opcao = scanner.nextInt();
-                    scanner.nextLine(); // Limpar o buffer
+                    scanner.nextLine();
 
                     System.out.println("-------------------------------------");
 
@@ -70,7 +70,7 @@ public class MenuPrincipal {
                     System.out.println("===============================================");
                     System.out.println("Entrada inválida. Digite apenas números correspondentes ao menu.");
                     System.out.println("===============================================");
-                    scanner.nextLine(); // Limpar entrada inválida
+                    scanner.nextLine();
                } catch (IOException e) {
                     System.out.println("===============================================");
                     System.out.println("Erro ao acessar arquivo: " + e.getMessage());
@@ -80,7 +80,7 @@ public class MenuPrincipal {
                System.out.println("-------------------------------------");
                System.out.println("Pressione Enter para continuar...");
                System.out.println("-------------------------------------");
-               scanner.nextLine(); // Espera confirmação do usuário
+               scanner.nextLine();
           } while (opcao != 0);
      }
 
@@ -121,7 +121,6 @@ public class MenuPrincipal {
                }
 
           } catch (Exception e) {
-               // Caso falhe, apenas imprime várias linhas em branco
                for (int i = 0; i < 50; i++) {
                     System.out.println();
                }

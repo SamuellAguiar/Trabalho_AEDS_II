@@ -13,7 +13,7 @@ public class AdocaoGato {
           System.out.println("===============================================");
           System.out.print("Digite o ID do gato desejado para adoção: ");
           int idGato = scanner.nextInt();
-          scanner.nextLine(); // Limpa buffer
+          scanner.nextLine();
 
           Gato gatoParaAdotar = buscarGatoPorId(idGato);
           if (gatoParaAdotar == null) {
@@ -80,7 +80,6 @@ public class AdocaoGato {
      private static void atualizarStatusGato(Gato gatoAtualizado) {
           List<Gato> gatos = new ArrayList<>();
 
-          // Lê todos os gatos
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
                String linha;
                while ((linha = reader.readLine()) != null) {
@@ -97,7 +96,6 @@ public class AdocaoGato {
                return;
           }
 
-          // Reescreve o arquivo com os dados atualizados
           try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
                for (Gato g : gatos) {
                     writer.write(g.toCSV());

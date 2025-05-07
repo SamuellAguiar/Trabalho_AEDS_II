@@ -71,7 +71,7 @@ public class Buscas {
 
                     raf.seek(meio);
                     if (meio != 0)
-                         raf.readLine(); // Pular possível linha incompleta
+                         raf.readLine();
 
                     long posicao = raf.getFilePointer();
                     String linha = raf.readLine();
@@ -85,7 +85,7 @@ public class Buscas {
 
                     if (id == idBusca) {
                          System.out.println("===============================================");
-                         System.out.println("Gato encontrado:");
+                         System.out.println("Gato encontrado: ");
                          System.out.println(linha);
                          System.out.println("===============================================");
                          encontrado = true;
@@ -116,7 +116,7 @@ public class Buscas {
 
      private static void salvarLog(String tipoBusca, String nomeArquivo, int id, boolean encontrado, int comparacoes,
                long tempoNano) {
-          try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomeArquivo, false))) { // false = sobrescrever
+          try (BufferedWriter bw = new BufferedWriter(new FileWriter(nomeArquivo, false))) {
                bw.write("=== Busca " + tipoBusca + " ===\n");
                bw.write("ID buscado: " + id + "\n");
                bw.write("Encontrado: " + (encontrado ? "Sim" : "Não") + "\n");
@@ -129,5 +129,5 @@ public class Buscas {
                System.out.println("===============================================");
           }
      }
-     
+
 }

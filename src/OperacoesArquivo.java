@@ -9,7 +9,7 @@ public class OperacoesArquivo {
 
      public static void listarGatos() {
 
-          System.out.println("\n===============================================");
+          System.out.println("===============================================");
           System.out.println("Lista de Gatos Cadastrados:");
           System.out.println("===============================================");
 
@@ -24,19 +24,18 @@ public class OperacoesArquivo {
 
                if (vazio) {
                     System.out.println("Nenhum gato cadastrado.");
-                    System.out.println("\n===============================================");
+                    System.out.println("===============================================");
                }
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("\n===============================================");
+               System.out.println("===============================================");
           }
      }
 
      public static void listarGatosDisponiveisParaAdocao() {
-          System.out.println("\n===============================================");
+          System.out.println("===============================================");
           System.out.println("Gatos disponíveis para adoção:");
           System.out.println("===============================================");
-
 
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
                String linha;
@@ -44,7 +43,6 @@ public class OperacoesArquivo {
 
                while ((linha = reader.readLine()) != null) {
                     String[] partes = linha.split(";");
-                    // SOLUÇÃO 2: Remove espaços em branco ao redor de cada parte
                     for (int i = 0; i < partes.length; i++) {
                          partes[i] = partes[i].trim();
                     }
@@ -57,21 +55,21 @@ public class OperacoesArquivo {
 
                if (!encontrou) {
                     System.out.println("Nenhum gato disponível para adoção no momento.");
-                    System.out.println("\n===============================================");
+                    System.out.println("===============================================");
                }
 
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("\n===============================================");
+               System.out.println("===============================================");
           }
      }
 
      public static void buscarGatoPorId() {
           Scanner scanner = new Scanner(System.in);
-          System.out.println("\n===============================================");
-          System.out.println("Buscar gato por ID:");
           System.out.println("===============================================");
-          System.out.print("\nDigite o ID do gato que deseja buscar: ");
+          System.out.println("Buscar gato por ID: \n");
+          System.out.println("===============================================");
+          System.out.print("Digite o ID do gato que deseja buscar: \n");
           int idBuscado = scanner.nextInt();
 
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
@@ -84,7 +82,6 @@ public class OperacoesArquivo {
 
                          System.out.println("===============================================");
                          System.out.println("Gato encontrado: " + linha);
-                         System.out.println("ID;Nome;Raça;Idade;Sexo;Adotado");
                          System.out.println("===============================================");
                          encontrado = true;
                          break;
@@ -93,11 +90,11 @@ public class OperacoesArquivo {
 
                if (!encontrado) {
                     System.out.println("Nenhum gato encontrado com o ID informado.");
-                    System.out.println("\n===============================================");
+                    System.out.println("===============================================");
                }
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("\n===============================================");
+               System.out.println("===============================================");
           }
      }
 
@@ -123,7 +120,7 @@ public class OperacoesArquivo {
                     }
                }
 
-               System.out.println("\n===============================================");
+               System.out.println("===============================================");
                System.out.println("Resumo de Adoções:");
                System.out.println("===============================================");
                System.out.println("Total de gatos cadastrados: " + (adotados + disponiveis));
@@ -131,7 +128,7 @@ public class OperacoesArquivo {
                System.out.println("Total de gatos disponíveis: " + disponiveis);
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("\n===============================================");
+               System.out.println("===============================================");
           }
      }
 }

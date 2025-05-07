@@ -22,7 +22,8 @@ public class CadastroGato {
                     }
                }
           } catch (IOException e) {
-               // Arquivo não existe ou está vazio, começaremos do ID 1
+               System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("===============================================");
           }
           return maiorId + 1;
      }
@@ -31,17 +32,17 @@ public class CadastroGato {
 
           Scanner scanner = new Scanner(System.in);
 
-          System.out.print("Nome do gato: ");
+          System.out.print("Nome do gato: \n");
           String nome = scanner.nextLine();
 
-          System.out.print("Raça: ");
+          System.out.print("Raça: \n");
           String raca = scanner.nextLine();
 
-          System.out.print("Idade (em anos): ");
+          System.out.print("Idade (em anos): \n");
           int idade = scanner.nextInt();
-          scanner.nextLine(); // limpar buffer
+          scanner.nextLine();
 
-          System.out.print("Sexo (M/F): ");
+          System.out.print("Sexo (M/F): \n");
           String sexo = scanner.nextLine();
 
           int id = obterProximoId();
@@ -60,21 +61,20 @@ public class CadastroGato {
 
           String nome = nomes[random.nextInt(nomes.length)];
           String raca = racas[random.nextInt(racas.length)];
-          int idade = random.nextInt(15) + 1; // entre 1 e 15 anos
+          int idade = random.nextInt(15) + 1;
           String sexo = sexos[random.nextInt(sexos.length)];
 
           int id = obterProximoId();
 
-          Gato gato = new Gato(id, nome, raca, idade, sexo, false); // novo campo "adotado" = false
+          Gato gato = new Gato(id, nome, raca, idade, sexo, false);
           salvarGatoNoArquivo(gato);
-          // Adiciona o gato ao arquivo
           System.out.println("===============================================");
-          System.out.println("Gato aleatório cadastrado com sucesso!");          
+          System.out.println("Gato aleatório cadastrado com sucesso!");
      }
 
      private static void salvarGatoNoArquivo(Gato gato) throws IOException {
           BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS, true));
-          writer.write(gato.toCSV()); // escreve o gato no formato CSV
+          writer.write(gato.toCSV());
           writer.newLine();
           writer.close();
      }
