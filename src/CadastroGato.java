@@ -54,7 +54,7 @@ public class CadastroGato {
 
      public static void cadastrarGatoAleatorio() throws IOException {
           String[] nomes = { "Mimi", "Luna", "Thor", "Simba", "Tom", "Nina", "Bella" };
-          String[] racas = { "Siamês", "Persa", "SRD", "Angorá", "Maine Coon" };
+          String[] racas = { "Siames", "Persa", "SRD", "Angora", "Maine Coon" };
           String[] sexos = { "M", "F" };
 
           Random random = new Random();

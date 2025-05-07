@@ -8,7 +8,6 @@ public class OperacoesArquivo {
      private static final String ARQUIVO_GATOS = "gatos.txt";
 
      public static void listarGatos() {
-
           System.out.println("===============================================");
           System.out.println("Lista de Gatos Cadastrados:");
           System.out.println("===============================================");
@@ -18,14 +17,15 @@ public class OperacoesArquivo {
                boolean vazio = true;
 
                while ((linha = reader.readLine()) != null) {
-                    System.out.println(linha);
+                    Gato g = Gato.fromCSV(linha);
+                    System.out.println(g.toString());
                     vazio = false;
                }
 
                if (vazio) {
                     System.out.println("Nenhum gato cadastrado.");
-                    System.out.println("===============================================");
                }
+               System.out.println("===============================================");
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
                System.out.println("===============================================");
@@ -34,7 +34,7 @@ public class OperacoesArquivo {
 
      public static void listarGatosDisponiveisParaAdocao() {
           System.out.println("===============================================");
-          System.out.println("Gatos disponíveis para adoção:");
+          System.out.println("       GATOS DISPONÍVEIS PARA ADOÇÃO");
           System.out.println("===============================================");
 
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
@@ -47,51 +47,24 @@ public class OperacoesArquivo {
                          partes[i] = partes[i].trim();
                     }
 
+                    // Verifica se a linha está no formato correto e se o gato não foi adotado
                     if (partes.length == 6 && partes[5].equalsIgnoreCase("false")) {
-                         System.out.println(linha);
+                         System.out.println("ID: " + partes[0]);
+                         System.out.println("Nome: " + partes[1]);
+                         System.out.println("Idade: " + partes[2] + " anos");
+                         System.out.println("Raça: " + partes[3]);
+                         System.out.println("Cor: " + partes[4]);
+                         System.out.println("-----------------------------------------------");
                          encontrou = true;
                     }
                }
 
                if (!encontrou) {
                     System.out.println("Nenhum gato disponível para adoção no momento.");
-                    System.out.println("===============================================");
                }
 
-          } catch (IOException e) {
-               System.out.println("Erro ao ler o arquivo: " + e.getMessage());
                System.out.println("===============================================");
-          }
-     }
 
-     public static void buscarGatoPorId() {
-          Scanner scanner = new Scanner(System.in);
-          System.out.println("===============================================");
-          System.out.println("Buscar gato por ID: \n");
-          System.out.println("===============================================");
-          System.out.print("Digite o ID do gato que deseja buscar: \n");
-          int idBuscado = scanner.nextInt();
-
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
-               String linha;
-               boolean encontrado = false;
-
-               while ((linha = reader.readLine()) != null) {
-                    String[] partes = linha.split(";");
-                    if (partes.length >= 1 && Integer.parseInt(partes[0]) == idBuscado) {
-
-                         System.out.println("===============================================");
-                         System.out.println("Gato encontrado: " + linha);
-                         System.out.println("===============================================");
-                         encontrado = true;
-                         break;
-                    }
-               }
-
-               if (!encontrado) {
-                    System.out.println("Nenhum gato encontrado com o ID informado.");
-                    System.out.println("===============================================");
-               }
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
                System.out.println("===============================================");
@@ -128,6 +101,33 @@ public class OperacoesArquivo {
                System.out.println("Total de gatos disponíveis: " + disponiveis);
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("===============================================");
+          }
+     }
+
+     public static void listarAdocoes() {
+          final String ARQUIVO_ADOCOES = "adocoes.txt";
+          System.out.println("===============================================");
+          System.out.println("Lista de Adoções Registradas:");
+          System.out.println("===============================================");
+
+          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_ADOCOES))) {
+               String linha;
+               boolean vazio = true;
+
+               while ((linha = reader.readLine()) != null) {
+                    Adocao a = Adocao.fromCSV(linha);
+                    System.out.println(a.toString());
+                    vazio = false;
+               }
+
+               if (vazio) {
+                    System.out.println("Nenhuma adoção registrada.");
+               }
+
+               System.out.println("===============================================");
+          } catch (IOException e) {
+               System.out.println("Erro ao ler o arquivo de adoções: " + e.getMessage());
                System.out.println("===============================================");
           }
      }

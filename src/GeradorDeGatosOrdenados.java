@@ -5,8 +5,8 @@ public class GeradorDeGatosOrdenados {
     private static final String ARQUIVO_GATOS = "gatos.txt";
 
     private static final String[] NOMES = { "Luna", "Mingau", "Tom", "Mimi", "Felix", "Bola", "Pantera", "Garfield",
-            "Nina", "Tigrão" };
-    private static final String[] RACOES = { "Persa", "Siamês", "Angorá", "SRD", "Maine Coon", "Siberiano", "Bengal" };
+            "Nina", "Tigrao" };
+    private static final String[] RACOES = { "Persa", "Siames", "Angora", "SRD", "Maine Coon", "Siberiano", "Bengal" };
     private static final String[] SEXOS = { "M", "F" };
 
     public static void gerarOuOrdenarBase() {
