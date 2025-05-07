@@ -1,7 +1,7 @@
 === Busca Binária ===
-ID buscado: 567
+ID buscado: 10
 Encontrado: Sim
-Comparações: 8
-Tempo (ns): 1197300
-Tempo (ms): 1.1973
+Comparações: 7
+Tempo (ns): 1100400
+Tempo (ms): 1.1004
 -----------------------------
