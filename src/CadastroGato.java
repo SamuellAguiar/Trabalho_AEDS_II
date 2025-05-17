@@ -153,4 +153,45 @@ public class CadastroGato {
           }
      }
 
+     public static void excluirGato() {
+          Scanner scanner = new Scanner(System.in);
+          OperacoesArquivo.listarGatos();
+          System.out.print("Digite o ID do gato que deseja excluir: ");
+          int idParaExcluir = scanner.nextInt();
+          scanner.nextLine();
+
+          StringBuilder conteudoAtualizado = new StringBuilder();
+          boolean encontrado = false;
+
+          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+               String linha;
+               while ((linha = reader.readLine()) != null) {
+                    String[] campos = linha.split(";");
+                    int id = Integer.parseInt(campos[0]);
+
+                    if (id == idParaExcluir) {
+                         encontrado = true;
+                         System.out.println("Gato com ID " + idParaExcluir + " será excluído.");
+                         continue; // Pula essa linha (gato excluído)
+                    }
+
+                    conteudoAtualizado.append(linha).append("\n");
+               }
+          } catch (IOException e) {
+               System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               return;
+          }
+
+          if (encontrado) {
+               try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
+                    writer.write(conteudoAtualizado.toString());
+                    System.out.println("Gato excluído com sucesso!");
+               } catch (IOException e) {
+                    System.out.println("Erro ao escrever no arquivo: " + e.getMessage());
+               }
+          } else {
+               System.out.println("Gato com ID " + idParaExcluir + " não encontrado.");
+          }
+     }
+
 }

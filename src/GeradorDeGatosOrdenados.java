@@ -14,7 +14,6 @@ public class GeradorDeGatosOrdenados {
 
         if (arquivo.exists()) {
             System.out.println("Arquivo já existe. Ordenando os dados por ID...");
-            System.out.println("===============================================");
             ordenarArquivoExistente();
         } else {
             System.out.println("Arquivo não encontrado. Gerando base ordenada por ID...");

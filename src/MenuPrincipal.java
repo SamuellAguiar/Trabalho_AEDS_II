@@ -36,24 +36,27 @@ public class MenuPrincipal {
                               CadastroGato.editarGato();
                               break;
                          case 6:
-                              AdocaoGato.adotarGato();
+                              CadastroGato.excluirGato();
                               break;
                          case 7:
-                              OperacoesArquivo.listarAdocoes();
+                              AdocaoGato.adotarGato();
                               break;
                          case 8:
-                              OperacoesArquivo.contarResumoDeAdocoes();
+                              OperacoesArquivo.listarAdocoes();
                               break;
                          case 9:
-                              GeradorDeGatosDesordenados.gerarBaseDeDados();
+                              OperacoesArquivo.contarResumoDeAdocoes();
                               break;
                          case 10:
-                              GeradorDeGatosOrdenados.gerarOuOrdenarBase();
+                              GeradorDeGatosDesordenados.gerarBaseDeDados();
                               break;
                          case 11:
-                              Buscas.buscarSequencial();
+                              GeradorDeGatosOrdenados.gerarOuOrdenarBase();
                               break;
                          case 12:
+                              Buscas.buscarSequencial();
+                              break;
+                         case 13:
                               Buscas.buscarBinaria();
                               break;
                          case 0:
@@ -97,17 +100,18 @@ public class MenuPrincipal {
           System.out.println(" 3.  Listar todos os gatos ");
           System.out.println(" 4.  Listar gatos disponíveis para adoção ");
           System.out.println(" 5.  Editar um gato");
-          System.out.println(" 6.  Registrar adoção de um gato ");
-          System.out.println(" 7.  Listar Adoções ");
-          System.out.println(" 8.  Exibir resumo de adoções ");
+          System.out.println(" 6.  Excluir um gato ");
+          System.out.println(" 7.  Registrar adoção de um gato ");
+          System.out.println(" 8.  Listar Adoções ");
+          System.out.println(" 9.  Exibir resumo de adoções ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Gerar base de dados: ");
-          System.out.println(" 9.  Gerar base de dados aleatória ");
-          System.out.println(" 10.  Gerar base de dados ordenada ");
+          System.out.println(" 10.  Gerar base de dados aleatória ");
+          System.out.println(" 11.  Gerar base de dados ordenada ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Buscas: ");
-          System.out.println(" 11.  Buscar gato por ID (sequencial) ");
-          System.out.println(" 12.  Buscar gato por ID (binária) ");
+          System.out.println(" 12.  Buscar gato por ID (sequencial) ");
+          System.out.println(" 13.  Buscar gato por ID (binária) ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
