@@ -1,8 +1,8 @@
 -----------------------------
 === Busca Sequencial ===
-ID buscado: 3
+ID buscado: 990
 Encontrado: Sim
-Comparações: 10
-Tempo (ns): 3015200
-Tempo (ms): 3.0152
+Comparações: 415
+Tempo (ns): 2516700
+Tempo (ms): 2.5167
 -----------------------------

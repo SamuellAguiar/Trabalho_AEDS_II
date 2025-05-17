@@ -1,10 +1,1000 @@
-1; Mimi; Siberiano; 6; M; false
-2; Pantera; SRD; 3; F; false
-3; Tigrão; Siamês; 15; M; false
-4; Tom; Persa; 19; M; false
-5; Nina; Angorá; 9; F; false
-6; Garfield; Maine Coon; 14; M; false
-7; Nina; Persa; 18; M; false
-8; Nina; Siamês; 9; F; false
-9; Nina; Siberiano; 17; F; false
-10; Pantera; Bengal; 19; F; false
+1; Nina; Persa; 20; F; false
+2; Mimi; Siames; 5; M; false
+3; Felix; Persa; 19; M; false
+4; Bola; Siberiano; 5; F; false
+5; Nina; Siames; 18; M; false
+6; Mingau; Siames; 8; M; false
+7; Mingau; Maine Coon; 2; F; false
+8; Garfield; Bengal; 9; M; false
+9; Felix; Siames; 1; M; false
+10; Nina; Persa; 16; M; false
+11; Tom; Bengal; 8; M; false
+12; Felix; SRD; 14; F; false
+13; Nina; Bengal; 16; M; false
+14; Felix; Maine Coon; 14; M; false
+15; Luna; Siames; 5; F; false
+16; Bola; SRD; 5; M; false
+17; Pantera; Bengal; 5; M; false
+18; Felix; Persa; 2; M; false
+19; Mimi; SRD; 13; M; false
+20; Mingau; Angora; 2; M; false
+21; Tom; Maine Coon; 6; F; false
+22; Tigrao; Siberiano; 13; F; false
+23; Felix; Bengal; 13; F; false
+24; Luna; Persa; 7; M; false
+25; Luna; Maine Coon; 19; M; false
+26; Garfield; Siames; 15; M; false
+27; Felix; Siames; 13; F; false
+28; Luna; Bengal; 3; F; false
+29; Nina; Angora; 8; M; false
+30; Bola; Angora; 17; F; false
+31; Pantera; Siberiano; 14; F; false
+32; Mingau; SRD; 18; M; false
+33; Tom; Siberiano; 19; F; false
+34; Bola; Angora; 3; F; false
+35; Bola; Persa; 17; F; false
+36; Nina; Persa; 7; F; false
+37; Tom; Siberiano; 7; M; false
+38; Luna; Angora; 6; F; false
+39; Garfield; Siberiano; 9; M; false
+40; Bola; Siames; 12; F; false
+41; Luna; Persa; 6; F; false
+42; Mimi; Siames; 6; M; false
+43; Tom; Angora; 19; M; false
+44; Bola; Siames; 15; M; false
+45; Pantera; Persa; 3; M; false
+46; Pantera; Angora; 19; F; false
+47; Mingau; Bengal; 13; M; false
+48; Mingau; SRD; 19; F; false
+49; Luna; Maine Coon; 6; M; false
+50; Bola; Siames; 11; F; false
+51; Tigrao; Siames; 5; F; false
+52; Felix; Angora; 6; F; false
+53; Garfield; Angora; 2; F; false
+54; Felix; Siberiano; 6; F; false
+55; Nina; Bengal; 2; M; false
+56; Tom; Siames; 20; M; false
+57; Luna; Angora; 6; M; false
+58; Pantera; Maine Coon; 15; F; false
+59; Nina; Angora; 15; F; false
+60; Bola; SRD; 10; M; false
+61; Felix; SRD; 2; F; false
+62; Garfield; Angora; 1; M; false
+63; Tom; Maine Coon; 16; M; false
+64; Tigrao; Maine Coon; 11; M; false
+65; Felix; Angora; 19; M; false
+66; Luna; Siberiano; 10; M; false
+67; Garfield; SRD; 11; F; false
+68; Bola; Persa; 13; M; false
+69; Garfield; Angora; 14; M; false
+70; Mimi; Siberiano; 20; F; false
+71; Bola; SRD; 20; F; false
+72; Garfield; Siberiano; 12; F; false
+73; Garfield; Angora; 18; M; false
+74; Felix; Maine Coon; 8; F; false
+75; Tom; Siames; 7; M; false
+76; Nina; SRD; 8; F; false
+77; Tigrao; SRD; 14; F; false
+78; Nina; Persa; 1; F; false
+79; Bola; Persa; 5; M; false
+80; Tigrao; Siames; 2; F; false
+81; Bola; Angora; 20; M; false
+82; Nina; Maine Coon; 12; M; false
+83; Bola; Siberiano; 6; F; false
+84; Tigrao; Persa; 3; F; false
+85; Bola; Angora; 14; F; false
+86; Garfield; Bengal; 2; F; false
+87; Pantera; Maine Coon; 7; F; false
+88; Luna; Siberiano; 10; M; false
+89; Mingau; Siames; 5; F; false
+90; Tigrao; SRD; 12; M; false
+91; Pantera; Siames; 1; M; false
+92; Mimi; Angora; 9; M; false
+93; Garfield; Siberiano; 7; F; false
+94; Mimi; SRD; 1; F; false
+95; Garfield; Siberiano; 15; F; false
+96; Mimi; Bengal; 20; F; false
+97; Tigrao; Maine Coon; 11; F; false
+98; Tom; Bengal; 18; M; false
+99; Tom; Bengal; 14; F; false
+100; Bola; Persa; 4; M; false
+101; Felix; Bengal; 8; F; false
+102; Mingau; Bengal; 20; M; false
+103; Mimi; Maine Coon; 20; M; false
+104; Tigrao; Maine Coon; 20; M; false
+105; Felix; Siberiano; 8; M; false
+106; Nina; Siberiano; 19; F; false
+107; Garfield; Bengal; 11; F; false
+108; Nina; Maine Coon; 14; M; false
+109; Pantera; Persa; 6; F; false
+110; Garfield; Angora; 19; M; false
+111; Tom; Angora; 18; F; false
+112; Pantera; Persa; 6; F; false
+113; Pantera; Siberiano; 11; F; false
+114; Pantera; SRD; 10; M; false
+115; Felix; SRD; 11; F; false
+116; Mingau; Siames; 20; F; false
+117; Mimi; Persa; 16; M; false
+118; Nina; Bengal; 8; M; false
+119; Tigrao; Bengal; 1; F; false
+120; Garfield; Siames; 1; F; false
+121; Bola; Angora; 4; M; false
+122; Mingau; Siames; 13; M; false
+123; Garfield; SRD; 19; F; false
+124; Mimi; Siberiano; 18; M; false
+125; Felix; Maine Coon; 13; F; false
+126; Pantera; SRD; 13; M; false
+127; Luna; Bengal; 14; M; false
+128; Luna; Siames; 14; M; false
+129; Nina; Siberiano; 12; M; false
+130; Nina; Persa; 6; M; false
+131; Mimi; Maine Coon; 2; M; false
+132; Garfield; Siames; 15; F; false
+133; Mimi; Persa; 16; M; false
+134; Luna; Angora; 15; F; false
+135; Felix; Siames; 4; F; false
+136; Mimi; SRD; 5; M; false
+137; Mingau; Siames; 2; M; false
+138; Luna; Siames; 6; F; false
+139; Pantera; Angora; 16; F; false
+140; Pantera; Persa; 20; M; false
+141; Garfield; Siberiano; 10; M; false
+142; Tom; Siberiano; 2; F; false
+143; Mingau; Siames; 19; F; false
+144; Garfield; Maine Coon; 6; M; false
+145; Mingau; Bengal; 10; M; false
+146; Nina; Siberiano; 8; F; false
+147; Mimi; Siberiano; 13; F; false
+148; Bola; SRD; 5; F; false
+149; Tom; SRD; 13; F; false
+150; Garfield; Bengal; 10; F; false
+151; Luna; SRD; 7; M; false
+152; Luna; Bengal; 12; F; false
+153; Nina; SRD; 4; F; false
+154; Bola; Siames; 2; F; false
+155; Bola; Siberiano; 18; F; false
+156; Mimi; Siberiano; 18; M; false
+157; Nina; Siames; 20; M; false
+158; Tom; Angora; 18; M; false
+159; Mimi; SRD; 13; M; false
+160; Tom; Persa; 16; M; false
+161; Tom; SRD; 5; F; false
+162; Nina; Persa; 6; M; false
+163; Luna; Bengal; 2; M; false
+164; Tom; Angora; 7; F; false
+165; Garfield; Siames; 7; F; false
+166; Felix; Maine Coon; 7; F; false
+167; Tom; Siames; 12; M; false
+168; Tom; Bengal; 14; F; false
+169; Mingau; Persa; 4; F; false
+170; Mimi; Siames; 13; M; false
+171; Mimi; Angora; 13; F; false
+172; Nina; Persa; 15; F; false
+173; Bola; Maine Coon; 3; F; false
+174; Pantera; Angora; 1; F; false
+175; Garfield; Bengal; 1; F; false
+176; Mimi; Maine Coon; 2; F; false
+177; Tom; Siberiano; 1; F; false
+178; Tigrao; Angora; 3; F; false
+179; Mingau; Siberiano; 15; F; false
+180; Pantera; SRD; 15; F; false
+181; Nina; Maine Coon; 11; M; false
+182; Bola; Maine Coon; 12; F; false
+183; Tom; Siberiano; 18; F; false
+184; Luna; Siberiano; 4; M; false
+185; Mimi; Angora; 17; M; false
+186; Felix; Persa; 20; M; false
+187; Felix; Persa; 1; M; false
+188; Felix; Siberiano; 11; M; false
+189; Mimi; Maine Coon; 11; F; false
+190; Luna; SRD; 3; M; false
+191; Mingau; SRD; 9; M; false
+192; Luna; Siames; 19; F; false
+193; Garfield; Bengal; 11; F; false
+194; Mimi; Siames; 7; M; false
+195; Luna; Siames; 2; M; false
+196; Mimi; SRD; 11; F; false
+197; Tom; Siames; 8; M; false
+198; Tom; Persa; 16; M; false
+199; Luna; Maine Coon; 1; M; false
+200; Luna; Bengal; 20; M; false
+201; Pantera; SRD; 7; F; false
+202; Luna; Angora; 17; M; false
+203; Pantera; Bengal; 7; M; false
+204; Pantera; Persa; 11; F; false
+205; Nina; Siberiano; 5; F; false
+206; Luna; Siberiano; 13; F; false
+207; Mimi; Bengal; 7; F; false
+208; Mimi; Siames; 19; F; false
+209; Luna; Maine Coon; 5; F; false
+210; Tom; Siberiano; 2; F; false
+211; Mingau; SRD; 10; M; false
+212; Garfield; Bengal; 6; M; false
+213; Mimi; Siberiano; 14; M; false
+214; Mingau; Maine Coon; 3; M; false
+215; Felix; SRD; 17; F; false
+216; Tigrao; SRD; 8; M; false
+217; Mingau; Siberiano; 6; F; false
+218; Luna; SRD; 18; M; false
+219; Garfield; Siames; 13; M; false
+220; Tom; Siames; 5; M; false
+221; Nina; SRD; 15; M; false
+222; Pantera; Angora; 5; F; false
+223; Mimi; Bengal; 10; M; false
+224; Bola; Angora; 14; M; false
+225; Tom; SRD; 5; F; false
+226; Bola; Persa; 13; F; false
+227; Tom; Bengal; 15; F; false
+228; Pantera; Siames; 12; F; false
+229; Bola; Bengal; 9; M; false
+230; Mimi; Bengal; 17; F; false
+231; Mimi; Siames; 19; M; false
+232; Bola; Maine Coon; 2; M; false
+233; Garfield; Angora; 10; F; false
+234; Felix; Siberiano; 14; F; false
+235; Felix; Bengal; 17; M; false
+236; Mimi; Bengal; 2; F; false
+237; Mimi; Persa; 14; F; false
+238; Mingau; Maine Coon; 1; F; false
+239; Luna; Siames; 13; M; false
+240; Tom; Siberiano; 4; F; false
+241; Mingau; Bengal; 14; M; false
+242; Pantera; Maine Coon; 10; M; false
+243; Tom; Persa; 17; M; false
+244; Mimi; Angora; 13; F; false
+245; Pantera; Angora; 5; M; false
+246; Nina; SRD; 10; M; false
+247; Mimi; Siames; 5; F; false
+248; Nina; SRD; 4; M; false
+249; Garfield; Bengal; 20; F; false
+250; Nina; Siberiano; 1; F; false
+251; Tom; Maine Coon; 9; M; false
+252; Tigrao; SRD; 3; F; false
+253; Bola; Persa; 3; F; false
+254; Bola; Bengal; 12; M; false
+255; Tom; Maine Coon; 6; M; false
+256; Tom; Maine Coon; 18; F; false
+257; Bola; Siberiano; 16; M; false
+258; Bola; Persa; 11; F; false
+259; Bola; Siberiano; 1; M; false
+260; Nina; SRD; 17; F; false
+261; Luna; SRD; 2; M; false
+262; Luna; Siberiano; 18; M; false
+263; Tom; SRD; 13; F; false
+264; Luna; Persa; 13; F; false
+265; Mingau; Siames; 6; F; false
+266; Luna; Siames; 19; M; false
+267; Bola; Angora; 19; M; false
+268; Felix; Maine Coon; 15; F; false
+269; Mingau; Maine Coon; 5; F; false
+270; Felix; SRD; 10; M; false
+271; Garfield; Angora; 9; F; false
+272; Tigrao; Maine Coon; 14; F; false
+273; Mimi; Maine Coon; 15; M; false
+274; Felix; Siames; 2; F; false
+275; Mingau; Maine Coon; 1; F; false
+276; Pantera; SRD; 4; M; false
+277; Felix; Bengal; 8; M; false
+278; Felix; SRD; 14; F; false
+279; Luna; SRD; 18; M; false
+280; Tigrao; Persa; 5; M; false
+281; Garfield; Siames; 2; M; false
+282; Felix; SRD; 16; F; false
+283; Bola; Siberiano; 10; M; false
+284; Luna; Siames; 10; F; false
+285; Bola; Persa; 8; M; false
+286; Bola; Bengal; 3; M; false
+287; Nina; SRD; 20; F; false
+288; Bola; SRD; 14; F; false
+289; Mimi; Bengal; 7; M; false
+290; Tom; Siberiano; 5; M; false
+291; Mimi; Persa; 15; M; false
+292; Mingau; Siberiano; 11; M; false
+293; Pantera; Siames; 16; M; false
+294; Mingau; Siames; 8; M; false
+295; Mingau; Persa; 15; F; false
+296; Nina; Persa; 5; M; false
+297; Bola; Siames; 2; M; false
+298; Tigrao; Maine Coon; 13; F; false
+299; Garfield; Siberiano; 18; F; false
+300; Tom; Angora; 16; M; false
+301; Mimi; Angora; 20; M; false
+302; Luna; Bengal; 19; M; false
+303; Bola; Angora; 4; M; false
+304; Bola; Bengal; 5; F; false
+305; Mimi; Maine Coon; 20; M; false
+306; Garfield; Persa; 19; F; false
+307; Mimi; Angora; 17; F; false
+308; Felix; Persa; 12; M; false
+309; Felix; Maine Coon; 4; F; false
+310; Mingau; Angora; 18; F; false
+311; Pantera; Maine Coon; 18; F; false
+312; Tigrao; Persa; 11; M; false
+313; Mimi; Bengal; 4; F; false
+314; Bola; SRD; 4; F; false
+315; Bola; Siames; 4; F; false
+316; Garfield; Siberiano; 17; M; false
+317; Tigrao; Bengal; 9; M; false
+318; Bola; Siberiano; 18; M; false
+319; Tom; Persa; 2; F; false
+320; Bola; SRD; 11; F; false
+321; Pantera; Bengal; 11; M; false
+322; Bola; Maine Coon; 20; F; false
+323; Mingau; Persa; 5; M; false
+324; Nina; Maine Coon; 9; M; false
+325; Mingau; SRD; 6; F; false
+326; Luna; Siames; 7; F; false
+327; Tigrao; Persa; 15; M; false
+328; Nina; Siames; 4; M; false
+329; Tigrao; SRD; 19; F; false
+330; Tom; Persa; 15; F; false
+331; Mimi; Bengal; 18; M; false
+332; Pantera; SRD; 5; M; false
+333; Garfield; SRD; 7; M; false
+334; Pantera; Maine Coon; 4; M; false
+335; Mingau; Bengal; 17; M; false
+336; Mimi; Persa; 4; M; false
+337; Felix; Siames; 14; F; false
+338; Felix; SRD; 4; F; false
+339; Mimi; Maine Coon; 18; M; false
+340; Tom; Persa; 1; F; false
+341; Tigrao; Angora; 1; F; false
+342; Luna; Bengal; 7; F; false
+343; Nina; Bengal; 12; F; false
+344; Tigrao; Bengal; 17; F; false
+345; Nina; Siberiano; 7; M; false
+346; Tigrao; Maine Coon; 5; M; false
+347; Mimi; Angora; 2; F; false
+348; Pantera; Persa; 5; M; false
+349; Nina; Siberiano; 3; F; false
+350; Garfield; Bengal; 14; F; false
+351; Felix; SRD; 20; M; false
+352; Luna; Angora; 20; F; false
+353; Felix; Siberiano; 3; M; false
+354; Pantera; Siames; 4; F; false
+355; Garfield; Siames; 16; F; false
+356; Luna; Maine Coon; 4; M; false
+357; Nina; SRD; 13; F; false
+358; Tom; Bengal; 6; F; false
+359; Pantera; Bengal; 2; F; false
+360; Bola; SRD; 17; M; false
+361; Luna; Persa; 1; F; false
+362; Felix; Siames; 1; F; false
+363; Bola; Siberiano; 10; M; false
+364; Bola; Maine Coon; 19; F; false
+365; Garfield; Maine Coon; 7; F; false
+366; Bola; SRD; 15; M; false
+367; Mingau; SRD; 17; M; false
+368; Felix; Maine Coon; 7; M; false
+369; Bola; SRD; 13; M; false
+370; Pantera; Siames; 2; F; false
+371; Luna; Maine Coon; 7; F; false
+372; Felix; Maine Coon; 18; M; false
+373; Felix; Maine Coon; 14; M; false
+374; Tigrao; Siames; 4; F; false
+375; Garfield; Bengal; 14; M; false
+376; Pantera; Angora; 8; F; false
+377; Mingau; Siberiano; 15; F; false
+378; Garfield; Siberiano; 17; M; false
+379; Luna; Siberiano; 8; M; false
+380; Pantera; Maine Coon; 1; M; false
+381; Mingau; Bengal; 5; M; false
+382; Nina; Angora; 18; M; false
+383; Bola; Angora; 15; F; false
+384; Tigrao; Maine Coon; 6; F; false
+385; Luna; Siberiano; 12; F; false
+386; Luna; Angora; 16; M; false
+387; Nina; Angora; 16; F; false
+388; Nina; Persa; 19; M; false
+389; Mingau; SRD; 20; F; false
+390; Mingau; SRD; 13; M; false
+391; Bola; Maine Coon; 10; F; false
+392; Felix; Siames; 2; M; false
+393; Felix; SRD; 10; M; false
+394; Nina; Bengal; 5; F; false
+395; Garfield; Angora; 7; F; false
+396; Felix; Angora; 5; M; false
+397; Tom; Siberiano; 11; M; false
+398; Tom; Siberiano; 9; F; false
+399; Tom; Siames; 2; F; false
+400; Mimi; Maine Coon; 3; F; false
+401; Garfield; Bengal; 16; F; false
+402; Mimi; Bengal; 16; M; false
+403; Tigrao; Siames; 5; F; false
+404; Tom; Persa; 19; M; false
+405; Tom; Siberiano; 7; F; false
+406; Pantera; Angora; 6; M; false
+407; Tom; Siames; 20; F; false
+408; Tom; Siames; 11; M; false
+409; Bola; Siberiano; 19; M; false
+410; Garfield; Persa; 7; M; false
+411; Mimi; Siames; 7; M; false
+412; Mingau; Bengal; 13; M; false
+413; Bola; SRD; 19; M; false
+414; Luna; Persa; 15; F; false
+415; Felix; SRD; 7; M; false
+416; Nina; Persa; 16; F; false
+417; Luna; Bengal; 13; M; false
+418; Garfield; Maine Coon; 4; F; false
+419; Luna; Maine Coon; 20; M; false
+420; Nina; SRD; 19; M; false
+421; Mimi; Siames; 20; F; false
+422; Bola; Maine Coon; 14; M; false
+423; Nina; Persa; 3; M; false
+424; Bola; Persa; 19; M; false
+425; Nina; Siberiano; 5; F; false
+426; Luna; SRD; 4; F; false
+427; Pantera; SRD; 16; M; false
+428; Luna; Bengal; 20; M; false
+429; Felix; Angora; 8; M; false
+430; Pantera; Maine Coon; 4; F; false
+431; Pantera; Siberiano; 8; M; false
+432; Bola; Maine Coon; 8; F; false
+433; Tigrao; SRD; 3; F; false
+434; Garfield; Siberiano; 3; M; false
+435; Mingau; Siberiano; 11; M; false
+436; Bola; Persa; 10; F; false
+437; Felix; Siames; 17; M; false
+438; Nina; SRD; 4; F; false
+439; Felix; Bengal; 11; F; false
+440; Pantera; SRD; 18; M; false
+441; Mimi; Siames; 16; F; false
+442; Nina; Persa; 13; F; false
+443; Tigrao; SRD; 18; F; false
+444; Felix; Persa; 10; M; false
+445; Luna; Angora; 7; M; false
+446; Nina; Siames; 9; F; false
+447; Nina; SRD; 3; M; false
+448; Nina; Siames; 7; M; false
+449; Pantera; SRD; 18; F; false
+450; Felix; SRD; 5; M; false
+451; Tom; Bengal; 12; F; false
+452; Mimi; Siames; 19; M; false
+453; Pantera; Bengal; 12; M; false
+454; Mimi; Bengal; 2; F; false
+455; Pantera; Angora; 12; M; false
+456; Pantera; Bengal; 5; F; false
+457; Luna; Maine Coon; 16; F; false
+458; Nina; Bengal; 12; F; false
+459; Tom; Bengal; 10; F; false
+460; Luna; Siames; 4; M; false
+461; Garfield; Maine Coon; 18; F; false
+462; Felix; SRD; 16; F; false
+463; Felix; Maine Coon; 10; M; false
+464; Pantera; Persa; 1; M; false
+465; Luna; Persa; 15; M; false
+466; Mingau; Persa; 6; M; false
+467; Bola; Persa; 2; M; false
+468; Pantera; SRD; 16; F; false
+469; Mingau; Bengal; 12; F; false
+470; Tom; Persa; 3; F; false
+471; Pantera; SRD; 6; M; false
+472; Pantera; Siberiano; 10; M; false
+473; Pantera; Persa; 9; F; false
+474; Garfield; Siberiano; 11; M; false
+475; Tigrao; SRD; 10; F; false
+476; Mingau; Bengal; 20; F; false
+477; Felix; Bengal; 18; F; false
+478; Felix; Siberiano; 19; M; false
+479; Garfield; Angora; 11; M; false
+480; Garfield; Angora; 18; M; false
+481; Mingau; Siberiano; 13; M; false
+482; Tom; Siberiano; 7; M; false
+483; Tom; Maine Coon; 9; M; false
+484; Mimi; Siberiano; 4; F; false
+485; Mingau; Persa; 1; F; false
+486; Tom; Persa; 15; M; false
+487; Bola; Persa; 17; F; false
+488; Nina; Angora; 15; M; false
+489; Tom; Maine Coon; 7; F; false
+490; Bola; Siames; 5; F; false
+491; Mimi; Siames; 16; F; false
+492; Bola; Siberiano; 12; F; false
+493; Nina; Siberiano; 4; F; false
+494; Mingau; Bengal; 4; M; false
+495; Tigrao; SRD; 13; M; false
+496; Tom; SRD; 10; F; false
+497; Mimi; Bengal; 4; F; false
+498; Garfield; SRD; 14; F; false
+499; Tom; Angora; 1; M; false
+500; Luna; Siberiano; 19; M; false
+501; Tom; SRD; 3; M; false
+502; Mimi; SRD; 6; M; false
+503; Mingau; SRD; 2; M; false
+504; Mimi; Bengal; 15; M; false
+505; Garfield; Angora; 6; F; false
+506; Tigrao; Siames; 18; F; false
+507; Pantera; Maine Coon; 14; M; false
+508; Bola; Maine Coon; 10; M; false
+509; Felix; Angora; 2; F; false
+510; Tigrao; Maine Coon; 9; F; false
+511; Mimi; SRD; 16; M; false
+512; Luna; Maine Coon; 14; F; false
+513; Garfield; Siberiano; 11; M; false
+514; Nina; Angora; 5; F; false
+515; Garfield; Siames; 11; M; false
+516; Mimi; Angora; 9; M; false
+517; Nina; Angora; 18; M; false
+518; Tigrao; Siberiano; 9; M; false
+519; Pantera; Siames; 19; M; false
+520; Mimi; Bengal; 6; F; false
+521; Tigrao; Bengal; 11; M; false
+522; Tom; Siames; 6; M; false
+523; Nina; Siames; 10; M; false
+524; Mimi; Bengal; 12; M; false
+525; Luna; Bengal; 2; M; false
+526; Felix; Angora; 13; M; false
+527; Pantera; SRD; 12; M; false
+528; Pantera; SRD; 12; F; false
+529; Mingau; Siberiano; 16; M; false
+530; Tigrao; Bengal; 18; F; false
+531; Bola; Maine Coon; 17; M; false
+532; Tom; SRD; 7; M; false
+533; Felix; Bengal; 14; F; false
+534; Garfield; Persa; 10; F; false
+535; Tom; Siberiano; 2; F; false
+536; Tom; Persa; 16; M; false
+537; Tigrao; SRD; 8; F; false
+538; Luna; Angora; 9; F; false
+539; Tom; Siberiano; 7; M; false
+540; Luna; SRD; 13; M; false
+541; Luna; Bengal; 7; M; false
+542; Bola; SRD; 12; F; false
+543; Bola; Maine Coon; 9; F; false
+544; Garfield; Bengal; 14; M; false
+545; Bola; Bengal; 19; F; false
+546; Pantera; Siames; 3; M; false
+547; Garfield; Maine Coon; 13; M; false
+548; Pantera; SRD; 3; F; false
+549; Luna; Angora; 12; M; false
+550; Mingau; Persa; 7; M; false
+551; Mingau; Siames; 2; F; false
+552; Tigrao; SRD; 13; M; false
+553; Bola; SRD; 11; M; false
+554; Luna; Maine Coon; 4; M; false
+555; Mingau; Maine Coon; 13; M; false
+556; Nina; Siames; 9; M; false
+557; Tom; Maine Coon; 1; F; false
+558; Luna; Bengal; 6; M; false
+559; Tom; Maine Coon; 4; F; false
+560; Garfield; Siberiano; 3; F; false
+561; Tigrao; Siames; 14; F; false
+562; Felix; Siames; 3; M; false
+563; Pantera; SRD; 13; M; false
+564; Tigrao; Persa; 11; F; false
+565; Pantera; Siames; 6; F; false
+566; Garfield; Siames; 6; F; false
+567; Luna; Bengal; 7; F; false
+568; Felix; Angora; 2; F; false
+569; Bola; SRD; 19; F; false
+570; Mingau; Maine Coon; 5; F; false
+571; Mingau; Angora; 1; F; false
+572; Mingau; Angora; 4; M; false
+573; Tom; SRD; 12; F; false
+574; Mimi; Siberiano; 19; M; false
+575; Garfield; Maine Coon; 19; F; false
+576; Tigrao; Siames; 14; F; false
+577; Bola; Bengal; 14; F; false
+578; Mimi; Siberiano; 2; F; false
+579; Pantera; Maine Coon; 19; M; false
+580; Bola; Siames; 5; M; false
+581; Garfield; Angora; 2; M; false
+582; Bola; Siberiano; 1; M; false
+583; Bola; Siames; 9; M; false
+584; Garfield; Maine Coon; 5; M; false
+585; Felix; Angora; 4; F; false
+586; Mimi; Persa; 2; F; false
+587; Tom; Siames; 9; M; false
+588; Garfield; SRD; 2; M; false
+589; Nina; Siberiano; 4; F; false
+590; Nina; Persa; 16; M; false
+591; Tom; Siames; 4; F; false
+592; Tom; Persa; 5; M; false
+593; Tigrao; Persa; 16; F; false
+594; Garfield; SRD; 12; M; false
+595; Bola; Siames; 10; F; false
+596; Mingau; Angora; 7; F; false
+597; Garfield; SRD; 3; F; false
+598; Tigrao; Siberiano; 11; F; false
+599; Pantera; Angora; 16; F; false
+600; Bola; SRD; 8; M; false
+601; Pantera; Maine Coon; 2; F; false
+602; Pantera; Angora; 1; M; false
+603; Nina; Angora; 7; M; false
+604; Felix; Siberiano; 20; F; false
+605; Tigrao; Angora; 18; M; false
+606; Tigrao; SRD; 11; M; false
+607; Garfield; Persa; 18; M; false
+608; Nina; Siames; 20; M; false
+609; Pantera; Persa; 3; F; false
+610; Bola; Siames; 9; M; false
+611; Mimi; Siberiano; 18; F; false
+612; Nina; Siames; 8; F; false
+613; Felix; Maine Coon; 5; F; false
+614; Mingau; SRD; 20; M; false
+615; Felix; Siberiano; 5; F; false
+616; Nina; Siames; 9; M; false
+617; Mimi; Siames; 17; M; false
+618; Bola; Angora; 8; M; false
+619; Nina; Persa; 1; M; false
+620; Mimi; Bengal; 4; M; false
+621; Felix; Persa; 12; F; false
+622; Bola; SRD; 6; F; false
+623; Garfield; Persa; 5; M; false
+624; Pantera; Siames; 13; F; false
+625; Bola; Siberiano; 14; F; false
+626; Mimi; Angora; 14; M; false
+627; Tigrao; Maine Coon; 19; M; false
+628; Nina; Angora; 8; F; false
+629; Felix; SRD; 4; M; false
+630; Nina; Siberiano; 17; M; false
+631; Tigrao; Persa; 2; F; false
+632; Luna; SRD; 14; M; false
+633; Mimi; Angora; 18; F; false
+634; Felix; Siames; 18; F; false
+635; Bola; Persa; 9; M; false
+636; Felix; Maine Coon; 4; F; false
+637; Felix; Siames; 4; F; false
+638; Felix; Maine Coon; 16; M; false
+639; Felix; Maine Coon; 17; M; false
+640; Tigrao; Angora; 1; F; false
+641; Mimi; Siames; 15; F; false
+642; Garfield; Maine Coon; 9; F; false
+643; Pantera; Persa; 18; M; false
+644; Bola; Maine Coon; 3; M; false
+645; Tigrao; Siames; 12; F; false
+646; Tom; Angora; 4; M; false
+647; Mimi; Angora; 9; F; false
+648; Garfield; Maine Coon; 10; F; false
+649; Pantera; Bengal; 19; M; false
+650; Mimi; Angora; 19; M; false
+651; Mingau; Maine Coon; 18; M; false
+652; Bola; SRD; 11; M; false
+653; Garfield; Bengal; 13; M; false
+654; Luna; Siames; 1; M; false
+655; Nina; Bengal; 2; F; false
+656; Tom; SRD; 1; M; false
+657; Pantera; Persa; 13; M; false
+658; Tigrao; Siames; 16; M; false
+659; Bola; Bengal; 1; F; false
+660; Tigrao; Persa; 18; F; false
+661; Pantera; Siames; 18; F; false
+662; Mimi; Bengal; 18; F; false
+663; Garfield; Bengal; 8; M; false
+664; Tigrao; SRD; 1; F; false
+665; Garfield; Siames; 2; F; false
+666; Mimi; Persa; 4; M; false
+667; Nina; Siberiano; 4; F; false
+668; Mingau; SRD; 12; M; false
+669; Pantera; Maine Coon; 11; M; false
+670; Felix; Angora; 13; M; false
+671; Tigrao; Bengal; 8; F; false
+672; Mingau; SRD; 20; M; false
+673; Garfield; Siberiano; 1; M; false
+674; Tom; Maine Coon; 10; F; false
+675; Tigrao; Maine Coon; 10; F; false
+676; Garfield; Bengal; 19; M; false
+677; Mingau; Bengal; 4; F; false
+678; Pantera; Siames; 8; M; false
+679; Tom; Maine Coon; 5; M; false
+680; Garfield; SRD; 20; F; false
+681; Luna; SRD; 18; M; false
+682; Pantera; SRD; 7; F; false
+683; Mimi; Persa; 3; M; false
+684; Luna; Bengal; 1; F; false
+685; Mingau; Persa; 14; M; false
+686; Felix; Maine Coon; 12; F; false
+687; Garfield; Persa; 8; M; false
+688; Pantera; Siberiano; 17; F; false
+689; Nina; Siames; 1; M; false
+690; Luna; SRD; 11; M; false
+691; Nina; SRD; 3; M; false
+692; Nina; Persa; 16; M; false
+693; Luna; Persa; 20; M; false
+694; Tigrao; Angora; 17; F; false
+695; Nina; Siberiano; 7; F; false
+696; Tigrao; Maine Coon; 5; M; false
+697; Tom; Maine Coon; 6; M; false
+698; Luna; Siames; 10; F; false
+699; Nina; Angora; 3; F; false
+700; Luna; SRD; 10; F; false
+701; Mimi; SRD; 10; M; false
+702; Luna; SRD; 14; M; false
+703; Garfield; SRD; 20; F; false
+704; Tigrao; Maine Coon; 6; M; false
+705; Felix; Maine Coon; 6; M; false
+706; Tigrao; Angora; 7; F; false
+707; Garfield; SRD; 10; F; false
+708; Tom; Persa; 15; M; false
+709; Felix; Persa; 16; F; false
+710; Pantera; Angora; 4; F; false
+711; Luna; SRD; 18; M; false
+712; Mimi; Siberiano; 1; M; false
+713; Mimi; SRD; 8; F; false
+714; Mimi; Siames; 15; F; false
+715; Garfield; Bengal; 1; M; false
+716; Bola; Angora; 17; M; false
+717; Tom; SRD; 7; F; false
+718; Tom; Maine Coon; 20; F; false
+719; Bola; Bengal; 10; F; false
+720; Tom; Maine Coon; 18; M; false
+721; Tigrao; Persa; 1; M; false
+722; Mingau; SRD; 2; M; false
+723; Tigrao; SRD; 10; M; false
+724; Garfield; Persa; 14; F; false
+725; Mimi; SRD; 10; M; false
+726; Mingau; Siberiano; 19; M; false
+727; Garfield; Maine Coon; 15; M; false
+728; Garfield; Angora; 17; F; false
+729; Tom; Persa; 7; M; false
+730; Tigrao; Siberiano; 12; M; false
+731; Nina; Angora; 11; F; false
+732; Mimi; Siberiano; 11; F; false
+733; Mingau; Siames; 17; M; false
+734; Tom; Bengal; 8; F; false
+735; Felix; Angora; 5; M; false
+736; Bola; SRD; 17; M; false
+737; Tigrao; Maine Coon; 12; F; false
+738; Tom; Bengal; 16; M; false
+739; Luna; Persa; 15; M; false
+740; Nina; Persa; 16; F; false
+741; Mingau; Angora; 17; M; false
+742; Mimi; Angora; 18; F; false
+743; Mingau; Angora; 16; F; false
+744; Tom; Siberiano; 16; F; false
+745; Luna; Siberiano; 8; M; false
+746; Garfield; Persa; 12; F; false
+747; Bola; Siames; 3; F; false
+748; Bola; Siames; 1; F; false
+749; Mingau; Persa; 9; M; false
+750; Tigrao; Siberiano; 4; F; false
+751; Luna; Angora; 4; M; false
+752; Bola; SRD; 16; M; false
+753; Tom; Siberiano; 13; F; false
+754; Garfield; Angora; 18; M; false
+755; Mimi; Siberiano; 13; M; false
+756; Tigrao; SRD; 17; F; false
+757; Tom; SRD; 1; F; false
+758; Tom; Siames; 19; M; false
+759; Garfield; Persa; 6; F; false
+760; Luna; Siberiano; 18; M; false
+761; Felix; Persa; 1; F; false
+762; Bola; Angora; 15; F; false
+763; Garfield; SRD; 3; F; false
+764; Mingau; SRD; 9; F; false
+765; Bola; Angora; 14; F; false
+766; Tigrao; Siberiano; 14; M; false
+767; Tigrao; Angora; 13; F; false
+768; Tom; Siberiano; 13; F; false
+769; Luna; Angora; 15; F; false
+770; Pantera; Persa; 2; M; false
+771; Tigrao; Angora; 17; F; false
+772; Tom; SRD; 13; F; false
+773; Felix; Maine Coon; 10; F; false
+774; Pantera; Angora; 3; M; false
+775; Tom; SRD; 14; F; false
+776; Tigrao; SRD; 7; F; false
+777; Felix; Bengal; 4; M; false
+778; Tigrao; Maine Coon; 17; M; false
+779; Mimi; Angora; 13; F; false
+780; Mingau; Siames; 9; M; false
+781; Mingau; Persa; 3; F; false
+782; Luna; Bengal; 16; M; false
+783; Mingau; Angora; 16; F; false
+784; Nina; Maine Coon; 6; M; false
+785; Pantera; Maine Coon; 2; M; false
+786; Bola; Siberiano; 18; F; false
+787; Luna; Angora; 1; M; false
+788; Tigrao; Persa; 17; M; false
+789; Pantera; Angora; 5; M; false
+790; Tom; Siberiano; 19; F; false
+791; Garfield; Maine Coon; 7; F; false
+792; Tom; Persa; 7; M; false
+793; Garfield; Maine Coon; 11; F; false
+794; Mimi; Bengal; 2; M; false
+795; Nina; SRD; 12; F; false
+796; Tom; Angora; 4; M; false
+797; Garfield; Maine Coon; 14; M; false
+798; Garfield; Siberiano; 5; F; false
+799; Nina; Maine Coon; 7; F; false
+800; Luna; SRD; 1; M; false
+801; Felix; Bengal; 10; M; false
+802; Bola; SRD; 9; M; false
+803; Pantera; Angora; 19; M; false
+804; Mimi; Maine Coon; 3; F; false
+805; Nina; Persa; 8; M; false
+806; Nina; Bengal; 1; M; false
+807; Garfield; Maine Coon; 16; F; false
+808; Felix; SRD; 6; M; false
+809; Luna; Persa; 16; M; false
+810; Tom; Persa; 18; M; false
+811; Nina; Siames; 8; F; false
+812; Pantera; Persa; 6; F; false
+813; Mingau; Maine Coon; 6; F; false
+814; Pantera; Bengal; 18; F; false
+815; Garfield; Bengal; 3; F; false
+816; Luna; Maine Coon; 8; M; false
+817; Luna; Siames; 8; M; false
+818; Pantera; Bengal; 11; M; false
+819; Pantera; Bengal; 17; M; false
+820; Felix; SRD; 9; F; false
+821; Felix; Maine Coon; 1; M; false
+822; Tom; Siames; 7; F; false
+823; Tom; Bengal; 15; M; false
+824; Garfield; Persa; 20; M; false
+825; Pantera; Persa; 18; F; false
+826; Luna; Siberiano; 2; F; false
+827; Luna; Siames; 14; F; false
+828; Garfield; SRD; 11; M; false
+829; Garfield; Persa; 11; M; false
+830; Mimi; Angora; 9; M; false
+831; Felix; Persa; 1; F; false
+832; Nina; Siberiano; 10; M; false
+833; Pantera; SRD; 10; F; false
+834; Felix; Persa; 12; M; false
+835; Pantera; Bengal; 5; M; false
+836; Nina; Bengal; 17; F; false
+837; Garfield; SRD; 10; F; false
+838; Felix; Persa; 4; M; false
+839; Mimi; Persa; 20; M; false
+840; Mimi; Maine Coon; 2; M; false
+841; Felix; Siberiano; 17; M; false
+842; Mingau; Maine Coon; 5; M; false
+843; Luna; Angora; 8; F; false
+844; Garfield; Siames; 11; F; false
+845; Bola; Angora; 14; M; false
+846; Pantera; Siberiano; 19; F; false
+847; Tigrao; Angora; 20; F; false
+848; Luna; Persa; 15; M; false
+849; Garfield; Maine Coon; 10; F; false
+850; Pantera; Siames; 12; F; false
+851; Nina; Maine Coon; 10; M; false
+852; Garfield; SRD; 13; M; false
+853; Bola; Bengal; 13; F; false
+854; Nina; Persa; 4; F; false
+855; Bola; SRD; 13; M; false
+856; Nina; Siames; 6; F; false
+857; Mimi; Siames; 1; F; false
+858; Pantera; Siames; 2; F; false
+859; Tom; Persa; 20; M; false
+860; Nina; Siberiano; 11; M; false
+861; Pantera; Angora; 13; M; false
+862; Tigrao; Persa; 5; F; false
+863; Luna; Siberiano; 3; M; false
+864; Tom; Bengal; 7; M; false
+865; Mingau; Maine Coon; 14; M; false
+866; Mimi; Siberiano; 3; M; false
+867; Tigrao; Siames; 8; M; false
+868; Tigrao; Bengal; 8; M; false
+869; Luna; Siames; 1; M; false
+870; Tom; Siberiano; 15; F; false
+871; Tom; Siames; 11; F; false
+872; Bola; SRD; 2; M; false
+873; Garfield; Angora; 10; F; false
+874; Mimi; Maine Coon; 19; M; false
+875; Mimi; Angora; 16; F; false
+876; Mimi; Persa; 13; M; false
+877; Pantera; Maine Coon; 18; F; false
+878; Mingau; Persa; 1; M; false
+879; Luna; Persa; 16; M; false
+880; Garfield; Maine Coon; 11; M; false
+881; Luna; Siberiano; 20; F; false
+882; Mimi; Maine Coon; 10; F; false
+883; Bola; Angora; 15; M; false
+884; Bola; SRD; 14; F; false
+885; Tom; Persa; 14; M; false
+886; Bola; Angora; 17; F; false
+887; Mimi; Siames; 15; F; false
+888; Garfield; SRD; 5; M; false
+889; Felix; SRD; 16; F; false
+890; Felix; Siames; 3; F; false
+891; Bola; Bengal; 10; F; false
+892; Pantera; SRD; 7; M; false
+893; Garfield; SRD; 11; M; false
+894; Pantera; Siberiano; 17; M; false
+895; Garfield; Persa; 6; M; false
+896; Mimi; Bengal; 1; M; false
+897; Mimi; Bengal; 7; F; false
+898; Nina; Angora; 3; F; false
+899; Tom; Angora; 8; M; false
+900; Bola; Maine Coon; 3; M; false
+901; Mimi; Siames; 8; M; false
+902; Bola; SRD; 6; F; false
+903; Garfield; Angora; 15; F; false
+904; Luna; Persa; 15; M; false
+905; Bola; Siberiano; 4; M; false
+906; Mimi; Persa; 2; F; false
+907; Nina; Angora; 5; F; false
+908; Bola; Maine Coon; 16; F; false
+909; Felix; Siberiano; 6; F; false
+910; Pantera; Maine Coon; 20; F; false
+911; Bola; Siames; 5; F; false
+912; Tom; Bengal; 11; F; false
+913; Nina; SRD; 3; M; false
+914; Pantera; Siames; 16; F; false
+915; Felix; Persa; 5; F; false
+916; Pantera; Siberiano; 4; F; false
+917; Felix; Maine Coon; 12; M; false
+918; Luna; Siames; 7; F; false
+919; Mingau; Siames; 9; F; false
+920; Felix; Angora; 16; F; false
+921; Tom; Siames; 1; F; false
+922; Nina; Angora; 13; F; false
+923; Garfield; Siames; 9; F; false
+924; Bola; Siames; 16; M; false
+925; Bola; SRD; 18; M; false
+926; Felix; Siames; 6; F; false
+927; Garfield; Angora; 14; F; false
+928; Tigrao; Siberiano; 19; M; false
+929; Bola; Angora; 16; M; false
+930; Luna; Persa; 20; M; false
+931; Tigrao; Persa; 8; M; false
+932; Pantera; Bengal; 11; F; false
+933; Mingau; Siberiano; 8; F; false
+934; Mingau; Persa; 2; M; false
+935; Tigrao; Siames; 8; M; false
+936; Felix; Maine Coon; 4; F; false
+937; Mimi; Bengal; 2; F; false
+938; Luna; Angora; 2; F; false
+939; Nina; Bengal; 6; F; false
+940; Tom; Maine Coon; 15; F; false
+941; Felix; Siberiano; 19; F; false
+942; Luna; Persa; 7; F; false
+943; Pantera; Persa; 19; F; false
+944; Pantera; Siberiano; 19; M; false
+945; Felix; Persa; 11; F; false
+946; Tigrao; Angora; 11; F; false
+947; Nina; SRD; 11; M; false
+948; Tom; Siberiano; 2; M; false
+949; Pantera; Siberiano; 6; F; false
+950; Nina; SRD; 9; M; false
+951; Felix; Maine Coon; 12; M; false
+952; Nina; SRD; 8; M; false
+953; Tom; Persa; 13; F; false
+954; Bola; Siames; 18; M; false
+955; Pantera; Siberiano; 12; M; false
+956; Mingau; Siames; 9; M; false
+957; Mingau; Siberiano; 17; M; false
+958; Luna; Bengal; 4; M; false
+959; Mingau; Maine Coon; 10; F; false
+960; Bola; Maine Coon; 14; M; false
+961; Tigrao; Siames; 6; M; false
+962; Garfield; SRD; 9; M; false
+963; Bola; Maine Coon; 4; M; false
+964; Mimi; SRD; 19; F; false
+965; Felix; Siames; 13; F; false
+966; Mingau; Siberiano; 3; F; false
+967; Tigrao; Siames; 13; M; false
+968; Luna; SRD; 18; M; false
+969; Tigrao; Angora; 5; M; false
+970; Tigrao; Persa; 2; F; false
+971; Tom; Siberiano; 8; M; false
+972; Bola; Maine Coon; 2; M; false
+973; Tigrao; SRD; 8; F; false
+974; Felix; Angora; 11; F; false
+975; Tigrao; Maine Coon; 5; M; false
+976; Tom; SRD; 20; F; false
+977; Garfield; Maine Coon; 15; F; false
+978; Nina; Persa; 18; M; false
+979; Tom; SRD; 18; F; false
+980; Pantera; Bengal; 20; F; false
+981; Garfield; Siberiano; 8; M; false
+982; Mimi; Maine Coon; 4; F; false
+983; Bola; Siames; 19; M; false
+984; Bola; Angora; 20; M; false
+985; Mimi; Maine Coon; 14; M; false
+986; Mingau; Siberiano; 17; F; false
+987; Mimi; Angora; 12; M; false
+988; Mingau; Siames; 2; F; false
+989; Felix; SRD; 17; M; false
+990; Pantera; Bengal; 1; M; false
+991; Bola; Angora; 10; F; false
+992; Nina; Angora; 17; M; false
+993; Pantera; Angora; 8; M; false
+994; Tigrao; Maine Coon; 6; M; false
+995; Mingau; Siberiano; 1; F; false
+996; Garfield; Siberiano; 4; F; false
+997; Mingau; SRD; 9; F; false
+998; Luna; SRD; 16; F; false
+999; Mimi; Bengal; 18; F; false
+1000; Bola; SRD; 20; M; false
