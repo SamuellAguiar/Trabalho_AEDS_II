@@ -78,4 +78,79 @@ public class CadastroGato {
           writer.newLine();
           writer.close();
      }
+
+     public static void editarGato() {
+          Scanner scanner = new Scanner(System.in);
+          OperacoesArquivo.listarGatos();
+          System.out.print("Digite o ID do gato que deseja editar: ");
+          int idParaEditar = scanner.nextInt();
+          scanner.nextLine();
+
+          StringBuilder conteudoAtualizado = new StringBuilder();
+          boolean encontrado = false;
+
+          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+               String linha;
+               while ((linha = reader.readLine()) != null) {
+                    String[] campos = linha.split(";");
+
+                    int id = Integer.parseInt(campos[0]);
+                    if (id == idParaEditar) {
+                         encontrado = true;
+                         System.out.println("Gato encontrado: " + linha);
+                         System.out.println("Qual campo deseja editar?");
+                         System.out.println("1. Nome");
+                         System.out.println("2. Raça");
+                         System.out.println("3. Idade");
+                         System.out.println("4. Sexo");
+                         System.out.print("Escolha a opção: ");
+                         int opcao = scanner.nextInt();
+                         scanner.nextLine();
+
+                         switch (opcao) {
+                              case 1:
+                                   System.out.print("Novo nome: ");
+                                   campos[1] = scanner.nextLine();
+                                   break;
+                              case 2:
+                                   System.out.print("Nova raça: ");
+                                   campos[2] = scanner.nextLine();
+                                   break;
+                              case 3:
+                                   System.out.print("Nova idade: ");
+                                   campos[3] = String.valueOf(scanner.nextInt());
+                                   scanner.nextLine();
+                                   break;
+                              case 4:
+                                   System.out.print("Novo sexo (M/F): ");
+                                   campos[4] = scanner.nextLine();
+                                   break;
+                              default:
+                                   System.out.println("Opção inválida. Nenhuma alteração feita.");
+                                   break;
+                         }
+
+                         // Reconstrói a linha modificada
+                         linha = String.join(";", campos);
+                    }
+
+                    conteudoAtualizado.append(linha).append("\n");
+               }
+          } catch (IOException e) {
+               System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               return;
+          }
+
+          if (encontrado) {
+               try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
+                    writer.write(conteudoAtualizado.toString());
+                    System.out.println("Gato atualizado com sucesso!");
+               } catch (IOException e) {
+                    System.out.println("Erro ao escrever no arquivo: " + e.getMessage());
+               }
+          } else {
+               System.out.println("Gato com ID " + idParaEditar + " não encontrado.");
+          }
+     }
+
 }
