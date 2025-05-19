@@ -9,6 +9,14 @@ public class Adocao {
           this.dataAdocao = dataAdocao;
      }
 
+     public String getNomeAdotante() {
+          return nomeAdotante;
+     }
+
+     public String getDataAdocao() {
+          return dataAdocao;
+     }
+     
      public int getIdGato() {
           return idGato;
      }

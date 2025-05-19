@@ -45,25 +45,29 @@ public class MenuPrincipal {
                               OperacoesArquivo.listarAdocoes();
                               break;
                          case 9:
-                              OperacoesArquivo.contarResumoDeAdocoes();
+                              OperacoesArquivo.editarAdocao();
                               break;
                          case 10:
-                              GeradorDeGatosDesordenados.gerarBaseDeDados();
+                              OperacoesArquivo.excluirAdocao();
                               break;
                          case 11:
-                              GeradorDeGatosOrdenados.gerarOuOrdenarBase();
+                              OperacoesArquivo.contarResumoDeAdocoes();
                               break;
                          case 12:
-                              Buscas.buscarSequencial();
+                              GerarBasesDesordenados.gerarBaseDeDados();
                               break;
                          case 13:
+                              GerarBasesOrdenadas.gerarOuOrdenarBases();
+                              break;
+                         case 14:
+                              Buscas.buscarSequencial();
+                              break;
+                         case 15:
                               Buscas.buscarBinaria();
                               break;
                          case 0:
-                              System.out.println("===============================================");
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
-                              System.out.println("===============================================");
                               break;
 
                          default:
@@ -94,7 +98,7 @@ public class MenuPrincipal {
           System.out.println("===============================================");
           System.out.println("          SISTEMA DE ADOÇÃO DE GATOS");
           System.out.println("===============================================");
-          System.out.println(" Operações disponíveis: ");
+          System.out.println(" Operações disponíveis ");
           System.out.println(" 1.  Cadastrar gato manualmente ");
           System.out.println(" 2.  Cadastrar gato aleatoriamente ");
           System.out.println(" 3.  Listar todos os gatos ");
@@ -103,15 +107,17 @@ public class MenuPrincipal {
           System.out.println(" 6.  Excluir um gato ");
           System.out.println(" 7.  Registrar adoção de um gato ");
           System.out.println(" 8.  Listar Adoções ");
-          System.out.println(" 9.  Exibir resumo de adoções ");
+          System.out.println(" 9.  Editar uma adoção ");
+          System.out.println(" 10.  Excluir uma adoção ");
+          System.out.println(" 11.  Exibir resumo de adoções ");
           System.out.println("-----------------------------------------------");
-          System.out.println(" Gerar base de dados: ");
-          System.out.println(" 10.  Gerar base de dados aleatória ");
-          System.out.println(" 11.  Gerar base de dados ordenada ");
+          System.out.println(" Bases de dados ");
+          System.out.println(" 12.  Gerar base de dados aleatória ");
+          System.out.println(" 13.  Gerar base de dados ordenada ");
           System.out.println("-----------------------------------------------");
-          System.out.println(" Buscas: ");
-          System.out.println(" 12.  Buscar gato por ID (sequencial) ");
-          System.out.println(" 13.  Buscar gato por ID (binária) ");
+          System.out.println(" Buscas ");
+          System.out.println(" 14.  Buscar gato por ID (sequencial) ");
+          System.out.println(" 15.  Buscar gato por ID (binária) ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");

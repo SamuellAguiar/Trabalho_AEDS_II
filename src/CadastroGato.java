@@ -193,5 +193,4 @@ public class CadastroGato {
                System.out.println("Gato com ID " + idParaExcluir + " não encontrado.");
           }
      }
-
 }
