@@ -32,34 +32,31 @@ public class GerarBasesDesordenados {
         Random random = new Random();
         List<Gato> gatos = new ArrayList<>();
 
-        // 1. Cria a lista de gatos (aqui nada muda)
         for (int i = 1; i <= quantidade; i++) {
             String nome = NOMES[random.nextInt(NOMES.length)];
             String raca = RACAS[random.nextInt(RACAS.length)];
             int idade = random.nextInt(20) + 1;
             String sexo = SEXOS[random.nextInt(SEXOS.length)];
 
-            // decide depois se será adotado
+
             gatos.add(new Gato(i, nome, raca, idade, sexo, false));
         }
 
-        // 2. Embaralha como antes
+
         Collections.shuffle(gatos);
 
-        // 3. Escreve em dois arquivos ao mesmo tempo
         try (BufferedWriter wg = new BufferedWriter(new FileWriter(ARQ_GATOS, false));
                 BufferedWriter wa = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
 
             for (Gato gato : gatos) {
-                // 50 % de chance de adoção (ajuste se quiser)
+
                 boolean seraAdotado = random.nextBoolean();
                 gato.setAdotado(seraAdotado);
 
-                // grava linha do gato
                 wg.write(gato.toCSV());
                 wg.newLine();
 
-                // se adotado, grava linha da adoção no segundo arquivo
+
                 if (seraAdotado) {
                     String adotante = ADOTANTES[random.nextInt(ADOTANTES.length)];
                     String data = LocalDate.now()

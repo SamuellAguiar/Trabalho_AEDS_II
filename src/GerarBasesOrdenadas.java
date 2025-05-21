@@ -27,12 +27,12 @@ public class GerarBasesOrdenadas {
         }
     }
 
-    /* ===== 1) Ordenar arquivos já existentes ===== */
+
     private static void ordenarArquivosExistentes() {
         List<Gato> gatos = new ArrayList<>();
         List<Adocao> adocoes = new ArrayList<>();
 
-        // lê gatos
+
         try (BufferedReader br = new BufferedReader(new FileReader(ARQ_GATOS))) {
             String linha;
             while ((linha = br.readLine()) != null)
@@ -42,7 +42,7 @@ public class GerarBasesOrdenadas {
             return;
         }
 
-        // lê adoções
+
         try (BufferedReader br = new BufferedReader(new FileReader(ARQ_ADOCOES))) {
             String linha;
             while ((linha = br.readLine()) != null)
@@ -52,11 +52,11 @@ public class GerarBasesOrdenadas {
             return;
         }
 
-        // ordena ambas
+
         gatos.sort(Comparator.comparingInt(Gato::getId));
         adocoes.sort(Comparator.comparingInt(Adocao::getIdGato));
 
-        // regrava gatos
+
         try (BufferedWriter wg = new BufferedWriter(new FileWriter(ARQ_GATOS, false))) {
             for (Gato g : gatos) {
                 wg.write(g.toCSV());
@@ -66,7 +66,7 @@ public class GerarBasesOrdenadas {
             System.out.println("Erro gravando gatos: " + e.getMessage());
         }
 
-        // regrava adoções
+ 
         try (BufferedWriter wa = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
             for (Adocao a : adocoes) {
                 wa.write(a.toCSV());
@@ -79,7 +79,7 @@ public class GerarBasesOrdenadas {
         System.out.println("Arquivos ordenados com sucesso!");
     }
 
-    /* ===== 2) Gerar novas bases ordenadas ===== */
+
     private static void gerarNovasBasesOrdenadas() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Escolha quantidade (10, 100 ou 1000): ");
@@ -99,7 +99,7 @@ public class GerarBasesOrdenadas {
             int idade = rnd.nextInt(20) + 1;
             String sexo = SEXOS[rnd.nextInt(SEXOS.length)];
 
-            boolean adotado = rnd.nextBoolean(); // 50 %
+            boolean adotado = rnd.nextBoolean(); 
             gatos.add(new Gato(id, nome, raca, idade, sexo, adotado));
 
             if (adotado) {
@@ -111,7 +111,7 @@ public class GerarBasesOrdenadas {
             }
         }
 
-        // já estão em ordem pois id crescente foi usado, mas garanta:
+
         gatos.sort(Comparator.comparingInt(Gato::getId));
         adocoes.sort(Comparator.comparingInt(Adocao::getIdGato));
 

@@ -130,7 +130,6 @@ public class CadastroGato {
                                    break;
                          }
 
-                         // Reconstrói a linha modificada
                          linha = String.join(";", campos);
                     }
 
@@ -172,7 +171,7 @@ public class CadastroGato {
                     if (id == idParaExcluir) {
                          encontrado = true;
                          System.out.println("Gato com ID " + idParaExcluir + " será excluído.");
-                         continue; // Pula essa linha (gato excluído)
+                         continue; 
                     }
 
                     conteudoAtualizado.append(linha).append("\n");

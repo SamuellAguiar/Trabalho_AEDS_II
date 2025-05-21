@@ -79,7 +79,7 @@ public class Buscas {
           System.out.print("Digite o ID do gato que deseja buscar: ");
           int idBusca = scanner.nextInt();
 
-          gerarIndice(); // Gera o índice automaticamente antes da busca
+          gerarIndice(); 
 
           int comparacoes = 0;
           boolean encontrado = false;

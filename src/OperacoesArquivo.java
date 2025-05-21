@@ -51,7 +51,6 @@ public class OperacoesArquivo {
                          partes[i] = partes[i].trim();
                     }
 
-                    // Verifica se a linha está no formato correto e se o gato não foi adotado
                     if (partes.length == 6 && partes[5].equalsIgnoreCase("false")) {
                          System.out.println("ID: " + partes[0]);
                          System.out.println("Nome: " + partes[1]);
@@ -124,7 +123,6 @@ public class OperacoesArquivo {
                while ((linhaAdocao = adocaoReader.readLine()) != null) {
                     Adocao adocao = Adocao.fromCSV(linhaAdocao);
 
-                    // --- buscar o gato referente à adoção ---
                     Gato gato = buscarGatoPorId(adocao.getIdGato(), ARQUIVO_GATOS);
 
                     if (gato == null) {
@@ -133,7 +131,6 @@ public class OperacoesArquivo {
                          continue;
                     }
 
-                    // --- impressão bonita ---
                     System.out.println("---------------------------------------------------");
                     System.out.printf("Adoção do dia %s\n", adocao.getDataAdocao());
                     System.out.printf("Adotante : %s\n", adocao.getNomeAdotante());
@@ -159,9 +156,6 @@ public class OperacoesArquivo {
           }
      }
 
-     /**
-      * Busca um gato no arquivo gatos.txt pelo ID.
-      */
      private static Gato buscarGatoPorId(int idGato, String arquivoGatos) {
           try (BufferedReader gatoReader = new BufferedReader(new FileReader(arquivoGatos))) {
                String linhaGato;
@@ -177,26 +171,26 @@ public class OperacoesArquivo {
           return null;
      }
 
-     /* ======= constantes compartilhadas ======= */
+
      private static final String ARQ_GATOS = "gatos.txt";
      private static final String ARQ_ADOCOES = "adocoes.txt";
 
-     /* ============ E D I T A R ============ */
+
      public static void editarAdocao() {
           Scanner sc = new Scanner(System.in);
           System.out.print("Informe o ID do gato para editar a adoção: ");
           int id = sc.nextInt();
-          sc.nextLine(); // consome \n
+          sc.nextLine();
 
           List<Adocao> lista = new ArrayList<>();
           boolean encontrado = false;
 
-          // carrega adoções
+
           try (BufferedReader br = new BufferedReader(new FileReader(ARQ_ADOCOES))) {
                String l;
                while ((l = br.readLine()) != null) {
                     Adocao a = Adocao.fromCSV(l);
-                    if (a.getIdGato() == id) { // achou
+                    if (a.getIdGato() == id) { 
                          System.out.println("Registro atual: " + a);
                          System.out.print("Novo nome do adotante (Enter = manter): ");
                          String novoNome = sc.nextLine();
@@ -222,7 +216,6 @@ public class OperacoesArquivo {
                return;
           }
 
-          // regrava arquivo
           try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
                for (Adocao a : lista) {
                     bw.write(a.toCSV());
@@ -236,7 +229,6 @@ public class OperacoesArquivo {
           System.out.println("Adoção atualizada com sucesso!");
      }
 
-     /* ============ E X C L U I R ============ */
      public static void excluirAdocao() {
           Scanner sc = new Scanner(System.in);
           System.out.print("Informe o ID do gato cuja adoção será excluída: ");
@@ -245,13 +237,13 @@ public class OperacoesArquivo {
           List<Adocao> adocoes = new ArrayList<>();
           boolean removido = false;
 
-          /* 1) Remove linha de adocoes.txt */
+
           try (BufferedReader br = new BufferedReader(new FileReader(ARQ_ADOCOES))) {
                String l;
                while ((l = br.readLine()) != null) {
                     Adocao a = Adocao.fromCSV(l);
                     if (a.getIdGato() == id) {
-                         removido = true; // ignora registro (não adiciona)
+                         removido = true;
                          continue;
                     }
                     adocoes.add(a);
@@ -266,7 +258,7 @@ public class OperacoesArquivo {
                return;
           }
 
-          // regrava adocoes.txt
+
           try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
                for (Adocao a : adocoes) {
                     bw.write(a.toCSV());
@@ -277,7 +269,7 @@ public class OperacoesArquivo {
                return;
           }
 
-          /* 2) Atualiza flag adotado do gato em gatos.txt */
+
           List<Gato> gatos = new ArrayList<>();
           try (BufferedReader br = new BufferedReader(new FileReader(ARQ_GATOS))) {
                String l;
