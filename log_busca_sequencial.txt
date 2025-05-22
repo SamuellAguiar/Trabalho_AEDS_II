@@ -1,8 +1,0 @@
------------------------------
-=== Busca Sequencial ===
-ID buscado: 999
-Encontrado: Sim
-Comparações: 768
-Tempo (ns): 5955200
-Tempo (ms): 5.9552
------------------------------

@@ -1,8 +1,0 @@
------------------------------
-=== Busca Binária ===
-ID buscado: 999
-Encontrado: Sim
-Comparações: 9
-Tempo (ns): 3821000
-Tempo (ms): 3.821
------------------------------
