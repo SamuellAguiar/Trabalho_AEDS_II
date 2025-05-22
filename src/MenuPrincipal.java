@@ -60,9 +60,12 @@ public class MenuPrincipal {
                               GerarBasesOrdenadas.gerarOuOrdenarBases();
                               break;
                          case 14:
-                              Buscas.buscarSequencial();
+                              GerarBasesOrdenadas.restaurarEstadoOriginal();
                               break;
                          case 15:
+                              Buscas.buscarSequencial();
+                              break;
+                         case 16:
                               Buscas.buscarBinaria();
                               break;
                          case 0:
@@ -114,10 +117,11 @@ public class MenuPrincipal {
           System.out.println(" Bases de dados ");
           System.out.println(" 12.  Gerar base de dados aleatória ");
           System.out.println(" 13.  Gerar base de dados ordenada ");
+          System.out.println(" 14.  Restaurar base de dados original ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Buscas ");
-          System.out.println(" 14.  Buscar gato por ID (sequencial) ");
-          System.out.println(" 15.  Buscar gato por ID (binária) ");
+          System.out.println(" 15.  Buscar gato por ID (sequencial) ");
+          System.out.println(" 16.  Buscar gato por ID (binária) ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");

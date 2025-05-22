@@ -14,6 +14,12 @@ public class GerarBasesOrdenadas {
     private static final String[] ADOTANTES = { "João", "Maria", "Lucas", "Ana", "Gabriel", "Paula", "Rafaela",
             "Bruno" };
 
+    private static List<String> estadoOriginalGatos;
+    private static List<String> estadoOriginalAdocoes;
+
+    private static List<String> estadoOrdenadoGatos;
+    private static List<String> estadoOrdenadoAdocoes;
+
     public static void gerarOuOrdenarBases() {
         File fGatos = new File(ARQ_GATOS);
         File fAdocoes = new File(ARQ_ADOCOES);
@@ -27,49 +33,57 @@ public class GerarBasesOrdenadas {
         }
     }
 
-
     private static void ordenarArquivosExistentes() {
         List<Gato> gatos = new ArrayList<>();
         List<Adocao> adocoes = new ArrayList<>();
 
+        estadoOriginalGatos = new ArrayList<>();
+        estadoOriginalAdocoes = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(ARQ_GATOS))) {
             String linha;
-            while ((linha = br.readLine()) != null)
+            while ((linha = br.readLine()) != null) {
+                estadoOriginalGatos.add(linha);
                 gatos.add(Gato.fromCSV(linha));
+            }
         } catch (IOException e) {
             System.out.println("Erro lendo gatos: " + e.getMessage());
             return;
         }
 
-
         try (BufferedReader br = new BufferedReader(new FileReader(ARQ_ADOCOES))) {
             String linha;
-            while ((linha = br.readLine()) != null)
+            while ((linha = br.readLine()) != null) {
+                estadoOriginalAdocoes.add(linha);
                 adocoes.add(Adocao.fromCSV(linha));
+            }
         } catch (IOException e) {
             System.out.println("Erro lendo adoções: " + e.getMessage());
             return;
         }
 
-
         gatos.sort(Comparator.comparingInt(Gato::getId));
         adocoes.sort(Comparator.comparingInt(Adocao::getIdGato));
 
+        estadoOrdenadoGatos = new ArrayList<>();
+        estadoOrdenadoAdocoes = new ArrayList<>();
 
         try (BufferedWriter wg = new BufferedWriter(new FileWriter(ARQ_GATOS, false))) {
             for (Gato g : gatos) {
-                wg.write(g.toCSV());
+                String linha = g.toCSV();
+                estadoOrdenadoGatos.add(linha);
+                wg.write(linha);
                 wg.newLine();
             }
         } catch (IOException e) {
             System.out.println("Erro gravando gatos: " + e.getMessage());
         }
 
- 
         try (BufferedWriter wa = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
             for (Adocao a : adocoes) {
-                wa.write(a.toCSV());
+                String linha = a.toCSV();
+                estadoOrdenadoAdocoes.add(linha);
+                wa.write(linha);
                 wa.newLine();
             }
         } catch (IOException e) {
@@ -78,7 +92,6 @@ public class GerarBasesOrdenadas {
 
         System.out.println("Arquivos ordenados com sucesso!");
     }
-
 
     private static void gerarNovasBasesOrdenadas() {
         Scanner sc = new Scanner(System.in);
@@ -99,7 +112,7 @@ public class GerarBasesOrdenadas {
             int idade = rnd.nextInt(20) + 1;
             String sexo = SEXOS[rnd.nextInt(SEXOS.length)];
 
-            boolean adotado = rnd.nextBoolean(); 
+            boolean adotado = rnd.nextBoolean();
             gatos.add(new Gato(id, nome, raca, idade, sexo, adotado));
 
             if (adotado) {
@@ -110,7 +123,6 @@ public class GerarBasesOrdenadas {
                 adocoes.add(new Adocao(id, adotante, data));
             }
         }
-
 
         gatos.sort(Comparator.comparingInt(Gato::getId));
         adocoes.sort(Comparator.comparingInt(Adocao::getIdGato));
@@ -132,4 +144,34 @@ public class GerarBasesOrdenadas {
             System.out.println("Erro criando arquivos: " + e.getMessage());
         }
     }
+
+    public static void restaurarEstadoOriginal() {
+        if (estadoOriginalGatos == null || estadoOriginalAdocoes == null) {
+            System.out.println("Nenhum estado original armazenado para restaurar.");
+            return;
+        }
+
+        try (BufferedWriter wg = new BufferedWriter(new FileWriter(ARQ_GATOS, false))) {
+            for (String linha : estadoOriginalGatos) {
+                wg.write(linha);
+                wg.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro restaurando gatos: " + e.getMessage());
+            return;
+        }
+
+        try (BufferedWriter wa = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
+            for (String linha : estadoOriginalAdocoes) {
+                wa.write(linha);
+                wa.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro restaurando adoções: " + e.getMessage());
+            return;
+        }
+
+        System.out.println("Estado original restaurado com sucesso!");
+    }
+
 }
