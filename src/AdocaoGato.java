@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class AdocaoGato {
 
@@ -29,22 +29,17 @@ public class AdocaoGato {
                System.out.println("===============================================");
                return;
           }
-          System.out.println("-------------------------------------");
+
           System.out.print("Digite o nome do adotante: ");
           String nomeAdotante = scanner.nextLine();
 
-          System.out.println("-------------------------------------");
           System.out.print("Digite a data da adoção (dd/mm/aaaa): ");
           String dataAdocao = scanner.nextLine();
 
-          System.out.println("-------------------------------------");
           Adocao adocao = new Adocao(idGato, nomeAdotante, dataAdocao);
           salvarAdocao(adocao);
+          atualizarStatusGatoEmDisco(idGato);
 
-          gatoParaAdotar.setAdotado(true);
-          atualizarStatusGato(gatoParaAdotar);
-
-          System.out.println("-------------------------------------");
           System.out.println("Adoção registrada e status do gato atualizado com sucesso!");
           System.out.println("===============================================");
      }
@@ -54,9 +49,7 @@ public class AdocaoGato {
                writer.write(adocao.toCSV());
                writer.newLine();
           } catch (IOException e) {
-               System.out.println("===============================================");
                System.out.println("Erro ao salvar adoção: " + e.getMessage());
-               System.out.println("===============================================");
           }
      }
 
@@ -70,41 +63,40 @@ public class AdocaoGato {
                     }
                }
           } catch (IOException e) {
-               System.out.println("===============================================");
                System.out.println("Erro ao buscar gato: " + e.getMessage());
-               System.out.println("===============================================");
           }
           return null;
      }
 
-     private static void atualizarStatusGato(Gato gatoAtualizado) {
-          List<Gato> gatos = new ArrayList<>();
+     // 💡 100% DISCO: usa arquivo temporário para alterar uma linha
+     private static void atualizarStatusGatoEmDisco(int idGato) {
+          File arquivoOriginal = new File(ARQUIVO_GATOS);
+          File arquivoTemp = new File("gatos_temp.txt");
 
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+          try (
+                    BufferedReader reader = new BufferedReader(new FileReader(arquivoOriginal));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(arquivoTemp))) {
                String linha;
                while ((linha = reader.readLine()) != null) {
                     Gato g = Gato.fromCSV(linha);
-                    if (g.getId() == gatoAtualizado.getId()) {
+                    if (g.getId() == idGato) {
                          g.setAdotado(true);
                     }
-                    gatos.add(g);
-               }
-          } catch (IOException e) {
-               System.out.println("===============================================");
-               System.out.println("Erro ao ler gatos para atualizar: " + e.getMessage());
-               System.out.println("===============================================");
-               return;
-          }
-
-          try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
-               for (Gato g : gatos) {
                     writer.write(g.toCSV());
                     writer.newLine();
                }
           } catch (IOException e) {
-               System.out.println("===============================================");
-               System.out.println("Erro ao atualizar status do gato: " + e.getMessage());
-               System.out.println("===============================================");
+               System.out.println("Erro ao atualizar o status do gato: " + e.getMessage());
+               return;
+          }
+
+          // Substitui o original
+          if (!arquivoOriginal.delete()) {
+               System.out.println("Erro ao deletar o arquivo original.");
+               return;
+          }
+          if (!arquivoTemp.renameTo(arquivoOriginal)) {
+               System.out.println("Erro ao renomear o arquivo temporário.");
           }
      }
 }
