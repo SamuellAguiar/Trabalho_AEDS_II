@@ -13,8 +13,16 @@ public class Adocao {
           return nomeAdotante;
      }
 
+     public void setNomeAdotante(String nomeAdotante) {
+          this.nomeAdotante = nomeAdotante;
+     }
+
      public String getDataAdocao() {
           return dataAdocao;
+     }
+
+     public void setDataAdocao(String dataAdocao) {
+          this.dataAdocao = dataAdocao;
      }
      
      public int getIdGato() {
@@ -36,5 +44,9 @@ public class Adocao {
      @Override
      public String toString() {
           return "ID Gato: " + idGato + " | Adotante: " + nomeAdotante + " | Data: " + dataAdocao;
+     }
+
+     public void setIdGato(int idGato) {
+          this.idGato = idGato;
      }
 }
