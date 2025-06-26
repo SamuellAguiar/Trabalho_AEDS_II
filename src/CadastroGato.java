@@ -1,14 +1,9 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
 public class CadastroGato {
      private static final String ARQUIVO_GATOS = "gatos.txt";
-     private static int contadorId = 1;
 
      private static int obterProximoId() {
           int maiorId = 0;
@@ -23,26 +18,24 @@ public class CadastroGato {
                }
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("===============================================");
           }
           return maiorId + 1;
      }
 
      public static void cadastrarGatoManual() throws IOException {
-
           Scanner scanner = new Scanner(System.in);
 
-          System.out.print("Nome do gato: \n");
+          System.out.print("Nome do gato: ");
           String nome = scanner.nextLine();
 
-          System.out.print("Raça: \n");
+          System.out.print("Raça: ");
           String raca = scanner.nextLine();
 
-          System.out.print("Idade (em anos): \n");
+          System.out.print("Idade (em anos): ");
           int idade = scanner.nextInt();
           scanner.nextLine();
 
-          System.out.print("Sexo (M/F): \n");
+          System.out.print("Sexo (M/F): ");
           String sexo = scanner.nextLine();
 
           int id = obterProximoId();
@@ -68,33 +61,37 @@ public class CadastroGato {
 
           Gato gato = new Gato(id, nome, raca, idade, sexo, false);
           salvarGatoNoArquivo(gato);
-          System.out.println("===============================================");
           System.out.println("Gato aleatório cadastrado com sucesso!");
      }
 
      private static void salvarGatoNoArquivo(Gato gato) throws IOException {
-          BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS, true));
-          writer.write(gato.toCSV());
-          writer.newLine();
-          writer.close();
+          try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS, true))) {
+               writer.write(gato.toCSV());
+               writer.newLine();
+          }
      }
 
      public static void editarGato() {
           Scanner scanner = new Scanner(System.in);
           OperacoesArquivo.listarGatos();
+
           System.out.print("Digite o ID do gato que deseja editar: ");
           int idParaEditar = scanner.nextInt();
           scanner.nextLine();
 
-          StringBuilder conteudoAtualizado = new StringBuilder();
           boolean encontrado = false;
 
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+          File original = new File(ARQUIVO_GATOS);
+          File temp = new File("gatos_temp.txt");
+
+          try (
+                    BufferedReader reader = new BufferedReader(new FileReader(original));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(temp))) {
                String linha;
                while ((linha = reader.readLine()) != null) {
                     String[] campos = linha.split(";");
-
                     int id = Integer.parseInt(campos[0]);
+
                     if (id == idParaEditar) {
                          encontrado = true;
                          System.out.println("Gato encontrado: " + linha);
@@ -133,21 +130,21 @@ public class CadastroGato {
                          linha = String.join(";", campos);
                     }
 
-                    conteudoAtualizado.append(linha).append("\n");
+                    writer.write(linha);
+                    writer.newLine();
                }
+
           } catch (IOException e) {
-               System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("Erro ao editar o arquivo: " + e.getMessage());
                return;
           }
 
           if (encontrado) {
-               try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
-                    writer.write(conteudoAtualizado.toString());
-                    System.out.println("Gato atualizado com sucesso!");
-               } catch (IOException e) {
-                    System.out.println("Erro ao escrever no arquivo: " + e.getMessage());
-               }
+               original.delete();
+               temp.renameTo(original);
+               System.out.println("Gato atualizado com sucesso!");
           } else {
+               temp.delete();
                System.out.println("Gato com ID " + idParaEditar + " não encontrado.");
           }
      }
@@ -155,14 +152,19 @@ public class CadastroGato {
      public static void excluirGato() {
           Scanner scanner = new Scanner(System.in);
           OperacoesArquivo.listarGatos();
+
           System.out.print("Digite o ID do gato que deseja excluir: ");
           int idParaExcluir = scanner.nextInt();
           scanner.nextLine();
 
-          StringBuilder conteudoAtualizado = new StringBuilder();
           boolean encontrado = false;
 
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+          File original = new File(ARQUIVO_GATOS);
+          File temp = new File("gatos_temp.txt");
+
+          try (
+                    BufferedReader reader = new BufferedReader(new FileReader(original));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(temp))) {
                String linha;
                while ((linha = reader.readLine()) != null) {
                     String[] campos = linha.split(";");
@@ -171,24 +173,23 @@ public class CadastroGato {
                     if (id == idParaExcluir) {
                          encontrado = true;
                          System.out.println("Gato com ID " + idParaExcluir + " será excluído.");
-                         continue; 
+                         continue; // Pula a escrita
                     }
 
-                    conteudoAtualizado.append(linha).append("\n");
+                    writer.write(linha);
+                    writer.newLine();
                }
           } catch (IOException e) {
-               System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+               System.out.println("Erro ao excluir do arquivo: " + e.getMessage());
                return;
           }
 
           if (encontrado) {
-               try (BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
-                    writer.write(conteudoAtualizado.toString());
-                    System.out.println("Gato excluído com sucesso!");
-               } catch (IOException e) {
-                    System.out.println("Erro ao escrever no arquivo: " + e.getMessage());
-               }
+               original.delete();
+               temp.renameTo(original);
+               System.out.println("Gato excluído com sucesso!");
           } else {
+               temp.delete();
                System.out.println("Gato com ID " + idParaExcluir + " não encontrado.");
           }
      }
