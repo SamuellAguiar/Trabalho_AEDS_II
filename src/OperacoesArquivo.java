@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -171,10 +172,8 @@ public class OperacoesArquivo {
           return null;
      }
 
-
      private static final String ARQ_GATOS = "gatos.txt";
      private static final String ARQ_ADOCOES = "adocoes.txt";
-
 
      public static void editarAdocao() {
           Scanner sc = new Scanner(System.in);
@@ -182,30 +181,41 @@ public class OperacoesArquivo {
           int id = sc.nextInt();
           sc.nextLine();
 
-          List<Adocao> lista = new ArrayList<>();
           boolean encontrado = false;
 
+          File arquivoOriginal = new File(ARQ_ADOCOES);
+          File arquivoTemp = new File("adocoes_temp.txt");
 
-          try (BufferedReader br = new BufferedReader(new FileReader(ARQ_ADOCOES))) {
-               String l;
-               while ((l = br.readLine()) != null) {
-                    Adocao a = Adocao.fromCSV(l);
-                    if (a.getIdGato() == id) { 
+          try (
+                    BufferedReader br = new BufferedReader(new FileReader(arquivoOriginal));
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoTemp))) {
+               String linha;
+
+               while ((linha = br.readLine()) != null) {
+                    Adocao a = Adocao.fromCSV(linha);
+
+                    if (a.getIdGato() == id) {
                          System.out.println("Registro atual: " + a);
+
                          System.out.print("Novo nome do adotante (Enter = manter): ");
                          String novoNome = sc.nextLine();
-                         if (!novoNome.isBlank())
-                              a = new Adocao(id, novoNome, a.getDataAdocao());
+                         if (!novoNome.isBlank()) {
+                              a.setNomeAdotante(novoNome);
+                         }
 
                          System.out.print("Nova data (aaaa‑MM‑dd, Enter = manter): ");
                          String novaData = sc.nextLine();
-                         if (!novaData.isBlank())
-                              a = new Adocao(id, a.getNomeAdotante(), novaData);
+                         if (!novaData.isBlank()) {
+                              a.setDataAdocao(novaData);
+                         }
 
                          encontrado = true;
                     }
-                    lista.add(a);
+
+                    bw.write(a.toCSV());
+                    bw.newLine();
                }
+
           } catch (IOException e) {
                System.out.println("Erro: " + e.getMessage());
                return;
@@ -213,18 +223,13 @@ public class OperacoesArquivo {
 
           if (!encontrado) {
                System.out.println("ID não encontrado.");
+               arquivoTemp.delete();
                return;
           }
 
-          try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
-               for (Adocao a : lista) {
-                    bw.write(a.toCSV());
-                    bw.newLine();
-               }
-          } catch (IOException e) {
-               System.out.println("Erro: " + e.getMessage());
-               return;
-          }
+          // Substitui o arquivo original
+          arquivoOriginal.delete();
+          arquivoTemp.renameTo(arquivoOriginal);
 
           System.out.println("Adoção atualizada com sucesso!");
      }
@@ -234,65 +239,62 @@ public class OperacoesArquivo {
           System.out.print("Informe o ID do gato cuja adoção será excluída: ");
           int id = sc.nextInt();
 
-          List<Adocao> adocoes = new ArrayList<>();
           boolean removido = false;
 
+          // === Atualiza o arquivo de adoções ===
+          File arquivoOriginal = new File(ARQ_ADOCOES);
+          File arquivoTemp = new File("adocoes_temp.txt");
 
-          try (BufferedReader br = new BufferedReader(new FileReader(ARQ_ADOCOES))) {
-               String l;
-               while ((l = br.readLine()) != null) {
-                    Adocao a = Adocao.fromCSV(l);
+          try (
+                    BufferedReader br = new BufferedReader(new FileReader(arquivoOriginal));
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoTemp))) {
+               String linha;
+               while ((linha = br.readLine()) != null) {
+                    Adocao a = Adocao.fromCSV(linha);
                     if (a.getIdGato() == id) {
                          removido = true;
-                         continue;
+                         continue; // Pula a escrita (exclui)
                     }
-                    adocoes.add(a);
+                    bw.write(a.toCSV());
+                    bw.newLine();
                }
           } catch (IOException e) {
-               System.out.println("Erro: " + e.getMessage());
+               System.out.println("Erro ao processar adoções: " + e.getMessage());
                return;
           }
 
           if (!removido) {
                System.out.println("Adoção não encontrada.");
+               arquivoTemp.delete();
                return;
           }
 
+          arquivoOriginal.delete();
+          arquivoTemp.renameTo(arquivoOriginal);
 
-          try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQ_ADOCOES, false))) {
-               for (Adocao a : adocoes) {
-                    bw.write(a.toCSV());
-                    bw.newLine();
-               }
-          } catch (IOException e) {
-               System.out.println("Erro: " + e.getMessage());
-               return;
-          }
+          // === Atualiza o arquivo de gatos (marca como disponível) ===
+          File gatosOriginal = new File(ARQ_GATOS);
+          File gatosTemp = new File("gatos_temp.txt");
 
-
-          List<Gato> gatos = new ArrayList<>();
-          try (BufferedReader br = new BufferedReader(new FileReader(ARQ_GATOS))) {
-               String l;
-               while ((l = br.readLine()) != null) {
-                    Gato g = Gato.fromCSV(l);
-                    if (g.getId() == id)
-                         g.setAdotado(false);
-                    gatos.add(g);
-               }
-          } catch (IOException e) {
-               System.out.println("Erro: " + e.getMessage());
-               return;
-          }
-
-          try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQ_GATOS, false))) {
-               for (Gato g : gatos) {
+          try (
+                    BufferedReader br = new BufferedReader(new FileReader(gatosOriginal));
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(gatosTemp))) {
+               String linha;
+               while ((linha = br.readLine()) != null) {
+                    Gato g = Gato.fromCSV(linha);
+                    if (g.getId() == id) {
+                         g.setAdotado(false); // Marca como disponível
+                    }
                     bw.write(g.toCSV());
                     bw.newLine();
                }
           } catch (IOException e) {
-               System.out.println("Erro: " + e.getMessage());
+               System.out.println("Erro ao atualizar status do gato: " + e.getMessage());
                return;
           }
+
+          gatosOriginal.delete();
+          gatosTemp.renameTo(gatosOriginal);
 
           System.out.println("Adoção excluída e gato marcado como disponível!");
      }
