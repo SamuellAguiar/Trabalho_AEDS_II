@@ -1,31 +1,60 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
 
 public class Buscas {
      private static final String ARQUIVO_GATOS = "gatos.txt";
      private static final String ARQUIVO_INDICE = "indice.txt";
 
-     public static void gerarIndice() {
-          try (RandomAccessFile raf = new RandomAccessFile(ARQUIVO_GATOS, "r");
+     public static void gerarIndiceOrdenado() {
+          try (
+                    BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS));
                     BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_INDICE))) {
-
-               String linha;
+               RandomAccessFile raf = new RandomAccessFile(ARQUIVO_GATOS, "r");
                long posicao = 0;
+               String linha;
+
+               File temp = new File("indice_temp.txt");
+               BufferedWriter tempWriter = new BufferedWriter(new FileWriter(temp));
 
                while ((linha = raf.readLine()) != null) {
                     String[] partes = linha.split(";");
                     if (partes.length > 0) {
-                         writer.write(partes[0] + ";" + posicao + "\n");
+                         tempWriter.write(partes[0] + ";" + posicao + "\n");
                     }
                     posicao = raf.getFilePointer();
                }
 
+               tempWriter.close();
+
+               // Agora ordenamos o arquivo temporário e salvamos no final
+               ordenarArquivoIndice(temp, new File(ARQUIVO_INDICE));
+               temp.delete();
+
           } catch (IOException e) {
-               System.out.println("Erro ao gerar o índice: " + e.getMessage());
+               System.out.println("Erro ao gerar índice: " + e.getMessage());
           }
+     }
+
+     // Ordena o arquivo índice em disco (por ID crescente)
+     private static void ordenarArquivoIndice(File origem, File destino) throws IOException {
+          // Lê as linhas
+          BufferedReader reader = new BufferedReader(new FileReader(origem));
+          PrintWriter writer = new PrintWriter(new FileWriter(destino));
+          String[] linhas = reader.lines().toArray(String[]::new);
+          reader.close();
+
+          // Ordena por ID
+          java.util.Arrays.sort(linhas, (a, b) -> {
+               int idA = Integer.parseInt(a.split(";")[0]);
+               int idB = Integer.parseInt(b.split(";")[0]);
+               return Integer.compare(idA, idB);
+          });
+
+          // Escreve no destino
+          for (String linha : linhas) {
+               writer.println(linha);
+          }
+          writer.close();
      }
 
      public static void buscarSequencial() {
@@ -61,14 +90,7 @@ public class Buscas {
           }
 
           long fimTempo = System.nanoTime();
-          long duracao = fimTempo - inicioTempo;
-
-          if (!encontrado) {
-               System.out.println("===============================================");
-               System.out.println("Gato com ID " + idBusca + " não encontrado.");
-          }
-
-          salvarLog("Sequencial", "log_busca_sequencial.txt", idBusca, encontrado, comparacoes, duracao);
+          salvarLog("Sequencial", "log_busca_sequencial.txt", idBusca, encontrado, comparacoes, fimTempo - inicioTempo);
      }
 
      public static void buscarBinaria() {
@@ -79,46 +101,52 @@ public class Buscas {
           System.out.print("Digite o ID do gato que deseja buscar: ");
           int idBusca = scanner.nextInt();
 
-          gerarIndice(); 
+          gerarIndiceOrdenado(); // Cria o índice ordenado
 
           int comparacoes = 0;
           boolean encontrado = false;
+          long posicao = -1;
+
           long inicioTempo = System.nanoTime();
-          long posicaoEncontrada = -1;
 
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_INDICE))) {
-               List<String> linhasIndice = new ArrayList<>();
-               String linha;
-               while ((linha = reader.readLine()) != null) {
-                    linhasIndice.add(linha);
-               }
-
-               linhasIndice.sort(Comparator.comparingInt(l -> Integer.parseInt(l.split(";")[0])));
-
-               int inicio = 0;
-               int fim = linhasIndice.size() - 1;
+          try (RandomAccessFile indice = new RandomAccessFile(ARQUIVO_INDICE, "r")) {
+               long tamanho = indice.length();
+               long inicio = 0;
+               long fim = tamanho;
 
                while (inicio <= fim) {
-                    int meio = (inicio + fim) / 2;
+                    long meio = (inicio + fim) / 2;
+
+                    // Ajustar ponteiro para o início de uma linha
+                    indice.seek(meio);
+                    if (meio != 0)
+                         indice.readLine(); // descarta linha incompleta
+
+                    long posAtual = indice.getFilePointer();
+                    String linha = indice.readLine();
+
+                    if (linha == null)
+                         break;
+
                     comparacoes++;
 
-                    String[] partes = linhasIndice.get(meio).split(";");
-                    int id = Integer.parseInt(partes[0]);
+                    String[] partes = linha.split(";");
+                    int idAtual = Integer.parseInt(partes[0]);
 
-                    if (id == idBusca) {
-                         posicaoEncontrada = Long.parseLong(partes[1]);
+                    if (idAtual == idBusca) {
+                         posicao = Long.parseLong(partes[1]);
                          encontrado = true;
                          break;
-                    } else if (id < idBusca) {
-                         inicio = meio + 1;
+                    } else if (idBusca < idAtual) {
+                         fim = posAtual - 1;
                     } else {
-                         fim = meio - 1;
+                         inicio = indice.getFilePointer();
                     }
                }
 
                if (encontrado) {
                     try (RandomAccessFile raf = new RandomAccessFile(ARQUIVO_GATOS, "r")) {
-                         raf.seek(posicaoEncontrada);
+                         raf.seek(posicao);
                          String linhaGato = raf.readLine();
                          System.out.println("===============================================");
                          System.out.println("Gato encontrado:");
@@ -135,9 +163,7 @@ public class Buscas {
           }
 
           long fimTempo = System.nanoTime();
-          long duracao = fimTempo - inicioTempo;
-
-          salvarLog("Binária", "log_busca_binaria.txt", idBusca, encontrado, comparacoes, duracao);
+          salvarLog("Binária", "log_busca_binaria.txt", idBusca, encontrado, comparacoes, fimTempo - inicioTempo);
      }
 
      private static void salvarLog(String tipoBusca, String nomeArquivo, int id, boolean encontrado, int comparacoes,
@@ -153,7 +179,6 @@ public class Buscas {
                bw.write("-----------------------------\n");
           } catch (IOException e) {
                System.out.println("Erro ao escrever no log: " + e.getMessage());
-               System.out.println("===============================================");
           }
      }
 
