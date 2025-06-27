@@ -33,7 +33,7 @@ public class AdocaoGato {
           System.out.print("Digite o nome do adotante: ");
           String nomeAdotante = scanner.nextLine();
 
-          System.out.print("Digite a data da adoção (dd/mm/aaaa): ");
+          System.out.print("Digite a data da adoção (dd-mm-aaaa): ");
           String dataAdocao = scanner.nextLine();
 
           Adocao adocao = new Adocao(idGato, nomeAdotante, dataAdocao);
