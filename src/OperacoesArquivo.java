@@ -55,7 +55,7 @@ public class OperacoesArquivo {
                     if (partes.length == 6 && partes[5].equalsIgnoreCase("false")) {
                          System.out.println("ID: " + partes[0]);
                          System.out.println("Nome: " + partes[1]);
-                         System.out.println("Idade: " + partes[2] + " anos");
+                         System.out.println("Idade: " + partes[2] + " meses");
                          System.out.println("Raça: " + partes[3]);
                          System.out.println("Cor: " + partes[4]);
                          System.out.println("-----------------------------------------------");
