@@ -31,7 +31,7 @@ public class CadastroGato {
           System.out.print("Raça: ");
           String raca = scanner.nextLine();
 
-          System.out.print("Idade (em anos): ");
+          System.out.print("Idade (em meses): ");
           int idade = scanner.nextInt();
           scanner.nextLine();
 
