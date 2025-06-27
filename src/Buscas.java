@@ -41,7 +41,6 @@ public class Buscas {
           boolean encontrado = false;
           long inicio = System.nanoTime();
 
-
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
                String linha;
                while ((linha = reader.readLine()) != null) {
@@ -142,13 +141,17 @@ public class Buscas {
           }
      }
 
-     private static void salvarLog(String tipo, String arquivoLog, int id, boolean found, int comps, long tempo) {
+     private static void salvarLog(String tipo, String arquivoLog, int id, boolean found, int comps, long tempoNano) {
+          double tempoMs = tempoNano / 1_000_000.0;
+          double tempoSec = tempoNano / 1_000_000_000.0;
           try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoLog, false))) {
                bw.write("=== Busca " + tipo + " ===\n");
                bw.write("ID: " + id + "\n");
                bw.write("Encontrado: " + (found ? "Sim" : "Não") + "\n");
                bw.write("Comparações: " + comps + "\n");
-               bw.write("Tempo (ns): " + tempo + "\n");
+               bw.write(String.format("Tempo: %d ns\n", tempoNano));
+               bw.write(String.format("Tempo: %.3f ms\n", tempoMs));
+               bw.write(String.format("Tempo: %.3f s\n", tempoSec));
           } catch (IOException e) {
                System.out.println("Erro ao escrever log: " + e.getMessage());
           }
