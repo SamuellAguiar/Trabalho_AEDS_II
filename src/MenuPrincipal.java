@@ -54,25 +54,19 @@ public class MenuPrincipal {
                               OperacoesArquivo.contarResumoDeAdocoes();
                               break;
                          case 12:
-                              GerarBasesDesordenados.gerarBaseDeDados();
+                              // Chama a verificação, geração ou desordenação em disco
+                              GerenciarBases.verificarOuGerarOuDesordenar();
                               break;
                          case 13:
-                              GerarBasesOrdenadas.gerarOuOrdenarBases();
-                              break;
-                         case 14:
-                              GerarBasesOrdenadas.restaurarEstadoOriginal();
-                              break;
-                         case 15:
                               Buscas.buscarSequencial();
                               break;
-                         case 16:
+                         case 14:
                               Buscas.buscarBinaria();
                               break;
                          case 0:
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
                               break;
-
                          default:
                               System.out.println("===============================================");
                               System.out.println("Opção inválida. Por favor, escolha uma opção do menu.");
@@ -109,19 +103,17 @@ public class MenuPrincipal {
           System.out.println(" 5.  Editar um gato");
           System.out.println(" 6.  Excluir um gato ");
           System.out.println(" 7.  Registrar adoção de um gato ");
-          System.out.println(" 8.  Listar Adoções ");
+          System.out.println(" 8.  Listar adoções ");
           System.out.println(" 9.  Editar uma adoção ");
-          System.out.println(" 10.  Excluir uma adoção ");
-          System.out.println(" 11.  Exibir resumo de adoções ");
+          System.out.println(" 10. Excluir uma adoção ");
+          System.out.println(" 11. Exibir resumo de adoções ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Bases de dados ");
-          System.out.println(" 12.  Gerar base de dados aleatória ");
-          System.out.println(" 13.  Gerar base de dados ordenada ");
-          System.out.println(" 14.  Restaurar base de dados original ");
+          System.out.println(" 12. Verificar/Gerar/Desordenar base de dados ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Buscas ");
-          System.out.println(" 15.  Buscar gato por ID (sequencial) ");
-          System.out.println(" 16.  Buscar gato por ID (binária) ");
+          System.out.println(" 13. Buscar gato por ID (sequencial) ");
+          System.out.println(" 14. Buscar gato por ID (binária) ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
@@ -130,14 +122,12 @@ public class MenuPrincipal {
      private static void limparTela() {
           try {
                String os = System.getProperty("os.name");
-
                if (os.contains("Windows")) {
                     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
                } else {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
                }
-
           } catch (Exception e) {
                for (int i = 0; i < 50; i++) {
                     System.out.println();
