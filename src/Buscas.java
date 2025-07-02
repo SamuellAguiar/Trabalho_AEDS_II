@@ -6,7 +6,6 @@ public class Buscas {
      private static final String ARQUIVO_INDICE = "indice.txt";
 
      public static void gerarIndiceOrdenado() {
-          // Gera índice não ordenado
           try (RandomAccessFile raf = new RandomAccessFile(ARQUIVO_GATOS, "r");
                     BufferedWriter writer = new BufferedWriter(new FileWriter(ARQUIVO_INDICE, false))) {
                long posicao = 0;
@@ -21,7 +20,6 @@ public class Buscas {
                System.out.println("Erro ao gerar índice: " + e.getMessage());
                return;
           }
-          // Ordena índice em disco usando Bubble Sort
           try {
                GerenciarBases.bubbleSortEmDisco(ARQUIVO_INDICE);
           } catch (IOException e) {
@@ -69,7 +67,6 @@ public class Buscas {
           System.out.print("Digite o ID do gato que deseja buscar: ");
           int idBusca = scanner.nextInt();
 
-          // Gera e ordena índice
           gerarIndiceOrdenado();
 
           int comparacoes = 0;
@@ -167,7 +164,4 @@ public class Buscas {
           System.out.println("-----------------------------------------------");
      }
 
-     public static void main(String[] args) {
-          buscarBinaria(); // ou buscarSequencial();
-     }
 }
