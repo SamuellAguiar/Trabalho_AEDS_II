@@ -35,7 +35,7 @@ Este projeto é um sistema desenvolvido em Java para gerenciar a adoção de gat
   - `AdocaoGato.java`: Gerencia o processo de adoção de gatos.
   - `OperacoesArquivo.java`: Realiza operações como listagem e contagem de gatos.
   - `Buscas.java`: Implementa as buscas sequencial e binária.
-  - `GeradorDeGatosOrdenados.java` e `GeradorDeGatosDesordenados.java`: Geram bases de dados para testes.
+  - `GerenciarBases.java`: Geram bases de dados para testes.
   - `Gato.java`: Representa a entidade "Gato".
   - `Adocao.java`: Representa a entidade "Adoção".
 
