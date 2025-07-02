@@ -68,7 +68,6 @@ public class AdocaoGato {
           return null;
      }
 
-     // 💡 100% DISCO: usa arquivo temporário para alterar uma linha
      private static void atualizarStatusGatoEmDisco(int idGato) {
           File arquivoOriginal = new File(ARQUIVO_GATOS);
           File arquivoTemp = new File("gatos_temp.txt");
@@ -90,7 +89,6 @@ public class AdocaoGato {
                return;
           }
 
-          // Substitui o original
           if (!arquivoOriginal.delete()) {
                System.out.println("Erro ao deletar o arquivo original.");
                return;
