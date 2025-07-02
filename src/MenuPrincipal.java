@@ -54,7 +54,6 @@ public class MenuPrincipal {
                               OperacoesArquivo.contarResumoDeAdocoes();
                               break;
                          case 12:
-                              // Chama a verificação, geração ou desordenação em disco
                               GerenciarBases.verificarOuGerarOuDesordenar();
                               break;
                          case 13:
