@@ -16,10 +16,9 @@ public class GerenciarBases {
     };
     private static final String[] SEXOS = { "M","F" };
     private static final String[] ADOTANTES = {
-        "João","Maria","Lucas","Ana","Gabriel","Paula","Rafaela","Bruno"
+        "Joao","Maria","Lucas","Ana","Gabriel","Paula","Rafaela","Bruno"
     };
 
-    /** Gera bases ordenadas por ID em disco. */
     public static void gerarBaseOrdenadaEmDisco(int qtd) throws IOException {
         if (qtd != 10 && qtd != 100 && qtd != 1000) {
             throw new IllegalArgumentException("Quantidade inválida: " + qtd);
@@ -36,12 +35,10 @@ public class GerenciarBases {
                 String sexo = SEXOS[rnd.nextInt(SEXOS.length)];
                 boolean adotado = rnd.nextBoolean();
 
-                // grava gato
                 String linhaGato = String.join(";", 
                     String.valueOf(id), nome, raca, String.valueOf(idade), sexo, String.valueOf(adotado));
                 gat.write(linhaGato); gat.newLine();
 
-                // grava adoção
                 if (adotado) {
                     String adotante = ADOTANTES[rnd.nextInt(ADOTANTES.length)];
                     String data = LocalDate.now()
@@ -55,7 +52,6 @@ public class GerenciarBases {
         }
     }
 
-    /** Ordena o arquivo em disco por ID usando Bubble Sort em disco. */
     public static void bubbleSortEmDisco(String arquivo) throws IOException {
         File orig = new File(arquivo);
         boolean trocou;
@@ -97,7 +93,6 @@ public class GerenciarBases {
         catch(Exception e){ return Integer.MAX_VALUE; }
     }
 
-    /** Embaralha o arquivo em disco usando Fisher–Yates via swaps em disco. */
     public static void desordenarArquivo(String arquivo) throws IOException {
         int total = contarLinhas(arquivo);
         Random rnd = new Random();
@@ -114,7 +109,6 @@ public class GerenciarBases {
         }
     }
 
-    /** Troca duas linhas pos1 e pos2 em disco via arquivo temporário. */
     private static void swapLinhasEmDisco(String arquivo, int pos1, int pos2)
             throws IOException {
         if (pos1>pos2) { int t=pos1; pos1=pos2; pos2=t; }
@@ -148,7 +142,6 @@ public class GerenciarBases {
         if (!tmp.renameTo(orig)) throw new IOException("Erro ao renomear swap");
     }
 
-    /** Verifica existência e ordenação, gera ou ordena ou desordena conforme escolha. */
     public static void verificarOuGerarOuDesordenar() throws IOException {
         File fG = new File(ARQ_GATOS), fA = new File(ARQ_ADOCOES);
         Scanner sc = new Scanner(System.in);
@@ -159,7 +152,6 @@ public class GerenciarBases {
             System.out.println("Base gerada e ordenada.");
         }
         else {
-            // apenas gato pois adoções seguem mesmos IDs
             if (estaOrdenadoPorId(ARQ_GATOS)) {
                 System.out.print("Já está ordenado. Desordenar? (s/n): ");
                 if (sc.nextLine().equalsIgnoreCase("s")) {
