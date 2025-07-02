@@ -227,7 +227,6 @@ public class OperacoesArquivo {
                return;
           }
 
-          // Substitui o arquivo original
           arquivoOriginal.delete();
           arquivoTemp.renameTo(arquivoOriginal);
 
@@ -241,7 +240,6 @@ public class OperacoesArquivo {
 
           boolean removido = false;
 
-          // === Atualiza o arquivo de adoções ===
           File arquivoOriginal = new File(ARQ_ADOCOES);
           File arquivoTemp = new File("adocoes_temp.txt");
 
@@ -253,7 +251,7 @@ public class OperacoesArquivo {
                     Adocao a = Adocao.fromCSV(linha);
                     if (a.getIdGato() == id) {
                          removido = true;
-                         continue; // Pula a escrita (exclui)
+                         continue; 
                     }
                     bw.write(a.toCSV());
                     bw.newLine();
@@ -272,7 +270,6 @@ public class OperacoesArquivo {
           arquivoOriginal.delete();
           arquivoTemp.renameTo(arquivoOriginal);
 
-          // === Atualiza o arquivo de gatos (marca como disponível) ===
           File gatosOriginal = new File(ARQ_GATOS);
           File gatosTemp = new File("gatos_temp.txt");
 
@@ -283,7 +280,7 @@ public class OperacoesArquivo {
                while ((linha = br.readLine()) != null) {
                     Gato g = Gato.fromCSV(linha);
                     if (g.getId() == id) {
-                         g.setAdotado(false); // Marca como disponível
+                         g.setAdotado(false); 
                     }
                     bw.write(g.toCSV());
                     bw.newLine();
