@@ -15,24 +15,27 @@ public class OperacoesArquivo {
           System.out.println("Lista de Gatos Cadastrados:");
           System.out.println("===============================================");
 
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+          try (BufferedReader reader = new BufferedReader(new FileReader("gatos.txt"))) {
                String linha;
                boolean vazio = true;
 
                while ((linha = reader.readLine()) != null) {
                     Gato g = Gato.fromCSV(linha);
-                    System.out.println(g.toString());
-                    vazio = false;
+                    Gato encontrado = Buscas.buscarSequencialPorId(g.getId());
+                    if (encontrado != null) {
+                         System.out.println(encontrado);
+                         vazio = false;
+                    }
                }
 
                if (vazio) {
                     System.out.println("Nenhum gato cadastrado.");
                }
-               System.out.println("===============================================");
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("===============================================");
           }
+
+          System.out.println("===============================================");
      }
 
      public static void listarGatosDisponiveisParaAdocao() {
@@ -40,23 +43,15 @@ public class OperacoesArquivo {
           System.out.println("       GATOS DISPONÍVEIS PARA ADOÇÃO");
           System.out.println("===============================================");
 
-          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+          try (BufferedReader reader = new BufferedReader(new FileReader("gatos.txt"))) {
                String linha;
                boolean encontrou = false;
 
                while ((linha = reader.readLine()) != null) {
-                    String[] partes = linha.split(";");
-                    for (int i = 0; i < partes.length; i++) {
-                         partes[i] = partes[i].trim();
-                    }
-
-                    if (partes.length == 6 && partes[5].equalsIgnoreCase("false")) {
-                         System.out.println("ID: " + partes[0]);
-                         System.out.println("Nome: " + partes[1]);
-                         System.out.println("Idade: " + partes[2] + " meses");
-                         System.out.println("Raça: " + partes[3]);
-                         System.out.println("Cor: " + partes[4]);
-                         System.out.println("-----------------------------------------------");
+                    Gato g = Gato.fromCSV(linha);
+                    Gato encontrado = Buscas.buscarSequencialPorId(g.getId());
+                    if (encontrado != null && !encontrado.isAdotado()) {
+                         exibirGato(encontrado);
                          encontrou = true;
                     }
                }
@@ -64,13 +59,11 @@ public class OperacoesArquivo {
                if (!encontrou) {
                     System.out.println("Nenhum gato disponível para adoção no momento.");
                }
-
-               System.out.println("===============================================");
-
           } catch (IOException e) {
                System.out.println("Erro ao ler o arquivo: " + e.getMessage());
-               System.out.println("===============================================");
           }
+
+          System.out.println("===============================================");
      }
 
      public static void contarResumoDeAdocoes() {
@@ -134,12 +127,7 @@ public class OperacoesArquivo {
                     System.out.printf("Adoção do dia %s\n", adocao.getDataAdocao());
                     System.out.printf("Adotante : %s\n", adocao.getNomeAdotante());
                     System.out.println("-----------------------------------------------------");
-                    System.out.printf("Gato     : %s (ID %d)\n", gato.getNome(), gato.getId());
-                    System.out.printf("Raça     : %s\n", gato.getRaca());
-                    System.out.printf("Idade    : %d meses\n", gato.getIdade());
-                    System.out.printf("Sexo     : %s\n", gato.getSexo());
-                    System.out.printf("Status   : %s\n", gato.isAdotado() ? "Adotado" : "Disponível");
-                    System.out.println("---------------------------------------------------\n");
+                    exibirGato(gato);
 
                     vazio = false;
                }
@@ -249,7 +237,7 @@ public class OperacoesArquivo {
                     Adocao a = Adocao.fromCSV(linha);
                     if (a.getIdGato() == id) {
                          removido = true;
-                         continue; 
+                         continue;
                     }
                     bw.write(a.toCSV());
                     bw.newLine();
@@ -278,7 +266,7 @@ public class OperacoesArquivo {
                while ((linha = br.readLine()) != null) {
                     Gato g = Gato.fromCSV(linha);
                     if (g.getId() == id) {
-                         g.setAdotado(false); 
+                         g.setAdotado(false);
                     }
                     bw.write(g.toCSV());
                     bw.newLine();
@@ -292,6 +280,17 @@ public class OperacoesArquivo {
           gatosTemp.renameTo(gatosOriginal);
 
           System.out.println("Adoção excluída e gato marcado como disponível!");
+     }
+
+     public static void exibirGato(Gato g) {
+          System.out.println("-----------------------------------------------");
+          System.out.println("ID      : " + g.getId());
+          System.out.println("Nome    : " + g.getNome());
+          System.out.println("Raça    : " + g.getRaca());
+          System.out.println("Idade   : " + g.getIdade() + " meses");
+          System.out.println("Sexo    : " + g.getSexo());
+          System.out.println("Adotado : " + (g.isAdotado() ? "Sim" : "Não"));
+          System.out.println("-----------------------------------------------");
      }
 
 }
