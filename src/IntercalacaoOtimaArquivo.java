@@ -128,12 +128,15 @@ public class IntercalacaoOtimaArquivo {
     private static void apagarParticoes(String prefixo) {
         File dir = new File(".");
         for (File f : dir.listFiles()) {
-            if (f.getName().startsWith(prefixo + "_part") && f.getName().endsWith(".txt")) {
+            String nome = f.getName();
+            // Apagar arquivos _part e arquivos _saida intermediários
+            if ((nome.startsWith(prefixo + "_part") || nome.startsWith(prefixo + "_saida"))
+                    && nome.endsWith(".txt")) {
                 boolean deletado = f.delete();
                 if (deletado) {
-                    System.out.println("[INFO] Arquivo de partição apagado: " + f.getName());
+                    System.out.println("[INFO] Arquivo temporário apagado: " + f.getName());
                 } else {
-                    System.out.println("[ERRO] Falha ao apagar partição: " + f.getName());
+                    System.out.println("[ERRO] Falha ao apagar arquivo temporário: " + f.getName());
                 }
             }
         }
