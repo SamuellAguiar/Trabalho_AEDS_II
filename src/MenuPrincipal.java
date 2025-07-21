@@ -62,6 +62,12 @@ public class MenuPrincipal {
                          case 14:
                               Buscas.buscarBinaria();
                               break;
+                         case 15:
+                              SelecaoNaturalArquivo.gerarParticoes();
+                              break;
+                         case 16:
+                              IntercalacaoOtimaArquivo.intercalar();
+                              break;
                          case 0:
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
@@ -113,6 +119,10 @@ public class MenuPrincipal {
           System.out.println(" Buscas ");
           System.out.println(" 13. Buscar gato por ID (sequencial) ");
           System.out.println(" 14. Buscar gato por ID (binária) ");
+          System.out.println("-----------------------------------------------");
+          System.out.println("Ordenação e Intercalação");
+          System.out.println(" 15. Ordenar e intercalar arquivos de gatos e adoções ");
+          System.out.println(" 16. Intercalar arquivos de gatos e adoções ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
