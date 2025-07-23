@@ -20,6 +20,12 @@ public class GerenciarBases {
     };
 
     public static void escolha() throws IOException {
+        File fG = new File(ARQ_GATOS), fA = new File(ARQ_ADOCOES);
+        if (fG.exists() && fA.exists()) {
+            System.out.println("Os arquivos já foram criados. Retornando ao menu principal.");
+            return;
+        }
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Digite a quantidade de registros (10/100/1000/10000): ");
         int qtd = sc.nextInt();
@@ -77,7 +83,7 @@ public class GerenciarBases {
     public static void bubbleSortEmDisco(String arquivo) throws IOException {
         File orig = new File(arquivo);
         boolean trocou;
-        long inicio = System.nanoTime(); // Início da contagem
+        long inicio = System.nanoTime();
 
         do {
             trocou = false;
@@ -118,8 +124,8 @@ public class GerenciarBases {
                 throw new IOException("Falha ao renomear " + tmp);
         } while (trocou);
 
-        long fim = System.nanoTime(); // Fim da contagem
-        salvarLog(arquivo, fim - inicio); // Geração do log
+        long fim = System.nanoTime();
+        salvarLog(arquivo, fim - inicio);
     }
 
     private static int parseKey(String linha) {
