@@ -51,7 +51,6 @@ public class Buscas {
           long inicio = System.nanoTime();
 
           try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
-               // Carregar todos os gatos em memória
                List<Gato> gatos = new ArrayList<>();
                String linha;
                while ((linha = reader.readLine()) != null) {
@@ -59,10 +58,8 @@ public class Buscas {
                     gatos.add(g);
                }
 
-               // Ordenar os gatos por ID
                gatos.sort((g1, g2) -> Integer.compare(g1.getId(), g2.getId()));
 
-               // Busca binária na lista
                int left = 0, right = gatos.size() - 1;
                while (left <= right) {
                     int mid = (left + right) / 2;
