@@ -222,8 +222,9 @@ public class GerenciarBases {
         String logFile = arquivo.replace(".txt", "_BubbleSort.txt");
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, false))) {
-            bw.write("=== Log de Ordenação (Bubble Sort) ===\n");
+            bw.write("=== Log de Ordenacao (Bubble Sort) ===\n");
             bw.write("Arquivo: " + arquivo + "\n");
+            bw.write("Tamanho do arquivo: " + contarLinhas(arquivo) + "\n");
             bw.write(String.format("Tempo total: %d ns\n", tempoNano));
             bw.write(String.format("Tempo total: %.3f ms\n", tempoMs));
             bw.write(String.format("Tempo total: %.3f s\n", tempoSec));

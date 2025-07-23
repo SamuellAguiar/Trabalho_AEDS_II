@@ -1,5 +1,0 @@
-=== Log de IntercalacaoArvore ===
-Fases de intercalação: 3
-Tempo total: 42260500 ns
-Tempo total: 42,261 ms
-Tempo total: 0,042 s
