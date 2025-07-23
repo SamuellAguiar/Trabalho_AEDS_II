@@ -26,21 +26,22 @@ Este projeto é um sistema em Java que simula um processo completo de gerenciame
 - Solicita e armazena dados do adotante.
 
 ### 🧪 Geração e Gerenciamento de Bases
-- Geração de arquivo `gatos.txt` com registros aleatórios e desordenados.
-- Ordenação dos gatos por ID para permitir busca binária.
-- Criação de índice auxiliar com os IDs e posições dos gatos para otimização.
+- Geração automática de `gatos.txt`.
+- Ordenação por ID com:
+  - BubbleSort (interno).
+  - Seleção Natural + Intercalação com Árvore de Vencedores (externo).
 
-### 📊 Resumo Estatístico
-- Exibe contagem de gatos:
-  - Totais cadastrados.
-  - Quantos estão disponíveis para adoção.
-  - Quantos já foram adotados.
 
-### 📝 Logs de Buscas
-- Geração de arquivos:
-  - `log_busca_binaria.txt`
-  - `log_busca_sequencial.txt`
-- Esses logs guardam a quantidade de comparações e o tempo de execução das buscas.
+### 📊 Estatísticas
+- Total de gatos cadastrados.
+- Quantos estão disponíveis.
+- Quantos já foram adotados.
+
+### 📝 Logs de Execução
+- `log_busca_binaria.txt`: Comparações e tempo da busca binária.
+- `log_busca_sequencial.txt`: Comparações e tempo da busca sequencial.
+- `Log_Selecao_Natural.txt`: Partições e tempo da ordenação externa.
+- `Log_Arvore_Vencedores.txt`: Tempo de intercalação final.
 
 ---
 
@@ -48,21 +49,22 @@ Este projeto é um sistema em Java que simula um processo completo de gerenciame
 
 ```
 src/
-├── MenuPrincipal.java          # Menu principal com todas as opções do sistema
-├── CadastroGato.java           # Cadastro manual e automático de gatos
-├── AdocaoGato.java             # Registro de adoções e atualização do status
-├── OperacoesArquivo.java      # Listagens, contagens e manipulação de arquivos
-├── Buscas.java                 # Implementação de busca sequencial e binária
-├── GerenciarBases.java        # Geração e ordenação de base de dados
-├── Gato.java                   # Classe modelo representando um gato
-├── Adocao.java                 # Classe modelo representando uma adoção
+├── MenuPrincipal.java # Menu interativo principal
+├── CadastroGato.java # Cadastro manual e automático
+├── AdocaoGato.java # Registro e controle de adoções
+├── OperacoesArquivo.java # Manipulação geral dos arquivos
+├── Buscas.java # Implementações de busca
+├── GerenciarBases.java # Geração e ordenação externa de bases
+├── Gato.java # Classe modelo Gato
+├── Adocao.java # Classe modelo Adoção
+
 ```
 
-### 📁 Arquivos Criados
-- `gatos.txt` → Gatos cadastrados.
-- `adocoes.txt` → Registros de adoções.
-- `indice.txt` → Índice auxiliar para buscas.
-- `log_busca_binaria.txt` / `log_busca_sequencial.txt` → Log de desempenho das buscas.
+## 📁 Arquivos Gerados
+
+- `gatos.txt`: Lista de gatos cadastrados.
+- `adocoes.txt`: Registros de adoções.
+- Logs: `log_busca_binaria.txt`, `log_busca_sequencial.txt`, `Log_Selecao_Natural.txt`, `Log_Arvore_Vencedores.txt`
 
 ---
 
@@ -85,17 +87,20 @@ src/
 ---
 
 ## 🎯 Objetivo Acadêmico
+Projeto desenvolvido para a disciplina Algoritmos e Estruturas de Dados II com foco em:
 
-Este projeto foi desenvolvido como parte da disciplina **Algoritmos e Estruturas de Dados II**, com foco em:
+Manipulação de arquivos (BufferedReader, RandomAccessFile, etc.).
 
-- Manipulação de arquivos (`BufferedReader`, `BufferedWriter`, `FileReader`, `FileWriter`, `RandomAccessFile`)
-- Estruturas de busca (sequencial e binária)
-- Ordenação externa
-- Simulação prática de um sistema real baseado em persistência de dados
+Estruturas de busca (sequencial e binária).
+
+Ordenação interna e externa.
+
+Simulação de um sistema real com persistência.
 
 ---
 
 ## 👥 Autores
 
-- **Samuell Aguiar**
-- **Gabriel Roberto**
+- **Samuell Aguiar** — [samuell.aguiar@aluno.ufop.edu.br](mailto:samuell.aguiar@aluno.ufop.edu.br)
+
+- **Gabriel Roberto** — [gabriel.candido@aluno.ufop.edu.br](mailto:gabriel.candido@aluno.ufop.edu.br)
