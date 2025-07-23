@@ -19,6 +19,27 @@ public class GerenciarBases {
             "Joao", "Maria", "Lucas", "Ana", "Gabriel", "Paula", "Rafaela", "Bruno"
     };
 
+    public static void escolha() throws IOException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite a quantidade de registros (10/100/1000/10000): ");
+        int qtd = sc.nextInt();
+        System.out.print("A base deve ser ordenada (o) ou desordenada (d)? ");
+        String tipo = sc.next().trim().toLowerCase();
+
+        try {
+            gerarBaseOrdenadaEmDisco(qtd);
+            if (tipo.equals("d")) {
+                desordenarArquivo(ARQ_GATOS);
+                desordenarArquivo(ARQ_ADOCOES);
+                System.out.println("Base criada e desordenada.");
+            } else {
+                System.out.println("Base criada e ordenada.");
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao criar base: " + e.getMessage());
+        }
+    }
+
     public static void gerarBaseOrdenadaEmDisco(int qtd) throws IOException {
         if (qtd != 10 && qtd != 100 && qtd != 1000 && qtd != 10000) {
             throw new IllegalArgumentException("Quantidade inválida: " + qtd);
