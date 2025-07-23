@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.util.*;
 
@@ -5,7 +6,6 @@ public class ArvoreDeVencedores {
 
     public static void intercalar() {
         intercalarComArvoreDeVencedores("gato", "gatos_ordenado.txt");
-        intercalarComArvoreDeVencedores("adocao", "adocoes_ordenado.txt");
     }
 
     private static void intercalarComArvoreDeVencedores(String prefixo, String saidaFinal) {
@@ -14,10 +14,12 @@ public class ArvoreDeVencedores {
         imprimirConteudoArquivos(arquivos);
 
         int fase = 1;
+        long inicio = System.nanoTime();
 
         while (arquivos.size() > 1) {
             List<String> novas = new ArrayList<>();
-            System.out.println("[INFO] Fase " + fase + " da intercalação com árvore de vencedores para '" + prefixo + "'");
+            System.out.println(
+                    "[INFO] Fase " + fase + " da intercalação com árvore de vencedores para '" + prefixo + "'");
 
             for (int i = 0; i < arquivos.size(); i += 3) {
                 List<String> grupo = new ArrayList<>();
@@ -38,9 +40,13 @@ public class ArvoreDeVencedores {
             fase++;
         }
 
+        long fim = System.nanoTime();
+        salvarLogGeral("IntercalacaoArvore", prefixo + "_intercalacao_log.txt", fase - 1, fim - inicio);
+
         if (!arquivos.isEmpty()) {
             File destino = new File(saidaFinal);
-            if (destino.exists()) destino.delete();
+            if (destino.exists())
+                destino.delete();
             boolean sucesso = new File(arquivos.get(0)).renameTo(destino);
             if (sucesso) {
                 System.out.println("[SUCESSO] Arquivo final de '" + prefixo + "' gerado: " + saidaFinal);
@@ -52,7 +58,8 @@ public class ArvoreDeVencedores {
         apagarArquivosTemporarios(prefixo);
     }
 
-    private static void intercalarGrupoComArvoreDeVencedores(List<String> arquivosEntrada, String saida) throws IOException {
+    private static void intercalarGrupoComArvoreDeVencedores(List<String> arquivosEntrada, String saida)
+            throws IOException {
         int n = arquivosEntrada.size();
         BufferedReader[] leitores = new BufferedReader[n];
         String[] linhas = new String[n];
@@ -67,19 +74,23 @@ public class ArvoreDeVencedores {
         while (true) {
             int indiceMenor = -1;
             for (int i = 0; i < n; i++) {
-                if (linhas[i] == null) continue;
+                if (linhas[i] == null)
+                    continue;
                 if (indiceMenor == -1 || compararLinhasPorId(linhas[i], linhas[indiceMenor]) < 0) {
                     indiceMenor = i;
                 }
             }
-            if (indiceMenor == -1) break;
+            if (indiceMenor == -1)
+                break;
 
             writer.write(linhas[indiceMenor]);
             writer.newLine();
             linhas[indiceMenor] = leitores[indiceMenor].readLine();
         }
 
-        for (BufferedReader r : leitores) if (r != null) r.close();
+        for (BufferedReader r : leitores)
+            if (r != null)
+                r.close();
         writer.close();
     }
 
@@ -126,6 +137,20 @@ public class ArvoreDeVencedores {
             } catch (IOException e) {
                 System.out.println("[ERRO] Não foi possível ler " + nomeArquivo + ": " + e.getMessage());
             }
+        }
+    }
+
+    private static void salvarLogGeral(String tipo, String arquivoLog, int fases, long tempoNano) {
+        double tempoMs = tempoNano / 1_000_000.0;
+        double tempoSec = tempoNano / 1_000_000_000.0;
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Log_Arvore_Vencedores.txt", false))) {
+            bw.write("=== Log de Arvore de Vencedores ===\n");
+            bw.write("Fases de intercalacao: " + fases + "\n");
+            bw.write(String.format("Tempo total: %d ns\n", tempoNano));
+            bw.write(String.format("Tempo total: %.3f ms\n", tempoMs));
+            bw.write(String.format("Tempo total: %.3f s\n", tempoSec));
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar log: " + e.getMessage());
         }
     }
 }
