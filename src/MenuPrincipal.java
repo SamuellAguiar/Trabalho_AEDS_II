@@ -54,18 +54,21 @@ public class MenuPrincipal {
                               OperacoesArquivo.contarResumoDeAdocoes();
                               break;
                          case 12:
-                              GerenciarBases.verificarOuGerarOuDesordenar();
+                              GerenciarBases.escolha();
                               break;
                          case 13:
-                              Buscas.buscarSequencial();
+                              GerenciarBases.verificarOuGerarOuDesordenar();
                               break;
                          case 14:
-                              Buscas.buscarBinaria();
+                              Buscas.buscarSequencial();
                               break;
                          case 15:
-                              SelecaoNaturalArquivo.gerarParticoes();
+                              Buscas.buscarBinaria();
                               break;
                          case 16:
+                              SelecaoNaturalArquivo.gerarParticoes();
+                              break;
+                         case 17:
                               ArvoreDeVencedores.intercalar();
                               break;
                          case 0:
@@ -114,15 +117,16 @@ public class MenuPrincipal {
           System.out.println(" 11. Exibir resumo de adoções ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Bases de dados ");
-          System.out.println(" 12. Verificar/Gerar/Desordenar base de dados ");
+          System.out.println(" 12. Verificar/Gerar base de dados ");
+          System.out.println(" 13. Ordenar/Desordenar base de dados ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Buscas ");
-          System.out.println(" 13. Buscar gato por ID (sequencial) ");
-          System.out.println(" 14. Buscar gato por ID (binária) ");
+          System.out.println(" 14. Buscar gato por ID (sequencial) ");
+          System.out.println(" 15. Buscar gato por ID (binária) ");
           System.out.println("-----------------------------------------------");
           System.out.println(" Ordenação e Intercalação");
-          System.out.println(" 15. Selecao Natural ");
-          System.out.println(" 16. Arvore de vencedores ");
+          System.out.println(" 16. Selecao Natural ");
+          System.out.println(" 17. Arvore de vencedores ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
