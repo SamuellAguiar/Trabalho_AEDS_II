@@ -120,7 +120,7 @@ public class MenuPrincipal {
           System.out.println(" 13. Buscar gato por ID (sequencial) ");
           System.out.println(" 14. Buscar gato por ID (binária) ");
           System.out.println("-----------------------------------------------");
-          System.out.println("Ordenação e Intercalação");
+          System.out.println(" Ordenação e Intercalação");
           System.out.println(" 15. Selecao Natural ");
           System.out.println(" 16. Arvore de vencedores ");
           System.out.println("-----------------------------------------------");
