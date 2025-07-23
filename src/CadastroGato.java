@@ -173,7 +173,7 @@ public class CadastroGato {
                     if (id == idParaExcluir) {
                          encontrado = true;
                          System.out.println("Gato com ID " + idParaExcluir + " será excluído.");
-                         continue; // Pula a escrita
+                         continue;
                     }
 
                     writer.write(linha);
