@@ -27,7 +27,7 @@ public class GerenciarBases {
         }
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Digite a quantidade de registros (10/100/1000/10000): ");
+        System.out.print("Digite a quantidade de registros (10/100/1000/10000/100000): ");
         int qtd = sc.nextInt();
         System.out.print("A base deve ser ordenada (o) ou desordenada (d)? ");
         String tipo = sc.next().trim().toLowerCase();
@@ -47,7 +47,7 @@ public class GerenciarBases {
     }
 
     public static void gerarBaseOrdenadaEmDisco(int qtd) throws IOException {
-        if (qtd != 10 && qtd != 100 && qtd != 1000 && qtd != 10000) {
+        if (qtd != 10 && qtd != 100 && qtd != 1000 && qtd != 10000 && qtd != 100000) {
             throw new IllegalArgumentException("Quantidade inválida: " + qtd);
         }
         try (
@@ -208,7 +208,7 @@ public class GerenciarBases {
         File fG = new File(ARQ_GATOS), fA = new File(ARQ_ADOCOES);
         Scanner sc = new Scanner(System.in);
         if (!fG.exists() || !fA.exists()) {
-            System.out.println("Não existem arquivos. Quantos registros gerar? (10/100/1000/10000)");
+            System.out.println("Não existem arquivos. Quantos registros gerar? (10/100/1000/10000/100000)");
             int qtd = sc.nextInt();
             gerarBaseOrdenadaEmDisco(qtd);
             System.out.println("Base gerada e ordenada.");
