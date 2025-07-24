@@ -1,6 +1,0 @@
-=== Log de Ordenacao (Bubble Sort) ===
-Arquivo: adocoes.txt
-Tamanho do arquivo: 487
-Tempo total: 1007431900 ns
-Tempo total: 1007,432 ms
-Tempo total: 1,007 s
