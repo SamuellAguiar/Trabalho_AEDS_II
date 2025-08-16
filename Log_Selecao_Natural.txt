@@ -1,5 +1,0 @@
-=== Log de Selecao Natural ===
-Particoes geradas: 9979
-Tempo total: 36026858600 ns
-Tempo total: 36026,859 ms
-Tempo total: 36,027 s
