@@ -42,8 +42,8 @@ public class SelecaoNaturalArquivo {
 
         boolean arquivoTerminado = false;
         int ultimaChaveGravada = -1;
-
-        while (registrosNaMemoria > 0 || new File(arquivoReservatorio).exists()) {
+ while (registrosNaMemoria > 0 || new File(arquivoReservatorio).exists()) {
+       
             String arquivoParticao = prefixo + "_part" + contadorParticao + ".txt";
             BufferedWriter writerParticao = new BufferedWriter(new FileWriter(arquivoParticao));
 
