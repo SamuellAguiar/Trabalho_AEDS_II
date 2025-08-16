@@ -1,11 +1,13 @@
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
 
-     public static void main(String[] args) {
+     public static void main(String[] args) throws IOException {
           Scanner scanner = new Scanner(System.in);
+          ArvoreBPlus bpt = new ArvoreBPlus("arvore.txt", "gatos.txt");
           int opcao = -1;
 
           do {
@@ -71,6 +73,15 @@ public class MenuPrincipal {
                          case 17:
                               ArvoreDeVencedores.intercalar();
                               break;
+                         case 18:
+                              inserirGatoNaArvore(bpt, scanner);
+                              break;
+                         case 19:
+                              removerGatoDaArvore(bpt, scanner);
+                              break;
+                         case 20:
+                              buscarGatoNaArvore(bpt, scanner);
+                              break;
                          case 0:
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
@@ -97,6 +108,64 @@ public class MenuPrincipal {
                System.out.println("-------------------------------------");
                scanner.nextLine();
           } while (opcao != 0);
+          scanner.close();
+     }
+
+     private static void inserirGatoNaArvore(ArvoreBPlus bpt, Scanner scanner) throws IOException {
+          System.out.print("Digite o ID do gato a ser indexado na Árvore B+: ");
+          int id = scanner.nextInt();
+          scanner.nextLine();
+
+          // Lógica para encontrar a posição do gato no arquivo "gatos.txt"
+          long pos = encontrarPosicaoDoGato("gatos.txt", id);
+
+          if (pos != -1) {
+               bpt.inserir(id, pos);
+               System.out.println("Gato de ID " + id + " inserido na Árvore B+ com sucesso.");
+          } else {
+               System.out.println("ERRO: Gato com ID " + id + " não encontrado na base de dados principal.");
+          }
+     }
+
+     private static void removerGatoDaArvore(ArvoreBPlus bpt, Scanner scanner) throws IOException {
+          System.out.print("Digite o ID do gato a ser removido da Árvore B+: ");
+          int id = scanner.nextInt();
+          scanner.nextLine();
+
+          bpt.remover(id); // O método de remoção já foi corrigido anteriormente
+          System.out.println("Tentativa de remoção do gato com ID " + id + " da árvore concluída.");
+     }
+
+     private static void buscarGatoNaArvore(ArvoreBPlus bpt, Scanner scanner) throws IOException {
+          System.out.print("Digite o ID do gato a ser buscado na Árvore B+: ");
+          int id = scanner.nextInt();
+          scanner.nextLine();
+
+          Gato gatoEncontrado = bpt.buscar(id);
+
+          if (gatoEncontrado != null) {
+               System.out.println("Gato encontrado:");
+               System.out.println(gatoEncontrado.toString());
+          } else {
+               System.out.println("Gato com ID " + id + " não encontrado na Árvore B+.");
+          }
+     }
+
+     // Função utilitária para encontrar a posição de um gato no arquivo principal
+     private static long encontrarPosicaoDoGato(String nomeArquivo, int idBusca) throws IOException {
+          try (RandomAccessFile raf = new RandomAccessFile(nomeArquivo, "r")) {
+               long pos = raf.getFilePointer();
+               String linha;
+               while ((linha = raf.readLine()) != null) {
+                    String[] parts = linha.split(";");
+                    int idAtual = Integer.parseInt(parts[0]);
+                    if (idAtual == idBusca) {
+                         return pos; // Retorna a posição do início da linha
+                    }
+                    pos = raf.getFilePointer();
+               }
+          }
+          return -1; // Retorna -1 se não encontrar
      }
 
      private static void exibirMenu() {
@@ -127,6 +196,11 @@ public class MenuPrincipal {
           System.out.println(" Ordenação e Intercalação");
           System.out.println(" 16. Selecao Natural ");
           System.out.println(" 17. Arvore de vencedores ");
+          System.out.println("-----------------------------------------------");
+          System.out.println(" Árvore B+");
+          System.out.println(" 18. Inserir gato na árvore B+");
+          System.out.println(" 19. Remover gato da árvore B+");
+          System.out.println(" 20. Buscar gato na árvore B+");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
