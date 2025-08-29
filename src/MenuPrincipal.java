@@ -1,13 +1,12 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuPrincipal {
-
      public static void main(String[] args) throws IOException {
           Scanner scanner = new Scanner(System.in);
-          ArvoreBPlus bpt = new ArvoreBPlus("arvore.txt", "gatos.txt");
           int opcao = -1;
 
           do {
@@ -71,17 +70,24 @@ public class MenuPrincipal {
                               SelecaoNaturalArquivo.gerarParticoes();
                               break;
                          case 17:
-                              ArvoreDeVencedores.intercalar();
+                              // Aqui entraria sua árvore de vencedores
+                              System.out.println("Função da árvore de vencedores ainda não implementada.");
                               break;
                          case 18:
-                              inserirGatoNaArvore(bpt, scanner);
+                              inicializarHash();
+                              inserirNaHash(scanner);
                               break;
                          case 19:
-                              removerGatoDaArvore(bpt, scanner);
+                              buscarNaHash(scanner);
                               break;
                          case 20:
-                              buscarGatoNaArvore(bpt, scanner);
+                              removerDaHash(scanner);
                               break;
+                         case 21:
+                              imprimirHash();
+                              break;
+                         // ==========================
+
                          case 0:
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
@@ -109,63 +115,6 @@ public class MenuPrincipal {
                scanner.nextLine();
           } while (opcao != 0);
           scanner.close();
-     }
-
-     private static void inserirGatoNaArvore(ArvoreBPlus bpt, Scanner scanner) throws IOException {
-          System.out.print("Digite o ID do gato a ser indexado na Árvore B+: ");
-          int id = scanner.nextInt();
-          scanner.nextLine();
-
-          // Lógica para encontrar a posição do gato no arquivo "gatos.txt"
-          long pos = encontrarPosicaoDoGato("gatos.txt", id);
-
-          if (pos != -1) {
-               bpt.inserir(id, pos);
-               System.out.println("Gato de ID " + id + " inserido na Árvore B+ com sucesso.");
-          } else {
-               System.out.println("ERRO: Gato com ID " + id + " não encontrado na base de dados principal.");
-          }
-     }
-
-     private static void removerGatoDaArvore(ArvoreBPlus bpt, Scanner scanner) throws IOException {
-          System.out.print("Digite o ID do gato a ser removido da Árvore B+: ");
-          int id = scanner.nextInt();
-          scanner.nextLine();
-
-          bpt.remover(id); // O método de remoção já foi corrigido anteriormente
-          System.out.println("Tentativa de remoção do gato com ID " + id + " da árvore concluída.");
-     }
-
-     private static void buscarGatoNaArvore(ArvoreBPlus bpt, Scanner scanner) throws IOException {
-          System.out.print("Digite o ID do gato a ser buscado na Árvore B+: ");
-          int id = scanner.nextInt();
-          scanner.nextLine();
-
-          Gato gatoEncontrado = bpt.buscar(id);
-
-          if (gatoEncontrado != null) {
-               System.out.println("Gato encontrado:");
-               System.out.println(gatoEncontrado.toString());
-          } else {
-               System.out.println("Gato com ID " + id + " não encontrado na Árvore B+.");
-          }
-     }
-
-     // Função utilitária para encontrar a posição de um gato no arquivo principal
-     private static long encontrarPosicaoDoGato(String nomeArquivo, int idBusca) throws IOException {
-          try (RandomAccessFile raf = new RandomAccessFile(nomeArquivo, "r")) {
-               long pos = raf.getFilePointer();
-               String linha;
-               while ((linha = raf.readLine()) != null) {
-                    String[] parts = linha.split(";");
-                    int idAtual = Integer.parseInt(parts[0]);
-                    if (idAtual == idBusca) {
-                         return pos; // Retorna a posição do início da linha
-                    }
-                    pos = raf.getFilePointer();
-               }
-          }
-          return -1; // Retorna -1 se não encontrar
      }
 
      private static void exibirMenu() {
@@ -197,10 +146,11 @@ public class MenuPrincipal {
           System.out.println(" 16. Selecao Natural ");
           System.out.println(" 17. Arvore de vencedores ");
           System.out.println("-----------------------------------------------");
-          System.out.println(" Árvore B+");
-          System.out.println(" 18. Inserir gato na árvore B+");
-          System.out.println(" 19. Remover gato da árvore B+");
-          System.out.println(" 20. Buscar gato na árvore B+");
+          System.out.println(" Hashing ");
+          System.out.println(" 18. Inserir gato na hash ");
+          System.out.println(" 19. Buscar gato na hash ");
+          System.out.println(" 20. Remover gato da hash ");
+          System.out.println(" 21. Imprimir tabela hash ");
           System.out.println("-----------------------------------------------");
           System.out.println(" 0.  Sair do sistema ");
           System.out.println("===============================================");
@@ -220,5 +170,101 @@ public class MenuPrincipal {
                     System.out.println();
                }
           }
+     }
+
+     // ===============================
+     // Funções auxiliares para a Hash
+     // ===============================
+
+     private static Hash hash; // instância única da hash
+
+     // Inicializar hash com base no tamanho do arquivo gatos.txt
+     private static void inicializarHash() throws IOException {
+          if (hash != null)
+               return; // já inicializada
+
+          // Lê o número de linhas no arquivo gatos.txt
+          int tamanhoBase = 0;
+          try (BufferedReader br = new BufferedReader(new FileReader("gatos.txt"))) {
+               while (br.readLine() != null) {
+                    tamanhoBase++;
+               }
+          }
+
+          if (tamanhoBase == 0) {
+               System.out.println("Arquivo gatos.txt está vazio. Não é possível inicializar a hash.");
+               return;
+          }
+
+          // Cria a hash com base no tamanho do arquivo
+          hash = new Hash(tamanhoBase);
+          System.out.println("Hash inicializada automaticamente para base de tamanho " + tamanhoBase);
+     }
+
+     private static void inserirNaHash(Scanner sc) throws IOException {
+          if (hash == null) {
+               inicializarHash(); // inicializa automaticamente se ainda não estiver
+          }
+          if (hash == null)
+               return; // segurança caso o arquivo esteja vazio
+
+          System.out.print("Digite o ID do gato para inserir na hash: ");
+          int id = sc.nextInt();
+          sc.nextLine();
+
+          Gato gato = OperacoesArquivo.buscarGatoPorId(id);
+          if (gato != null) {
+               hash.inserirGato(gato);
+          } else {
+               System.out.println("Gato não encontrado no arquivo base (gatos.txt).");
+          }
+     }
+
+     private static void buscarNaHash(Scanner sc) throws IOException {
+          if (hash == null) {
+               inicializarHash();
+          }
+          if (hash == null)
+               return;
+
+          System.out.print("Digite o ID do gato para buscar na hash: ");
+          int id = sc.nextInt();
+          sc.nextLine();
+
+          Gato resultado = hash.buscar(id);
+          if (resultado != null) {
+               System.out.println("Gato encontrado: " + resultado);
+          } else {
+               System.out.println("Gato não encontrado na hash.");
+          }
+     }
+
+     private static void removerDaHash(Scanner sc) throws IOException {
+          if (hash == null) {
+               inicializarHash();
+          }
+          if (hash == null)
+               return;
+
+          System.out.print("Digite o ID do gato para remover da hash: ");
+          int id = sc.nextInt();
+          sc.nextLine();
+
+          boolean removido = hash.remover(id);
+          if (removido) {
+               System.out.println("Gato removido da hash com sucesso.");
+          } else {
+               System.out.println("Gato não encontrado na hash.");
+          }
+     }
+
+     private static void imprimirHash() throws IOException {
+          if (hash == null) {
+               inicializarHash();
+          }
+          if (hash == null)
+               return;
+
+          hash.imprimirTabela();
      }
 }
