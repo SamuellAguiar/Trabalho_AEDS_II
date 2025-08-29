@@ -158,6 +158,23 @@ public class OperacoesArquivo {
           return null;
      }
 
+     public static Gato buscarGatoPorId(int id) {
+          try (BufferedReader reader = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
+               String linha;
+               while ((linha = reader.readLine()) != null) {
+                    if (!linha.trim().isEmpty()) {
+                         Gato g = Gato.fromCSV(linha);
+                         if (g.getId() == id) {
+                              return g;
+                         }
+                    }
+               }
+          } catch (IOException e) {
+               System.out.println("Erro ao buscar gato por ID: " + e.getMessage());
+          }
+          return null; 
+     }
+
      private static final String ARQ_GATOS = "gatos.txt";
      private static final String ARQ_ADOCOES = "adocoes.txt";
 
