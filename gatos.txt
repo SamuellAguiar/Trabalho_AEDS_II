@@ -1,100 +1,100 @@
-1;Garfield;Siames;2;F;false
-2;Tom;Persa;18;M;true
-3;Tigrao;Siames;16;F;true
-4;Pantera;Angora;4;M;true
-5;Nina;SRD;13;M;true
-6;Luna;Bengal;4;F;false
-7;Pantera;Siames;17;F;true
-8;Felix;Bengal;8;M;false
-9;Garfield;Angora;6;F;true
-10;Mingau;Maine Coon;9;F;false
-11;Nina;Persa;12;M;false
-12;Tom;Bengal;20;F;true
-13;Nina;Maine Coon;16;F;false
-14;Mingau;Persa;2;F;false
-15;Felix;Bengal;13;M;true
-16;Mimi;Bengal;5;F;false
-17;Nina;Siames;8;M;true
-18;Felix;Angora;6;F;true
-19;Felix;Siberiano;5;F;false
-20;Tigrao;Bengal;19;F;false
-21;Nina;Siames;10;F;false
-22;Bola;Persa;20;F;true
-23;Tom;Persa;13;F;true
-24;Garfield;Persa;3;F;false
-25;Mimi;Bengal;9;F;true
-26;Mingau;Angora;13;M;false
-27;Mimi;SRD;18;F;true
-28;Nina;Bengal;14;F;true
-29;Luna;Bengal;12;F;false
-30;Bola;Siberiano;7;F;true
-31;Garfield;Maine Coon;1;M;false
-32;Tom;SRD;10;M;false
-33;Garfield;Siames;19;M;false
-34;Pantera;Maine Coon;13;M;true
-35;Mimi;Persa;17;M;true
-36;Tigrao;Maine Coon;6;F;true
-37;Mimi;Siames;3;M;true
-38;Tigrao;Siames;9;M;false
-39;Mingau;Maine Coon;4;M;true
-40;Nina;Bengal;9;M;false
-41;Tigrao;Persa;17;F;true
-42;Mimi;Persa;1;F;false
-43;Garfield;Angora;2;F;false
-44;Garfield;Siames;1;M;true
-45;Mingau;Persa;17;F;false
-46;Felix;Persa;5;F;false
-47;Pantera;SRD;20;M;true
-48;Mingau;Maine Coon;8;F;true
-49;Mimi;SRD;11;F;true
-50;Nina;Bengal;14;M;false
-51;Nina;Angora;15;F;false
-52;Nina;Persa;20;F;true
-53;Garfield;Maine Coon;19;M;true
-54;Felix;SRD;20;F;false
-55;Tigrao;Bengal;19;F;true
-56;Pantera;Bengal;13;M;false
-57;Bola;Angora;3;F;true
-58;Nina;Maine Coon;2;M;false
-59;Nina;Persa;6;M;false
-60;Tigrao;Siberiano;13;M;true
-61;Tom;Maine Coon;12;F;false
-62;Nina;Siames;15;M;true
-63;Mimi;Angora;7;F;true
-64;Garfield;Bengal;17;M;true
-65;Luna;Angora;7;M;true
-66;Bola;Maine Coon;7;F;false
-67;Pantera;Bengal;5;M;false
-68;Mingau;Siames;15;M;false
-69;Pantera;Persa;16;M;false
-70;Bola;Persa;10;F;false
-71;Luna;Siames;4;F;true
-72;Mimi;Bengal;4;M;true
-73;Tigrao;Siberiano;19;M;false
-74;Tigrao;SRD;5;F;true
-75;Nina;SRD;18;M;true
-76;Garfield;Maine Coon;20;F;true
-77;Felix;Persa;20;M;true
-78;Nina;Bengal;3;M;false
-79;Nina;Siames;19;F;false
-80;Garfield;Persa;3;M;false
-81;Nina;Angora;3;F;false
-82;Garfield;Siberiano;10;F;false
-83;Tom;Bengal;16;M;true
-84;Mingau;Angora;2;F;true
-85;Mimi;Maine Coon;12;M;false
-86;Garfield;Maine Coon;12;F;false
-87;Nina;Persa;3;M;false
-88;Tigrao;Maine Coon;8;F;true
-89;Pantera;Bengal;1;F;false
-90;Luna;Siames;6;M;true
-91;Nina;SRD;7;F;false
-92;Mimi;Angora;14;M;false
-93;Tom;Persa;2;F;false
-94;Mingau;Bengal;17;F;false
-95;Bola;Bengal;18;M;false
-96;Luna;Angora;7;F;true
-97;Pantera;Siberiano;17;M;true
-98;Nina;Bengal;18;F;false
-99;Tom;Angora;18;M;false
-100;Pantera;SRD;11;F;true
+1;Garfield;Maine Coon;4;M;true
+2;Luna;Bengal;11;M;true
+3; Garfield; Siames; 7; F; false; -1
+4;Mingau;Bengal;19;M;true
+5;Luna;Persa;9;F;false
+6;Mingau;Persa;5;M;false
+7;Tigrao;Siberiano;19;F;true
+8;Tom;Persa;19;M;true
+9;Tom;Persa;8;F;true
+10;Bola;SRD;6;F;false
+11;Garfield;Angora;17;F;false
+12;Felix;Siames;19;F;true
+13;Bola;Bengal;6;M;true
+14;Bola;Maine Coon;2;F;true
+15;Pantera;Siames;12;M;true
+16;Luna;Persa;8;M;true
+17;Tom;SRD;1;F;false
+18;Mimi;Persa;6;M;true
+19;Felix;Siberiano;5;M;true
+20;Tom;Bengal;13;M;false
+21;Pantera;SRD;8;M;true
+22;Bola;Persa;4;F;true
+23; Garfield; Siberiano; 16; M; false; -1
+24;Luna;Maine Coon;19;M;false
+25;Mimi;Siames;2;F;false
+26;Nina;Maine Coon;19;M;true
+27;Mimi;Persa;6;F;true
+28;Tom;Persa;11;M;true
+29;Bola;Persa;10;F;true
+30;Luna;Siberiano;13;F;true
+31;Mingau;Maine Coon;10;F;false
+32;Luna;Persa;2;M;false
+33;Felix;Maine Coon;7;F;true
+34;Nina;Siames;12;M;true
+35;Pantera;Siames;16;F;false
+36;Mingau;SRD;14;M;false
+37;Nina;Persa;6;M;true
+38;Nina;Angora;16;M;true
+39;Tigrao;Siames;14;F;true
+40;Mimi;Bengal;7;M;true
+41;Mimi;Bengal;14;M;false
+42;Felix;SRD;2;M;false
+43;Garfield;Siames;7;F;false
+44;Tom;Siames;15;M;false
+45;Mimi;Siberiano;3;F;false
+46;Luna;Maine Coon;19;F;false
+47;Mimi;Angora;7;F;true
+48;Luna;Bengal;13;F;false
+49;Nina;Persa;1;F;true
+50;Bola;Persa;14;M;false
+51;Mimi;Siberiano;8;M;true
+52;Tigrao;Maine Coon;17;M;true
+53;Mimi;Persa;20;M;false
+54;Mimi;Bengal;20;M;true
+55;Tigrao;Angora;6;F;true
+56;Luna;Maine Coon;18;M;true
+57;Tigrao;Siberiano;3;F;true
+58;Mingau;Siames;1;F;true
+59;Mimi;Siames;7;M;false
+60;Pantera;Siames;14;F;true
+61;Luna;SRD;6;M;false
+62;Luna;Siberiano;19;M;false
+63;Tigrao;Siberiano;4;M;false
+64;Mimi;Siames;5;M;false
+65;Pantera;SRD;1;F;true
+66;Tom;Bengal;11;F;false
+67;Luna;Siberiano;16;M;false
+68;Felix;Siames;14;M;false
+69;Pantera;Siberiano;8;F;false
+70;Tom;Siberiano;9;F;false
+71;Pantera;Maine Coon;7;F;true
+72;Garfield;Angora;7;M;false
+73;Bola;Maine Coon;3;F;false
+74;Bola;Siberiano;6;F;false
+75;Garfield;Siberiano;6;M;true
+76;Tigrao;Bengal;3;F;false
+77;Luna;Siames;6;M;true
+78;Garfield;Siberiano;12;M;true
+79;Mingau;Siberiano;13;M;false
+80;Tom;Siames;6;F;false
+81;Nina;Siberiano;4;M;true
+82;Bola;Persa;9;F;false
+83;Pantera;Maine Coon;12;M;true
+84;Tigrao;Maine Coon;11;M;false
+85;Felix;Angora;16;M;false
+86;Mingau;Siames;8;F;true
+87;Mimi;Maine Coon;13;M;false
+88;Bola;Siberiano;17;M;false
+89;Mimi;SRD;2;M;false
+90;Tigrao;SRD;1;F;true
+91;Luna;Bengal;14;F;true
+92;Mimi;Persa;6;M;true
+93;Mingau;Bengal;5;M;true
+94;Tom;Siberiano;7;M;false
+95;Felix;Siberiano;5;F;false
+96;Mimi;Siames;2;M;true
+97;Tigrao;Siberiano;16;M;false
+98;Felix;Bengal;7;M;true
+99;Mimi;Persa;12;M;false
+100;Garfield;Angora;18;M;false
