@@ -3,9 +3,9 @@ import java.util.*;
 
 public class Hash {
      private static final String ARQUIVO_GATOS = "gatos.txt";
-     private int BUCKETS_POR_ARQUIVO = 10; // buckets por arquivo
-     private int M; // total de buckets (dinâmico)
-     private int numArquivos; // total de arquivos hash
+     private int BUCKETS_POR_ARQUIVO = 10; 
+     private int M; 
+     private int numArquivos; 
 
      public Hash(int tamanhoBase) throws IOException {
           inicializarArquivos(tamanhoBase);
@@ -16,9 +16,9 @@ public class Hash {
           if (tamanhoBase <= 10) {
                M = 10;
           } else if (tamanhoBase <= 100) {
-               M = 20; // ajuste para base média
+               M = 20; 
           } else {
-               M = 100; // base grande
+               M = 100;
           }
 
           numArquivos = (int) Math.ceil((double) M / BUCKETS_POR_ARQUIVO);
@@ -46,23 +46,19 @@ public class Hash {
           }
      }
 
-     // Função hash
      private int hash(int id) {
           return id % M;
      }
 
-     // Retorna nome do arquivo que contém o bucket
      private String getNomeArquivo(int bucket) {
           int indiceArquivo = bucket / BUCKETS_POR_ARQUIVO;
           return "tabelaHash_" + indiceArquivo + ".dat";
      }
 
-     // Retorna posição do bucket dentro do arquivo
      private int getPosicaoNoArquivo(int bucket) {
           return bucket % BUCKETS_POR_ARQUIVO;
      }
 
-     // Ler todos os gatos do arquivo
      private List<String> lerGatos() throws IOException {
           List<String> linhas = new ArrayList<>();
           try (BufferedReader br = new BufferedReader(new FileReader(ARQUIVO_GATOS))) {
@@ -74,7 +70,6 @@ public class Hash {
           return linhas;
      }
 
-     // Escrever todos os gatos no arquivo
      private void escreverGatos(List<String> linhas) throws IOException {
           try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO_GATOS))) {
                for (String l : linhas) {
@@ -84,11 +79,9 @@ public class Hash {
           }
      }
 
-     // Inserir gato
      public void inserirGato(Gato novoGato) throws IOException {
           List<String> linhas = lerGatos();
 
-          // Buscar posição do gato na base
           int posGato = -1;
           for (int i = 0; i < linhas.size(); i++) {
                Gato g = Gato.fromCSV(linhas.get(i));
@@ -113,11 +106,9 @@ public class Hash {
                long ponteiroBucket = raf.readLong();
 
                if (ponteiroBucket == -1) {
-                    // Bucket vazio → aponta direto para o gato
                     raf.seek(posNoArquivo * 8L);
                     raf.writeLong(posGato);
                } else {
-                    // Colisão → percorrer lista encadeada
                     long anterior = -1;
                     long cursor = ponteiroBucket;
                     while (cursor != -1) {
@@ -129,7 +120,6 @@ public class Hash {
                          anterior = cursor;
                          cursor = gAtual.getProximo();
                     }
-                    // Atualizar último nó da lista encadeada
                     Gato gUltimo = Gato.fromCSV(linhas.get((int) anterior));
                     gUltimo.setProximo(posGato);
                     linhas.set((int) anterior, gUltimo.toCSV());
@@ -172,41 +162,36 @@ public class Hash {
 
      // Remover gato por ID
      public boolean remover(int id) throws IOException {
-          List<String> linhas = lerGatos(); // 1. Carrega todos os gatos do arquivo "gatos.txt"
-          int bucket = hash(id); // 2. Descobre o bucket do gato
+          List<String> linhas = lerGatos();
+          int bucket = hash(id);
           String nomeArquivo = getNomeArquivo(bucket);
           int posNoArquivo = getPosicaoNoArquivo(bucket);
 
           try (RandomAccessFile raf = new RandomAccessFile(nomeArquivo, "rw")) {
-               raf.seek(posNoArquivo * 8L); // 3. Vai até o bucket no arquivo de índice
-               long ponteiro = raf.readLong();// 4. Lê o ponteiro do bucket
+               raf.seek(posNoArquivo * 8L);
+               long ponteiro = raf.readLong();
 
-               // ----- Caso 1: Bucket vazio -----
                if (ponteiro == -1) {
                     System.out.println("Bucket vazio. Registro não encontrado.");
                     return false;
                }
 
-               long anterior = -1; // 5. Guarda o nó anterior (inicialmente nenhum)
-               long cursor = ponteiro; // 6. Começa a busca pelo primeiro gato do bucket
+               long anterior = -1; 
+               long cursor = ponteiro; 
 
-               while (cursor != -1) { // 7. Percorre a lista encadeada
+               while (cursor != -1) {
                     Gato g = Gato.fromCSV(linhas.get((int) cursor));
 
-                    // ----- Caso 2: Gato encontrado -----
                     if (g.getId() == id) {
-                         // Subcaso A: Gato está no início da lista
                          if (anterior == -1) {
                               raf.seek(posNoArquivo * 8L);
                               raf.writeLong(g.getProximo());
                          } else {
-                              // Subcaso B: Gato está no meio ou fim
                               Gato gAnterior = Gato.fromCSV(linhas.get((int) anterior));
                               gAnterior.setProximo(g.getProximo());
                               linhas.set((int) anterior, gAnterior.toCSV());
                          }
 
-                         // Marca o nó removido como "desligado" da lista
                          g.setProximo(-1);
                          linhas.set((int) cursor, g.toCSV());
                          escreverGatos(linhas);
@@ -215,18 +200,15 @@ public class Hash {
                          return true;
                     }
 
-                    // ----- Caso 3: Não é o gato ainda → segue para o próximo -----
                     anterior = cursor;
                     cursor = g.getProximo();
                }
           }
 
-          // ----- Caso 4: Chegou ao fim da lista e não achou -----
           System.out.println("Registro com ID " + id + " não encontrado na hash.");
           return false;
      }
 
-     // Imprimir tabela hash completa
      public void imprimirTabela() throws IOException {
           List<String> linhas = lerGatos();
 
