@@ -1,6 +1,6 @@
 1;Garfield;Maine Coon;4;M;true
 2;Luna;Bengal;11;M;true
-3; Garfield; Siames; 7; F; false; -1
+3; Garfield; Siames; 7; F; false; 42
 4;Mingau;Bengal;19;M;true
 5;Luna;Persa;9;F;false
 6;Mingau;Persa;5;M;false
@@ -20,7 +20,7 @@
 20;Tom;Bengal;13;M;false
 21;Pantera;SRD;8;M;true
 22;Bola;Persa;4;F;true
-23; Garfield; Siberiano; 16; M; false; -1
+23; Garfield; Siberiano; 16; M; false; 2
 24;Luna;Maine Coon;19;M;false
 25;Mimi;Siames;2;F;false
 26;Nina;Maine Coon;19;M;true
@@ -87,7 +87,7 @@
 87;Mimi;Maine Coon;13;M;false
 88;Bola;Siberiano;17;M;false
 89;Mimi;SRD;2;M;false
-90;Tigrao;SRD;1;F;true
+90; Tigrao; SRD; 1; F; true; -1
 91;Luna;Bengal;14;F;true
 92;Mimi;Persa;6;M;true
 93;Mingau;Bengal;5;M;true

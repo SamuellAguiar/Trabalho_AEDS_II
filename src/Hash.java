@@ -14,7 +14,7 @@ public class Hash {
      // Inicializa arquivos hash de acordo com o tamanho da base
      private void inicializarArquivos(int tamanhoBase) throws IOException {
           if (tamanhoBase <= 10) {
-               M = 5;
+               M = 10;
           } else if (tamanhoBase <= 100) {
                M = 20; // ajuste para base média
           } else {
@@ -84,7 +84,7 @@ public class Hash {
           }
      }
 
-     // Inserir gato seguindo encadeamento externo
+     // Inserir gato
      public void inserirGato(Gato novoGato) throws IOException {
           List<String> linhas = lerGatos();
 
@@ -170,38 +170,43 @@ public class Hash {
           return null;
      }
 
-     // Remover gato por ID seguindo encadeamento externo
+     // Remover gato por ID
      public boolean remover(int id) throws IOException {
-          List<String> linhas = lerGatos();
-          int bucket = hash(id);
+          List<String> linhas = lerGatos(); // 1. Carrega todos os gatos do arquivo "gatos.txt"
+          int bucket = hash(id); // 2. Descobre o bucket do gato
           String nomeArquivo = getNomeArquivo(bucket);
           int posNoArquivo = getPosicaoNoArquivo(bucket);
 
           try (RandomAccessFile raf = new RandomAccessFile(nomeArquivo, "rw")) {
-               raf.seek(posNoArquivo * 8L);
-               long ponteiro = raf.readLong();
+               raf.seek(posNoArquivo * 8L); // 3. Vai até o bucket no arquivo de índice
+               long ponteiro = raf.readLong();// 4. Lê o ponteiro do bucket
 
+               // ----- Caso 1: Bucket vazio -----
                if (ponteiro == -1) {
                     System.out.println("Bucket vazio. Registro não encontrado.");
                     return false;
                }
 
-               long anterior = -1;
-               long cursor = ponteiro;
+               long anterior = -1; // 5. Guarda o nó anterior (inicialmente nenhum)
+               long cursor = ponteiro; // 6. Começa a busca pelo primeiro gato do bucket
 
-               while (cursor != -1) {
+               while (cursor != -1) { // 7. Percorre a lista encadeada
                     Gato g = Gato.fromCSV(linhas.get((int) cursor));
 
+                    // ----- Caso 2: Gato encontrado -----
                     if (g.getId() == id) {
+                         // Subcaso A: Gato está no início da lista
                          if (anterior == -1) {
                               raf.seek(posNoArquivo * 8L);
                               raf.writeLong(g.getProximo());
                          } else {
+                              // Subcaso B: Gato está no meio ou fim
                               Gato gAnterior = Gato.fromCSV(linhas.get((int) anterior));
                               gAnterior.setProximo(g.getProximo());
                               linhas.set((int) anterior, gAnterior.toCSV());
                          }
 
+                         // Marca o nó removido como "desligado" da lista
                          g.setProximo(-1);
                          linhas.set((int) cursor, g.toCSV());
                          escreverGatos(linhas);
@@ -210,11 +215,13 @@ public class Hash {
                          return true;
                     }
 
+                    // ----- Caso 3: Não é o gato ainda → segue para o próximo -----
                     anterior = cursor;
                     cursor = g.getProximo();
                }
           }
 
+          // ----- Caso 4: Chegou ao fim da lista e não achou -----
           System.out.println("Registro com ID " + id + " não encontrado na hash.");
           return false;
      }
