@@ -7,7 +7,7 @@
 7;Tigrao;Siberiano;19;F;true
 8;Tom;Persa;19;M;true
 9;Tom;Persa;8;F;true
-10;Bola;SRD;6;F;false
+10; Bola; SRD; 6; F; false; -1
 11;Garfield;Angora;17;F;false
 12;Felix;Siames;19;F;true
 13;Bola;Bengal;6;M;true
