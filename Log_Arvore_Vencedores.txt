@@ -1,0 +1,5 @@
+=== Log de Arvore de Vencedores ===
+Fases de intercalacao: 0
+Tempo total: 3900 ns
+Tempo total: 0,004 ms
+Tempo total: 0,000 s

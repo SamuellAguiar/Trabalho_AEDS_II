@@ -1,0 +1,6 @@
+=== Log de Ordenacao (Bubble Sort) ===
+Arquivo: gatos.txt
+Tamanho do arquivo: 100
+Tempo total: 149354500 ns
+Tempo total: 149,355 ms
+Tempo total: 0,149 s

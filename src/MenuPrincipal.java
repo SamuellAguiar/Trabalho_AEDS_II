@@ -70,8 +70,7 @@ public class MenuPrincipal {
                               SelecaoNaturalArquivo.gerarParticoes();
                               break;
                          case 17:
-                              // Aqui entraria sua árvore de vencedores
-                              System.out.println("Função da árvore de vencedores ainda não implementada.");
+                              ArvoreDeVencedores.intercalar();
                               break;
                          case 18:
                               inicializarHash();
@@ -86,8 +85,6 @@ public class MenuPrincipal {
                          case 21:
                               imprimirHash();
                               break;
-                         // ==========================
-
                          case 0:
                               System.out.println(" Obrigado por usar o Sistema de Adoção de Gatos!");
                               System.out.println(" Até logo.");
